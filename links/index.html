@@ -278,13 +278,6 @@
                         </a>
                       </li>
                     
-                      <li>
-                        <a href="../pixiv/">
-                          <i class="fa " aria-hidden="true"></i>
-                          p站每日一图
-                        </a>
-                      </li>
-                    
                   </ul>
                 
               </li>
@@ -617,20 +610,8 @@
 <script src="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.8/js/botui.js"></script>
 <!-- 不蒜子 网页计数器 -->
 
-      
-       <script>
-  fetch('https://counts.42cloud.cn/api/counts.html')
-        .then(response => response.json())
-        .then(data => {
-              if (document.getElementById("readcount")) {
-                document.getElementById("readcount").innerHTML=data.Count;
-            }
-            if (document.getElementById("allcount")){
-                document.getElementById("allcount").innerHTML=data.Allcount;
-            }
-        })
-        .catch(err => console.error(err))
-</script>
+    <script src="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.8/js/busuanzi.pure.mini.js"></script>
+
       
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
 <script type="text/javascript">
@@ -981,13 +962,6 @@
                 <a href="../tags/%E5%9B%BE%E9%9B%86/">
                   <i class="fa fa-photo" aria-hidden="true"></i>
                   图集
-                </a>
-              </li>
-            
-              <li>
-                <a href="../pixiv/">
-                  <i class="fa " aria-hidden="true"></i>
-                  p站每日一图
                 </a>
               </li>
             
