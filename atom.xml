@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nyaku.moe/"/>
-  <updated>2022-08-16T08:41:54.242Z</updated>
+  <updated>2023-01-16T12:25:15.897Z</updated>
   <id>https://nyaku.moe/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Stable Diffusion webui的部署运行以及embedding训练</title>
+    <link href="https://nyaku.moe/2023/01/16/Stable-Diffusion-setup-run-train/"/>
+    <id>https://nyaku.moe/2023/01/16/Stable-Diffusion-setup-run-train/</id>
+    <published>2023-01-16T09:11:08.000Z</published>
+    <updated>2023-01-16T12:25:15.897Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;随机写点东西&quot;&gt;&lt;a href=&quot;#随机写点东西&quot; class=&quot;headerlink&quot; title=&quot;随机写点东西&quot;&gt;&lt;/a&gt;随机写点东西&lt;/h2&gt;&lt;p&gt;我觉得是时候给刚学会 的ai绘画技巧做个归档了（不然以后忘了就又要重来了）&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://nyaku.moe/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Stable Diffusion,Novelai,Stable Diffusion webui,AI绘画,炼丹" scheme="https://nyaku.moe/tags/Stable-Diffusion-Novelai-Stable-Diffusion-webui-AI%E7%BB%98%E7%94%BB-%E7%82%BC%E4%B8%B9/"/>
+    
+  </entry>
   
   <entry>
     <title>用Cloudflare Tunnel进行内网穿透以及实现其他妙用</title>
@@ -97,7 +126,7 @@
     <link href="https://nyaku.moe/2022/02/10/%E5%85%B3%E4%BA%8ENya%E7%BD%91%E7%9B%98/"/>
     <id>https://nyaku.moe/2022/02/10/关于Nya网盘/</id>
     <published>2022-02-10T04:23:29.000Z</published>
-    <updated>2022-07-15T04:29:02.078Z</updated>
+    <updated>2023-01-16T09:27:00.464Z</updated>
     
     <summary type="html">
     

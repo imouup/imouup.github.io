@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">拥有一个自己的新建标签页 | 一之濑亚子| いちのせあこ</title>
+  <title itemprop="name">Stable Diffusion webui的部署运行以及embedding训练 | 一之濑亚子| いちのせあこ</title>
   
     <link rel="shortcut icon" href="/images/favicon.png">
   
@@ -631,23 +631,23 @@ $(document).ready(function () {
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.mouup.top/pico/pic97162127.jpg);" src="https://js-cdn.mouup.top/gh/imouup/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.mouup.top/pico/pic97162127.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.mouup.top/pico/picaipaintexamlpe.png);" src="https://js-cdn.mouup.top/gh/imouup/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.mouup.top/pico/picaipaintexamlpe.png">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      拥有一个自己的新建标签页</h1>
+      Stable Diffusion webui的部署运行以及embedding训练</h1>
       <p class="entry-census">
         <span>
-          <a href="">
-            <img src="https://cdn.mouup.top/pico/picavatar.png">
+          <a href="nyaku.moe">
+            <img src="https://pico.cdn.mouup.top/picavatar202206.jpg">
           </a>
         </span>
         <span>
-          <a href="">izNyaku</a>
+          <a href="nyaku.moe">nyaku</a>
         </span>
         <span class="bull">
         ·</span>
-        2021-2-18<span class="bull">
+        2023-1-16<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -661,57 +661,153 @@ $(document).ready(function () {
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><del>搞新标签页纯属好玩（手动狗头）</del><br>如果你也和我一样觉得各大浏览器的默认新标签页功能不够完善，不够美观，<br>Infinity 等一众新标签页又不好看（纯属个人感受）那么请继续往下读</p>
-<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><p>这是一个GitHub项目<a target="_blank" rel="noopener" href="https://github.com/5iux/sou">5IUX搜索</a></p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>一台服务器(安装了nginx或Apache，安装了php(最好7.2以上，作者本人没有注明php版本）)<br>或者php虚拟主机</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="在项目GitHub页面下载zip并上传至服务器"><a href="#在项目GitHub页面下载zip并上传至服务器" class="headerlink" title="在项目GitHub页面下载zip并上传至服务器"></a>在项目GitHub页面下载zip并上传至服务器</h3><p><img src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18115109.jpg" alt="pic1"></p>
-<h3 id="将域名指向服务器"><a href="#将域名指向服务器" class="headerlink" title="将域名指向服务器"></a>将域名指向服务器</h3><p><img src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18114824.jpg" alt="pic2"></p>
-<h3 id="配置网站信息"><a href="#配置网站信息" class="headerlink" title="配置网站信息"></a>配置网站信息</h3><p><img src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/202102-18114933.jpg" alt="pic3"></p>
-<h3 id="进一步修改"><a href="#进一步修改" class="headerlink" title="进一步修改"></a>进一步修改</h3><p>打开网站根目录中的index.php文件，对其中的背景图，logo，浏览器上方小图等进行修改<br>使用new tab redirect插件重定向新建标签页到你的新标签页地址，修改浏览器启动页和首页为你的新标签页地址<br>！！！注意请不要删除原作者在源码中的版权声明信息</p>
-<h3 id="增强功能"><a href="#增强功能" class="headerlink" title="增强功能"></a>增强功能</h3><h4 id="添加天气组件"><a href="#添加天气组件" class="headerlink" title="添加天气组件"></a>添加天气组件</h4><p>前往<a target="_blank" rel="noopener" href="https://dev.qweather.com/widget/">这里</a>创建一个天气小组件<br>复制代码，粘贴到原来代码中天气小组件的位置<br>这是原来的，请换掉它</p>
-<pre><code>&lt;!--天气--&gt;
-    &lt;div class=&quot;mywth&quot;&gt;
-        &lt;div class=&quot;wea_hover&quot;&gt;
-            &lt;div class=&quot;wea_in wea_top&quot;&gt;&lt;/div&gt;
-            &lt;div class=&quot;wea_in wea_con&quot;&gt;
-                &lt;ul&gt;&lt;/ul&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;wea_in wea_foot&quot;&gt;
-                &lt;ul&gt;&lt;/ul&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;!--天气插件，基于和风天气接口制作--&gt;
-</code></pre><p>示例</p>
-<pre><code>&lt;!--天气--&gt;
-&lt;div id=&quot;he-plugin-simple&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-WIDGET = &#123;
-  CONFIG: &#123;
-    &quot;modules&quot;: &quot;01234&quot;,
-    &quot;background&quot;: 5,
-    &quot;tmpColor&quot;: &quot;4A4A4A&quot;,
-    &quot;tmpSize&quot;: 16,
-    &quot;cityColor&quot;: &quot;4A4A4A&quot;,
-    &quot;citySize&quot;: 16,
-    &quot;aqiSize&quot;: 16,
-    &quot;weatherIconSize&quot;: 24,
-    &quot;alertIconSize&quot;: 18,
-    &quot;padding&quot;: &quot;10px 10px 10px 10px&quot;,
-    &quot;shadow&quot;: &quot;1&quot;,
-    &quot;language&quot;: &quot;auto&quot;,
-    &quot;borderRadius&quot;: 5,
-    &quot;fixed&quot;: &quot;false&quot;,
-    &quot;vertical&quot;: &quot;top&quot;,
-    &quot;horizontal&quot;: &quot;left&quot;,
-    &quot;key&quot;: &quot;79cc52c3ec5d43139555dc8a4b63b17f&quot;
-  &#125;
-&#125;
-&lt;/script&gt;
-&lt;script src=&quot;https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0&quot;&gt;&lt;/script&gt;
-        &lt;!--天气插件，基于和风天气接口制作--&gt;
-</code></pre><pre><code>&lt;h1&gt;mouup&lt;/h1&gt;
-</code></pre><h2 id="你可能需要用到的东西"><a href="#你可能需要用到的东西" class="headerlink" title="你可能需要用到的东西"></a>你可能需要用到的东西</h2><p><a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna?hl=zh">new tab redirect谷歌网上商店地址</a><br>什么？你用edge？<br><a target="_blank" rel="noopener" href="https://microsoftedge.microsoft.com/addons/detail/new-tab-redirect/lcmffmdoeceoffjbihahaabfojodjmkf?hl=zh-CN">edge用户看这里</a><br>你打不开第一个网址？<br><a target="_blank" rel="noopener" href="https://iamswlx-my.sharepoint.com/:u:/g/personal/iamswlx_iamswlx_onmicrosoft_com/ESbubKtwTJlLmllihGbzH6UBxIPJAT0q_5zvZZYitcLJeA?e=f05s56">New Tab Redirect的OneDrive分享地址</a><br>怎么导入扩展程序应该不用我教了吧</p>
-<h1 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h1><p><a target="_blank" rel="noopener" href="https://new.mouup.top">我的新标签页</a>  （已弃用）<br>如果你喜欢也可以直接用我的</p>
+          <h2 id="随机写点东西"><a href="#随机写点东西" class="headerlink" title="随机写点东西"></a>随机写点东西</h2><p>我觉得是时候给刚学会 的ai绘画技巧做个归档了（不然以后忘了就又要重来了）</p>
+<hr>
+
+<h2 id="开始部署"><a href="#开始部署" class="headerlink" title="开始部署"></a>开始部署</h2><h3 id="我的系统信息"><a href="#我的系统信息" class="headerlink" title="我的系统信息"></a>我的系统信息</h3><p>系统：Windows10<br>GPU：RTX3060ti</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="安装anaconda"><a href="#安装anaconda" class="headerlink" title="安装anaconda"></a>安装anaconda</h4><p>访问<a target="_blank" rel="noopener" href="https://www.anaconda.com/">anaconda官网</a>直接下载安装，建议使用IDM或者挂梯</p>
+<p>安装时建议选择just me,这样更方便添加环境变量<br>勾选添加到path<br><img src="https://cdn.mouup.top/pico/pic173019.png" alt="add to path"></p>
+<h4 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h4><p>1.最好准备一把梯子</p>
+<p>2.对conda和pip进行换源</p>
+<h5 id="conda换源"><a href="#conda换源" class="headerlink" title="conda换源"></a>conda换源</h5><p>打开Windows终端，输入以下命令输出.condarc文件</p>
+<pre><code>conda config --set show_channel_urls yes
+</code></pre><p>打开<code>C:\users\你的用户名\.condarc</code></p>
+<p>粘贴以下内容（换为清华源）</p>
+<pre><code>channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
+ssl_verify: true
+</code></pre><h5 id="pip换源"><a href="#pip换源" class="headerlink" title="pip换源"></a>pip换源</h5><p>在<code>C:\users\你的用户名\</code>中新建<code>pip.ini</code>文件，粘贴以下内容</p>
+<pre><code>[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre><h3 id="正式开搞"><a href="#正式开搞" class="headerlink" title="正式开搞"></a>正式开搞</h3><p></br></p>
+<h4 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1.环境配置"></a>1.环境配置</h4><p>打开anaconda，新建一个环境，python版本选择3.10.8。不能用base环境因为base环境python版本为3.9，使用Stable Diffusion webui需要3.10.6以上</p>
+<p><img src="https://cdn.mouup.top/pico/pic174403.png" alt="create"></p>
+<blockquote>
+<p>当然你也可以在命令行创建环境</p>
+<pre><code>conda create -n aipaint python=3.10
+</code></pre></blockquote>
+<p>配置环境时先clone项目仓库</p>
+<pre><code>git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+</code></pre><p>进入项目仓库，右键「在终端中打开」，如果你没有这个选项，就按住shift右键在powershell中打开</p>
+<p></br></p>
+<p>激活创建好的环境</p>
+<pre><code>conda activate aipaint
+</code></pre><p>执行以下命令安装依赖项（如果的依赖项要求有改动，请改为最新要求）</p>
+<pre><code>conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge
+</code></pre><p>如果换源成功的话安装过程是很快的</p>
+<p></br></p>
+<h4 id="2-模型下载"><a href="#2-模型下载" class="headerlink" title="2.模型下载"></a>2.模型下载</h4><blockquote>
+<p>推荐下载novelai泄露的模型</p>
+</blockquote>
+<p>1.novelai模型:包括 4g的一般模型<a target="_blank" rel="noopener" href="https://cloudflare-ipfs.com/ipfs/bafybeicpamreyp2bsocyk3hpxr7ixb2g2rnrequub3j2ahrkdxbvfbvjc4/model.ckpt">animefull-final-pruned</a>和7g的<a target="_blank" rel="noopener" href="https://pan.nyaku.moe/f/2QhQ/animefull-latest.ckpt">animefull-final-latest模型</a></p>
+<p>2.stable diffusion模型：前往<a target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic185053.png">huggingFace</a><br>这两个模型一个是毕竟小的，一个是比较大 的，自己选着下（需要注册huggleface账号）</p>
+<p><img src="https://cdn.mouup.top/pico/pic185053.png" alt="stable-diffusion模型"></p>
+<p>3.Waifu Diffusion模型：<a target="_blank" rel="noopener" href="https://huggingface.co/hakurei/waifu-diffusion-v1-4/tree/main">下载地址</a>,选择性下载.ckpt后缀的文件</p>
+<h4 id="3-运行"><a href="#3-运行" class="headerlink" title="3.运行"></a>3.运行</h4><p>然后，在命令行输入<code>webui.bat</code>运行安装脚本（不要直接双击，否则会使用默认环境中的python3.9）然后脚本就会自动安装剩余的依赖项并运行Stable Diffusion webui</p>
+<p>当你看到命令行输出以下内容时就部署完毕且成功运行了</p>
+<pre><code>Installing requirements for Web UI
+Launching Web UI with arguments:
+No module &#39;xformers&#39;. Proceeding without it.
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.
+Loading weights [e6e8e1fc] from G:\stable-diffusion-webui\models\Stable-diffusion\novel.ckpt
+Applying cross attention optimization (Doggettx).
+Textual inversion embeddings loaded(4): ha_hutao, natsuki_nacho, nya_gzc, yileina
+Model loaded in 33.5s (0.5s create model, 30.1s load weights).
+Running on local URL:  http://127.0.0.1:7860
+
+To create a public link, set `share=True` in `launch()`.
+</code></pre><blockquote>
+<p>你需要知道的一点：webui的脚本在初次运行时其实在项目目录新建了一个虚拟环境（venv）因此此后每一次运行webui只需要双击打开webui.bat文件即可</p>
+</blockquote>
+<h4 id="4-额外配置"><a href="#4-额外配置" class="headerlink" title="4.额外配置"></a>4.额外配置</h4><p>安装deepbooru和xformers</p>
+<p>编辑项目目录下的webui-user.bat文件</p>
+<p>它里面原本应该是这样的（没有中文）</p>
+<pre><code>@echo off
+
+set PYTHON= &lt;python路径&gt;
+
+set GIT= &lt;git路径&gt;
+
+set VENV_DIR= &lt;虚拟环境所在目录名称&gt; 
+
+set COMMANDLINE_ARGS= &lt;你要附加的命令&gt;
+
+call webui.bat
+</code></pre><p><strong>python路径：</strong> 填<code>&lt;webui的目录路径&gt;\venv\Scripts\Python.exe</code>,例如<code>H:\stable-diffusion-webui\venv\Scripts\Python.exe</code></p>
+<p><strong>git路径：</strong> 一般不用管</p>
+<p><strong>虚拟环境所在目录名称：</strong> 默认为venv，不用修改</p>
+<p><strong>你要附加的命令：</strong> 我们要安装deepbooru和xformers所以在这里填上<code>--deepbooru --xformers</code></p>
+<p>改完之后就是这样的：</p>
+<pre><code>@echo off
+
+set PYTHON=H:\stable-diffusion-webui\venv\Scripts\Python.exe
+
+set GIT=
+
+set VENV_DIR=venv
+
+set COMMANDLINE_ARGS=--xformers
+
+call webui.bat
+</code></pre><p>保存退出然后运行它就可以完成安装了（如果安装失败可能是网络问题）</p>
+<hr>
+
+<h2 id="是时候玩了"><a href="#是时候玩了" class="headerlink" title="是时候玩了"></a>是时候玩了</h2><p>打开<a target="_blank" rel="noopener" href="http://127.0.0.1:7860/">127.0.0.1:7860</a>进入webui页面</p>
+<h3 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h3><p><img src="https://cdn.mouup.top/pico/pic191459.png" alt="介绍"></p>
+<p><strong><em>特别说明：</em></strong></p>
+<p><strong>Sampling method:</strong> 采样方法。不同的采样方法得到图片的效果不同，二次元一般用Euler_a和DDIM</p>
+<p><strong>Sampling steps：</strong> 生成步骤。越高代表细节越丰富，但过高不一定就很好，一般在30左右</p>
+<p><strong>CFG Scale：</strong> 数值越高图像越接近关键词描述的内容，同时会影响柔和度和清晰度，Scale值越高我感觉图会看起来更清晰，也就是线条会更加明显。</p>
+<p><strong>Batch count：</strong> 队列数（一般为1就好了）</p>
+<p><strong>Batch size：</strong> 单个队列中生成多少张图</p>
+<p><strong>Seed：</strong> 填写种子。可以填入别人的种子，使用种子可以获得相似的出图效果</p>
+<p>输入咒语就可以开始生成图片啦！</p>
+<blockquote>
+<p>特别推荐</p>
+<p>大佬开发的写咒语网站<a target="_blank" rel="noopener" href="https://ai.dawnmark.cn/">AI词汇加速器</a>，可以快速生成咒语</p>
+</blockquote>
+<p><strong>常用咒语：</strong></p>
+<p>1.一般默认正面咒语：</p>
+<pre><code>&#123;an extremely delicate and beautiful girl&#125;, 8k wallpaper, &#123;&#123;&#123;masterpiece&#125;&#125;&#125;
+</code></pre><p>2.标准负面咒语：</p>
+<pre><code>lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry
+</code></pre><h3 id="embedding的使用"><a href="#embedding的使用" class="headerlink" title="embedding的使用"></a>embedding的使用</h3><blockquote>
+<p>embedding，也就是一般私炉炼出来的丹，负载在模型上使用</p>
+</blockquote>
+<p>在网络上下载后缀为.pt的文件后。将其放入webui目录下的<code>embeddings</code>文件夹中即可使用</p>
+<p>使用embedding时只需在正面咒语的框内输入制作者炼制时使用的prompt即可</p>
+<p>例如我现在下载了一个伊雷娜的embedding，我只需使用<code>yileina`</code>，就可以使用它了</p>
+<p><img src="https://cdn.mouup.top/pico/pic194653.png" alt="lizi"> </p>
+<p><img src="https://cdn.mouup.top/pico/pic00285-1028413214-yileina.png" alt="伊雷娜我真的好喜欢你啊！"> </p>
+<h2 id="embedding的炼制"><a href="#embedding的炼制" class="headerlink" title="embedding的炼制"></a>embedding的炼制</h2><p>如果网上找不到你需要的embedding，那是时候来当炼金师了</p>
+<h3 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="首先你要找图"><a href="#首先你要找图" class="headerlink" title="首先你要找图"></a><strong>首先你要找图</strong></h4><p>1.可以取pixiv抓取画作（推荐使用<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/powerful-pixiv-downloader/dkndmhgdcmjdmkdonmbgjpijejdcilfh">Powerful Pixiv Downloader</a>）</p>
+<p>2.或者取e站下图包（里站）</p>
+<h4 id="然后对图片进行筛选和预处理"><a href="#然后对图片进行筛选和预处理" class="headerlink" title="然后对图片进行筛选和预处理"></a><strong>然后对图片进行筛选和预处理</strong></h4><p>1.请筛选出人物突出（单人），背景比较干净的图片，不要出现边框、文字等内容</p>
+<p>2.对于背景比较复制的图片可以使用<a target="_blank" rel="noopener" href="https://github.com/danielgatis/rembg">rembg</a>去除背景</p>
+<p>安装过程非常简单，按照README就行了（注意先装onnxruntime-gpu，README里有说）</p>
+<p>然后在终端进入你放选好的图片的文件夹(pic)的前一个文件夹，新建一个放置处理后文件的文件夹<picok1>，使用以下命令：</p>
+<pre><code>rembg p pic picok1
+</code></pre><p>记得看一下处理情况，有些如果处理得比较差的话可以考虑用回原图</p>
+<p>3.裁剪：建议用<a target="_blank" rel="noopener" href="https://www.onlinephotosoft.com/birme/">这个网站</a>手动裁剪，当然你也可以到下一步让webui来剪</p>
+<p>用网站裁剪记得将图片大小调为512x512,处理完将图片存储到一个新的文件夹(我命名为picok2)</p>
+<h4 id="调整webui设置"><a href="#调整webui设置" class="headerlink" title="调整webui设置"></a><strong>调整webui设置</strong></h4><p>打开<code>setting</code>选项卡，点<code>Training</code>,勾选<code>Move VAE and CLIP to RAM when training if possible. Saves VRAM.</code>  (这个操作可以在训练时节省显存)，然后点Apply settings确认修改。</p>
+<h3 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h3><p><strong>点Train选项卡</strong></p>
+<p><img src="https://cdn.mouup.top/pico/pic200634.png" alt="create"></p>
+<p>输入你要训练的embedding的名称,它将会作为你后续使用这个embedding时的prompt</p>
+<p>在Number of vectors per token中，如果你是训练人物，建议在6以上，如果是画风建议在10以上</p>
+<p><strong>点击Preprocess images预处理图片</strong></p>
+<p><img src="https://cdn.mouup.top/pico/picchrome_SXZ2h807vR.png" alt="prepic"></p>
+<p><strong>Create flipped copies：</strong> 创建镜像图片。建议勾选，能得到双份样本。</p>
+<p><strong>Split oversized images：</strong> 把过大的图片裁切成多张。我们已经切好图片了，所以不需要。</p>
+<p><strong>Auto focal point crop：</strong> 自动聚焦，就是自动截出过大的图片的重点部分（ai认为的重点）。我们同样不需要</p>
+<p><strong>Use BLIP for caption：</strong> 和 <strong>Use deepbooru for caption</strong> 建议勾选，特别是deepbooru对于二次元炼丹有帮助</p>
+<p>点preprocess进行预处理</p>
+<h4 id="点train进入训练选项"><a href="#点train进入训练选项" class="headerlink" title="点train进入训练选项"></a><strong>点train进入训练选项</strong></h4><p><img src="https://cdn.mouup.top/pico/pic201741.png" alt="train"></p>
+<p>未完待续……</p>
 
         </div>
         <!-- .entry-content -->
@@ -740,36 +836,19 @@ WIDGET = &#123;
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2021/03/13/%E4%BB%8E%E4%BB%8A%E5%A4%A9%E5%BC%80%E5%A7%8B%E7%9C%8B%E9%AD%94%E5%A5%B3%E4%B9%8B%E6%97%85%E5%B0%8F%E8%AF%B4/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://js-cdn.mouup.top/gh/imouup/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.mouup.top/pico/pic20201031_135721104_iOS.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.mouup.top/pico/pic20201031_135721104_iOS.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                从今天开始看魔女之旅小说</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2021/01/31/Onedrive%E6%A1%8C%E9%9D%A2%E7%89%88%E7%99%BB%E5%BD%95%E7%99%BD%E5%B1%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="next">
+            <a href="/2022/08/16/cloudflare-tunnel/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://js-cdn.mouup.top/gh/imouup/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://i.pcmag.com/imagery/reviews/065LBaNWT3jlc8HjQsR6vXE-19.1569479905.fit_scale.size_760x427.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://i.pcmag.com/imagery/reviews/065LBaNWT3jlc8HjQsR6vXE-19.1569479905.fit_scale.size_760x427.png">
+                <img class="lazyload" src="https://js-cdn.mouup.top/gh/imouup/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.mouup.top/pico/picpixiv100029456_p0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.mouup.top/pico/picpixiv100029456_p0.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                Onedrive桌面版登录白屏解决方案</h3>
+                用Cloudflare Tunnel进行内网穿透以及实现其他妙用</h3>
                 <hr>
               </div>
             </a>
@@ -858,11 +937,11 @@ WIDGET = &#123;
   
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="https://cdn.mouup.top/pico/picavatar.png" itemprop="image" alt="izNyaku" height="70" width="70"></a>
+          <a href="nyaku.moe" class="profile gravatar"><img src="https://pico.cdn.mouup.top/picavatar202206.jpg" itemprop="image" alt="nyaku" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author">izNyaku</a>
+            <a href="nyaku.moe" itemprop="url" rel="author">nyaku</a>
             </h3>
           </div>
         </div>
