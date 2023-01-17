@@ -4,11 +4,16 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
+  
   <title itemprop="name">Stable Diffusion webui的部署运行以及embedding训练 | 一之濑亚子| いちのせあこ</title>
   
     <link rel="shortcut icon" href="/images/favicon.png">
   
   <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link
+      rel="stylesheet"
+      href="/css/fancybox.css"
+    />
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
@@ -17,13 +22,12 @@
   <link rel="stylesheet" href="/css/font.css" media="all">
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/search.css" media="all">
-  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
-  <link rel="stylesheet" href="/css/zoom.css" media="all">
   <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
   <link
   rel="stylesheet"
   href="https://unpkg.com/@waline/client@v2/dist/waline.css"
 />
+  
  <!--引入walinecss--> 
 <!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
 " type="text/css" media="all"> -->
@@ -78,15 +82,15 @@
   <style type="text/css">
   .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
   </style>
-  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;background-position:center center;background-attachment:inherit;}
   </style>
   <script data-ad-client="ca-pub-6960267753891556" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
   <script src="http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js"></script>
   <script src="http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js"></script>
 
-<script type="text/javascript">
-$(document).ready(function () {
+  <script type="text/javascript">
+   $(document).ready(function () {
   var algoliaSettings = CONFIG.algolia;
   var isAlgoliaSettingsValid = algoliaSettings.applicationID &&
     algoliaSettings.apiKey &&
@@ -331,9 +335,11 @@ $(document).ready(function () {
     });
   });
 </script>
+
   <meta name="generator" content="Hexo 5.2.0"></head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  
   <div class="scrollbar" id="bar">
   </div>
   <a href="#" class="cd-top faa-float animated"></a>
@@ -666,7 +672,7 @@ $(document).ready(function () {
 
 <h2 id="开始部署"><a href="#开始部署" class="headerlink" title="开始部署"></a>开始部署</h2><h3 id="我的系统信息"><a href="#我的系统信息" class="headerlink" title="我的系统信息"></a>我的系统信息</h3><p>系统：Windows10<br>GPU：RTX3060ti</p>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="安装anaconda"><a href="#安装anaconda" class="headerlink" title="安装anaconda"></a>安装anaconda</h4><p>访问<a target="_blank" rel="noopener" href="https://www.anaconda.com/">anaconda官网</a>直接下载安装，建议使用IDM或者挂梯</p>
-<p>安装时建议选择just me,这样更方便添加环境变量<br>勾选添加到path<br><img src="https://cdn.mouup.top/pico/pic173019.png" alt="add to path"></p>
+<p>安装时建议选择just me,这样更方便添加环境变量<br>勾选添加到path<br><a data-fancybox="gallery" data-caption="add to path" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic173019.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic173019.png" alt="add to path"></p>
 <h4 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h4><p>1.最好准备一把梯子</p>
 <p>2.对conda和pip进行换源</p>
 <h5 id="conda换源"><a href="#conda换源" class="headerlink" title="conda换源"></a>conda换源</h5><p>打开Windows终端，输入以下命令输出.condarc文件</p>
@@ -684,7 +690,7 @@ ssl_verify: true
 index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 </code></pre><h3 id="正式开搞"><a href="#正式开搞" class="headerlink" title="正式开搞"></a>正式开搞</h3><p></br></p>
 <h4 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1.环境配置"></a>1.环境配置</h4><p>打开anaconda，新建一个环境，python版本选择3.10.8。不能用base环境因为base环境python版本为3.9，使用Stable Diffusion webui需要3.10.6以上</p>
-<p><img src="https://cdn.mouup.top/pico/pic174403.png" alt="create"></p>
+<p><a data-fancybox="gallery" data-caption="create" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic174403.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic174403.png" alt="create"></p>
 <blockquote>
 <p>当然你也可以在命令行创建环境</p>
 <pre><code>conda create -n aipaint python=3.10
@@ -704,7 +710,7 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 </blockquote>
 <p>1.novelai模型:包括 4g的一般模型<a target="_blank" rel="noopener" href="https://cloudflare-ipfs.com/ipfs/bafybeicpamreyp2bsocyk3hpxr7ixb2g2rnrequub3j2ahrkdxbvfbvjc4/model.ckpt">animefull-final-pruned</a>和7g的<a target="_blank" rel="noopener" href="https://pan.nyaku.moe/f/2QhQ/animefull-latest.ckpt">animefull-final-latest模型</a></p>
 <p>2.stable diffusion模型：前往<a target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic185053.png">huggingFace</a><br>这两个模型一个是毕竟小的，一个是比较大 的，自己选着下（需要注册huggleface账号）</p>
-<p><img src="https://cdn.mouup.top/pico/pic185053.png" alt="stable-diffusion模型"></p>
+<p><a data-fancybox="gallery" data-caption="stable-diffusion模型" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic185053.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic185053.png" alt="stable-diffusion模型"></p>
 <p>3.Waifu Diffusion模型：<a target="_blank" rel="noopener" href="https://huggingface.co/hakurei/waifu-diffusion-v1-4/tree/main">下载地址</a>,选择性下载.ckpt后缀的文件</p>
 <h4 id="3-运行"><a href="#3-运行" class="headerlink" title="3.运行"></a>3.运行</h4><p>然后，在命令行输入<code>webui.bat</code>运行安装脚本（不要直接双击，否则会使用默认环境中的python3.9）然后脚本就会自动安装剩余的依赖项并运行Stable Diffusion webui</p>
 <p>当你看到命令行输出以下内容时就部署完毕且成功运行了</p>
@@ -757,7 +763,7 @@ call webui.bat
 <hr>
 
 <h2 id="是时候玩了"><a href="#是时候玩了" class="headerlink" title="是时候玩了"></a>是时候玩了</h2><p>打开<a target="_blank" rel="noopener" href="http://127.0.0.1:7860/">127.0.0.1:7860</a>进入webui页面</p>
-<h3 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h3><p><img src="https://cdn.mouup.top/pico/pic191459.png" alt="介绍"></p>
+<h3 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h3><p><a data-fancybox="gallery" data-caption="介绍" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic191459.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic191459.png" alt="介绍"></p>
 <p><strong><em>特别说明：</em></strong></p>
 <p><strong>Sampling method:</strong> 采样方法。不同的采样方法得到图片的效果不同，二次元一般用Euler_a和DDIM</p>
 <p><strong>Sampling steps：</strong> 生成步骤。越高代表细节越丰富，但过高不一定就很好，一般在30左右</p>
@@ -781,8 +787,8 @@ call webui.bat
 <p>在网络上下载后缀为.pt的文件后。将其放入webui目录下的<code>embeddings</code>文件夹中即可使用</p>
 <p>使用embedding时只需在正面咒语的框内输入制作者炼制时使用的prompt即可</p>
 <p>例如我现在下载了一个伊雷娜的embedding，我只需使用<code>yileina`</code>，就可以使用它了</p>
-<p><img src="https://cdn.mouup.top/pico/pic194653.png" alt="lizi"> </p>
-<p><img src="https://cdn.mouup.top/pico/pic00285-1028413214-yileina.png" alt="伊雷娜我真的好喜欢你啊！"> </p>
+<p><a data-fancybox="gallery" data-caption="lizi" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic194653.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic194653.png" alt="lizi"> </p>
+<p><a data-fancybox="gallery" data-caption="伊雷娜我真的好喜欢你啊！" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic00285-1028413214-yileina.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic00285-1028413214-yileina.png" alt="伊雷娜我真的好喜欢你啊！"> </p>
 <h2 id="embedding的炼制"><a href="#embedding的炼制" class="headerlink" title="embedding的炼制"></a>embedding的炼制</h2><p>如果网上找不到你需要的embedding，那是时候来当炼金师了</p>
 <h3 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="首先你要找图"><a href="#首先你要找图" class="headerlink" title="首先你要找图"></a><strong>首先你要找图</strong></h4><p>1.可以取pixiv抓取画作（推荐使用<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/powerful-pixiv-downloader/dkndmhgdcmjdmkdonmbgjpijejdcilfh">Powerful Pixiv Downloader</a>）</p>
 <p>2.或者取e站下图包（里站）</p>
@@ -796,17 +802,17 @@ call webui.bat
 <p>用网站裁剪记得将图片大小调为512x512,处理完将图片存储到一个新的文件夹(我命名为picok2)</p>
 <h4 id="调整webui设置"><a href="#调整webui设置" class="headerlink" title="调整webui设置"></a><strong>调整webui设置</strong></h4><p>打开<code>setting</code>选项卡，点<code>Training</code>,勾选<code>Move VAE and CLIP to RAM when training if possible. Saves VRAM.</code>  (这个操作可以在训练时节省显存)，然后点Apply settings确认修改。</p>
 <h3 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h3><p><strong>点Train选项卡</strong></p>
-<p><img src="https://cdn.mouup.top/pico/pic200634.png" alt="create"></p>
+<p><a data-fancybox="gallery" data-caption="create" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic200634.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic200634.png" alt="create"></p>
 <p>输入你要训练的embedding的名称,它将会作为你后续使用这个embedding时的prompt</p>
 <p>在Number of vectors per token中，如果你是训练人物，建议在6以上，如果是画风建议在10以上</p>
 <p><strong>点击Preprocess images预处理图片</strong></p>
-<p><img src="https://cdn.mouup.top/pico/picchrome_SXZ2h807vR.png" alt="prepic"></p>
+<p><a data-fancybox="gallery" data-caption="prepic" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/picchrome_SXZ2h807vR.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/picchrome_SXZ2h807vR.png" alt="prepic"></p>
 <p><strong>Create flipped copies：</strong> 创建镜像图片。建议勾选，能得到双份样本。</p>
 <p><strong>Split oversized images：</strong> 把过大的图片裁切成多张。我们已经切好图片了，所以不需要。</p>
 <p><strong>Auto focal point crop：</strong> 自动聚焦，就是自动截出过大的图片的重点部分（ai认为的重点）。我们同样不需要</p>
 <p><strong>Use BLIP for caption：</strong> 和 <strong>Use deepbooru for caption</strong> 建议勾选，特别是deepbooru对于二次元炼丹有帮助</p>
 <p>点preprocess进行预处理</p>
-<h4 id="点train进入训练选项"><a href="#点train进入训练选项" class="headerlink" title="点train进入训练选项"></a><strong>点train进入训练选项</strong></h4><p><img src="https://cdn.mouup.top/pico/pic201741.png" alt="train"></p>
+<h4 id="点train进入训练选项"><a href="#点train进入训练选项" class="headerlink" title="点train进入训练选项"></a><strong>点train进入训练选项</strong></h4><p><a data-fancybox="gallery" data-caption="train" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic201741.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic201741.png" alt="train"></p>
 <p>未完待续……</p>
 
         </div>
@@ -1028,8 +1034,17 @@ call webui.bat
 <script type="text/javascript" src="/js/lib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script type="text/javascript" src="/js/InsightSearch.js"></script>
-<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
-<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script src="/js/fancybox.umd.js"></script>
+  <script>
+    $('[data-fancybox="images"]').fancybox({//可选
+      thumbs : {
+        autoStart : false //缩略图
+      }
+    });
+    $('[data-fancybox]').fancybox({//启用函数，必须
+      //protect: true //图片右键不能下载，可选
+    });
+  </script>
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
@@ -1348,5 +1363,6 @@ $(document).ready(function() {
     })
   });
 </script>
+
 </body>
 </html>

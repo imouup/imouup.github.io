@@ -4,11 +4,16 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
+  
   <title itemprop="name">拥有一个自己的新建标签页 | 一之濑亚子| いちのせあこ</title>
   
     <link rel="shortcut icon" href="/images/favicon.png">
   
   <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link
+      rel="stylesheet"
+      href="/css/fancybox.css"
+    />
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
@@ -17,13 +22,12 @@
   <link rel="stylesheet" href="/css/font.css" media="all">
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/search.css" media="all">
-  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
-  <link rel="stylesheet" href="/css/zoom.css" media="all">
   <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
   <link
   rel="stylesheet"
   href="https://unpkg.com/@waline/client@v2/dist/waline.css"
 />
+  
  <!--引入walinecss--> 
 <!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
 " type="text/css" media="all"> -->
@@ -78,15 +82,15 @@
   <style type="text/css">
   .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
   </style>
-  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;background-position:center center;background-attachment:inherit;}
   </style>
   <script data-ad-client="ca-pub-6960267753891556" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
   <script src="http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js"></script>
   <script src="http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js"></script>
 
-<script type="text/javascript">
-$(document).ready(function () {
+  <script type="text/javascript">
+   $(document).ready(function () {
   var algoliaSettings = CONFIG.algolia;
   var isAlgoliaSettingsValid = algoliaSettings.applicationID &&
     algoliaSettings.apiKey &&
@@ -331,9 +335,11 @@ $(document).ready(function () {
     });
   });
 </script>
+
   <meta name="generator" content="Hexo 5.2.0"></head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  
   <div class="scrollbar" id="bar">
   </div>
   <a href="#" class="cd-top faa-float animated"></a>
@@ -664,9 +670,9 @@ $(document).ready(function () {
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><del>搞新标签页纯属好玩（手动狗头）</del><br>如果你也和我一样觉得各大浏览器的默认新标签页功能不够完善，不够美观，<br>Infinity 等一众新标签页又不好看（纯属个人感受）那么请继续往下读</p>
 <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><p>这是一个GitHub项目<a target="_blank" rel="noopener" href="https://github.com/5iux/sou">5IUX搜索</a></p>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>一台服务器(安装了nginx或Apache，安装了php(最好7.2以上，作者本人没有注明php版本）)<br>或者php虚拟主机</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="在项目GitHub页面下载zip并上传至服务器"><a href="#在项目GitHub页面下载zip并上传至服务器" class="headerlink" title="在项目GitHub页面下载zip并上传至服务器"></a>在项目GitHub页面下载zip并上传至服务器</h3><p><img src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18115109.jpg" alt="pic1"></p>
-<h3 id="将域名指向服务器"><a href="#将域名指向服务器" class="headerlink" title="将域名指向服务器"></a>将域名指向服务器</h3><p><img src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18114824.jpg" alt="pic2"></p>
-<h3 id="配置网站信息"><a href="#配置网站信息" class="headerlink" title="配置网站信息"></a>配置网站信息</h3><p><img src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/202102-18114933.jpg" alt="pic3"></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="在项目GitHub页面下载zip并上传至服务器"><a href="#在项目GitHub页面下载zip并上传至服务器" class="headerlink" title="在项目GitHub页面下载zip并上传至服务器"></a>在项目GitHub页面下载zip并上传至服务器</h3><p><a data-fancybox="gallery" data-caption="pic1" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18115109.jpg"><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18115109.jpg" alt="pic1"></p>
+<h3 id="将域名指向服务器"><a href="#将域名指向服务器" class="headerlink" title="将域名指向服务器"></a>将域名指向服务器</h3><p><a data-fancybox="gallery" data-caption="pic2" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18114824.jpg"><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18114824.jpg" alt="pic2"></p>
+<h3 id="配置网站信息"><a href="#配置网站信息" class="headerlink" title="配置网站信息"></a>配置网站信息</h3><p><a data-fancybox="gallery" data-caption="pic3" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/imouup/pic/pic/202102-18114933.jpg"><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/202102-18114933.jpg" alt="pic3"></p>
 <h3 id="进一步修改"><a href="#进一步修改" class="headerlink" title="进一步修改"></a>进一步修改</h3><p>打开网站根目录中的index.php文件，对其中的背景图，logo，浏览器上方小图等进行修改<br>使用new tab redirect插件重定向新建标签页到你的新标签页地址，修改浏览器启动页和首页为你的新标签页地址<br>！！！注意请不要删除原作者在源码中的版权声明信息</p>
 <h3 id="增强功能"><a href="#增强功能" class="headerlink" title="增强功能"></a>增强功能</h3><h4 id="添加天气组件"><a href="#添加天气组件" class="headerlink" title="添加天气组件"></a>添加天气组件</h4><p>前往<a target="_blank" rel="noopener" href="https://dev.qweather.com/widget/">这里</a>创建一个天气小组件<br>复制代码，粘贴到原来代码中天气小组件的位置<br>这是原来的，请换掉它</p>
 <pre><code>&lt;!--天气--&gt;
@@ -949,8 +955,17 @@ WIDGET = &#123;
 <script type="text/javascript" src="/js/lib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script type="text/javascript" src="/js/InsightSearch.js"></script>
-<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
-<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script src="/js/fancybox.umd.js"></script>
+  <script>
+    $('[data-fancybox="images"]').fancybox({//可选
+      thumbs : {
+        autoStart : false //缩略图
+      }
+    });
+    $('[data-fancybox]').fancybox({//启用函数，必须
+      //protect: true //图片右键不能下载，可选
+    });
+  </script>
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
@@ -1269,5 +1284,6 @@ $(document).ready(function() {
     })
   });
 </script>
+
 </body>
 </html>
