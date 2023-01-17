@@ -27,7 +27,8 @@
   rel="stylesheet"
   href="https://unpkg.com/@waline/client@v2/dist/waline.css"
 />
-  
+ 
+
  <!--引入walinecss--> 
 <!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
 " type="text/css" media="all"> -->
@@ -52,6 +53,10 @@
   mashiro_option.mathjax = "1";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+  mashiro_option.copyright_enable = "true" ;
+  mashiro_option.copyright_minCharNumber = parseInt("999") ;
+  mashiro_option.copyright_description = "本文章著作权归作者所有，任何形式的转载都请注明出处。" ;
+
 
   // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
   // mashiro_option.float_player_on = true;
@@ -668,7 +673,7 @@
         
         <div class="entry-content">
           <h2 id="过时提醒"><a href="#过时提醒" class="headerlink" title="过时提醒"></a>过时提醒</h2><p>我现在已经转战uptime了<br><a target="_blank" rel="noopener" href="https://status.mouup.top">一之濑亚子的监控室</a></p>
-<h2 id="效果一览"><a href="#效果一览" class="headerlink" title="效果一览"></a>效果一览</h2><p><a data-fancybox="gallery" data-caption="" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic监控室截图1.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic监控室截图1.png" alt=""><br><a data-fancybox="gallery" data-caption="" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic监控室截图2.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic监控室截图2.png" alt=""></p>
+<h2 id="效果一览"><a href="#效果一览" class="headerlink" title="效果一览"></a>效果一览</h2><p><a data-fancybox="gallery" data-caption="" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic监控室截图1.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic监控室截图1.png" alt=""></a><br><a data-fancybox="gallery" data-caption="" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic监控室截图2.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic监控室截图2.png" alt=""></a></p>
 <p><a target="_blank" rel="noopener" href="https://care.mouup.top/" title="我的监控室">我的监控室</a>  </p>
 <h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2><h3 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h3><p>在开始搭建之前，我们首先要明确两个概念<br>服务端和客户端<br>服务端：即“监控室”，安装在放置“监控网站”的服务器上<br>      （安装服务端的服务器同时可以安装客户端，相当于监控自己）<br>客户端：即“摄像头”，安装在需要被监控的服务器上</p>
 <h3 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h3><h4 id="1-下载安装脚本"><a href="#1-下载安装脚本" class="headerlink" title="1 下载安装脚本"></a>1 下载安装脚本</h4><p>如果正在使用的账户不是，先使用<code>sudo su</code> 登入root账户，否则后面会因权限不够安装失败<br>然后使用以下命令下载脚本</p>
@@ -692,8 +697,8 @@
 </code></pre><p>输入1开始安装，如果你没有使用宝塔面板或没有安装其他web服务器（例如nginx)可以直接一路回车</p>
 <h4 id="已配置其他web服务器"><a href="#已配置其他web服务器" class="headerlink" title="已配置其他web服务器"></a>已配置其他web服务器</h4><p>操作同上<br>但到了<br><code>[信息] 是否由脚本自动配置HTTP服务(服务端的在线监控网站)，如果选择 N，则请在其他HTTP服务中配置网站根目录为：/usr/local/ServerStatus/web [Y/n]
 (默认: Y 自动部署):</code><br>这一步选N，不部署HTTP服务<br>然后请自行到你已安装了的web服务器去配置HTTP服务，只要将<br>网站根目录设置为/usr/local/ServerStatus/web即可</p>
-<h4 id="安装了宝塔面板"><a href="#安装了宝塔面板" class="headerlink" title="安装了宝塔面板"></a>安装了宝塔面板</h4><p>同样是到配置HTTP服务器那一步选N<br>打开宝塔面板<br>新建网站<br>修改网站运行目录为/usr/local/ServerStatus/web<br>注意：在网站设置的“网站目录”一栏修改运行目录是不行的<br>     宝塔面板不允许将运行目录设置在usr目录下<br>     <a data-fancybox="gallery" data-caption="" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic%E5%AE%9D%E5%A1%94%E6%8A%A5%E9%94%99.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic%E5%AE%9D%E5%A1%94%E6%8A%A5%E9%94%99.png" alt=""></p>
-<p>所以你需要在配置文件的root行将默认的运行路径改为/usr/local/ServerStatus/web<br><a data-fancybox="gallery" data-caption="" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic151121.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic151121.png" alt=""><br>就是图片中标黄的一行</p>
+<h4 id="安装了宝塔面板"><a href="#安装了宝塔面板" class="headerlink" title="安装了宝塔面板"></a>安装了宝塔面板</h4><p>同样是到配置HTTP服务器那一步选N<br>打开宝塔面板<br>新建网站<br>修改网站运行目录为/usr/local/ServerStatus/web<br>注意：在网站设置的“网站目录”一栏修改运行目录是不行的<br>     宝塔面板不允许将运行目录设置在usr目录下<br>     <a data-fancybox="gallery" data-caption="" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic%E5%AE%9D%E5%A1%94%E6%8A%A5%E9%94%99.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic%E5%AE%9D%E5%A1%94%E6%8A%A5%E9%94%99.png" alt=""></a></p>
+<p>所以你需要在配置文件的root行将默认的运行路径改为/usr/local/ServerStatus/web<br><a data-fancybox="gallery" data-caption="" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic151121.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic151121.png" alt=""></a><br>就是图片中标黄的一行</p>
 <h4 id="3-创建监控账户"><a href="#3-创建监控账户" class="headerlink" title="3 创建监控账户"></a>3 创建监控账户</h4><p>这里的每个账户只能对应一台服务器，安装客户端时就会询问账号密码<br>使用<code>bash status.sh s</code>进入服务端配置界面<br>键入7进入 “设置 服务端配置”<br>键入1 新建账户 注意密码不能使用特殊字符，只能是数字和字母，否则会报错账号或密码错误</p>
 <p>该程序本身自带了一个服务器，可以删除</p>
 <h4 id="安装客户端"><a href="#安装客户端" class="headerlink" title="安装客户端"></a>安装客户端</h4><p>在此之前，请务必开放探针程序监听的端口，默认端口为35601<br>如果自己修改了请记得放行<br>注意：如果使用了宝塔面板，云服务商和宝塔面板都要设置端口放行</p>

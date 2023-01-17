@@ -27,7 +27,8 @@
   rel="stylesheet"
   href="https://unpkg.com/@waline/client@v2/dist/waline.css"
 />
-  
+ 
+
  <!--引入walinecss--> 
 <!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
 " type="text/css" media="all"> -->
@@ -52,6 +53,10 @@
   mashiro_option.mathjax = "1";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+  mashiro_option.copyright_enable = "true" ;
+  mashiro_option.copyright_minCharNumber = parseInt("999") ;
+  mashiro_option.copyright_description = "本文章著作权归作者所有，任何形式的转载都请注明出处。" ;
+
 
   // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
   // mashiro_option.float_player_on = true;
@@ -668,14 +673,14 @@
         
         <div class="entry-content">
           <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文主要会详细介绍Nya网盘的运行方式~(这个词会不会不太准确)~</p>
-<p><a data-fancybox="gallery" data-caption="gbl" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/picgbl1.jpg"><img data-action="zoom" src="https://cdn.mouup.top/pico/picgbl1.jpg" alt="gbl"></p>
+<p><a data-fancybox="gallery" data-caption="gbl" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/picgbl1.jpg"><img data-action="zoom" src="https://cdn.mouup.top/pico/picgbl1.jpg" alt="gbl"></a></p>
 <h2 id="那么开始吧"><a href="#那么开始吧" class="headerlink" title="那么开始吧"></a>那么开始吧</h2><h3 id="1-关于搭建"><a href="#1-关于搭建" class="headerlink" title="1.关于搭建"></a>1.关于搭建</h3><ul>
 <li>Nya盘使用Cloudreve进行搭建，如果你感兴趣的话不妨来Gayhub了解一下这个<a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve">项目</a><br></br></li>
 <li><p>目前，Nya盘的主服务器托管于微软Azure美国中部机房，（因为较近的霓虹和香港资费太贵了，微软免费账户仅允许在美国机房创建免费VM）<br></br></p>
 <p>之前有一段时间（就是访问特别快的那段时间），我尝试将服务器迁到了霓虹，但资费实在太离谱了，恳请各位谅解</p>
 </li>
 </ul>
-<p><a data-fancybox="gallery" data-caption="2.1-2.5" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic2.1-2.5.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic2.1-2.5.png" alt="2.1-2.5"></p>
+<p><a data-fancybox="gallery" data-caption="2.1-2.5" target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic2.1-2.5.png"><img data-action="zoom" src="https://cdn.mouup.top/pico/pic2.1-2.5.png" alt="2.1-2.5"></a></p>
 <p>当然，现在网盘使用了cloudflare,在速度是是有一定提升的</p>
 <p></br></p>
 <h3 id="2-关于文件的存储"><a href="#2-关于文件的存储" class="headerlink" title="2.关于文件的存储"></a>2.关于文件的存储</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我相信这是大家最关心的问题<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前，依然受限于成本（doge）所有的文件都存储于Onedrive<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用的是笔者自己注册的开发者账户，到目前这个账户已稳定使用超过两年<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所以文件稳定度还是比较好的<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果微软未来不再提供开发者账户，笔者会考虑购买office365,如果有条件（当然那是之后的事）也可以考虑使用云厂商的储存服务<br></br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;另外，如果各位担心网盘服务器炸 掉导致无法加载外链也可以自己获取文件的真实地址（即OneDrive文件地址）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;只要在网盘点击下载，复制得到的下载链接就是OneDrive的文件地址<br></br></p>

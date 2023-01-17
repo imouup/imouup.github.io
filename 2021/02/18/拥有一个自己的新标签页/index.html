@@ -27,7 +27,8 @@
   rel="stylesheet"
   href="https://unpkg.com/@waline/client@v2/dist/waline.css"
 />
-  
+ 
+
  <!--引入walinecss--> 
 <!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
 " type="text/css" media="all"> -->
@@ -52,6 +53,10 @@
   mashiro_option.mathjax = "1";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+  mashiro_option.copyright_enable = "true" ;
+  mashiro_option.copyright_minCharNumber = parseInt("999") ;
+  mashiro_option.copyright_description = "本文章著作权归作者所有，任何形式的转载都请注明出处。" ;
+
 
   // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
   // mashiro_option.float_player_on = true;
@@ -670,9 +675,9 @@
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><del>搞新标签页纯属好玩（手动狗头）</del><br>如果你也和我一样觉得各大浏览器的默认新标签页功能不够完善，不够美观，<br>Infinity 等一众新标签页又不好看（纯属个人感受）那么请继续往下读</p>
 <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><p>这是一个GitHub项目<a target="_blank" rel="noopener" href="https://github.com/5iux/sou">5IUX搜索</a></p>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>一台服务器(安装了nginx或Apache，安装了php(最好7.2以上，作者本人没有注明php版本）)<br>或者php虚拟主机</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="在项目GitHub页面下载zip并上传至服务器"><a href="#在项目GitHub页面下载zip并上传至服务器" class="headerlink" title="在项目GitHub页面下载zip并上传至服务器"></a>在项目GitHub页面下载zip并上传至服务器</h3><p><a data-fancybox="gallery" data-caption="pic1" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18115109.jpg"><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18115109.jpg" alt="pic1"></p>
-<h3 id="将域名指向服务器"><a href="#将域名指向服务器" class="headerlink" title="将域名指向服务器"></a>将域名指向服务器</h3><p><a data-fancybox="gallery" data-caption="pic2" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18114824.jpg"><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18114824.jpg" alt="pic2"></p>
-<h3 id="配置网站信息"><a href="#配置网站信息" class="headerlink" title="配置网站信息"></a>配置网站信息</h3><p><a data-fancybox="gallery" data-caption="pic3" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/imouup/pic/pic/202102-18114933.jpg"><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/202102-18114933.jpg" alt="pic3"></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="在项目GitHub页面下载zip并上传至服务器"><a href="#在项目GitHub页面下载zip并上传至服务器" class="headerlink" title="在项目GitHub页面下载zip并上传至服务器"></a>在项目GitHub页面下载zip并上传至服务器</h3><p><a data-fancybox="gallery" data-caption="pic1" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18115109.jpg"><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18115109.jpg" alt="pic1"></a></p>
+<h3 id="将域名指向服务器"><a href="#将域名指向服务器" class="headerlink" title="将域名指向服务器"></a>将域名指向服务器</h3><p><a data-fancybox="gallery" data-caption="pic2" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18114824.jpg"><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/2021-02-18114824.jpg" alt="pic2"></a></p>
+<h3 id="配置网站信息"><a href="#配置网站信息" class="headerlink" title="配置网站信息"></a>配置网站信息</h3><p><a data-fancybox="gallery" data-caption="pic3" target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/imouup/pic/pic/202102-18114933.jpg"><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/imouup/pic/pic/202102-18114933.jpg" alt="pic3"></a></p>
 <h3 id="进一步修改"><a href="#进一步修改" class="headerlink" title="进一步修改"></a>进一步修改</h3><p>打开网站根目录中的index.php文件，对其中的背景图，logo，浏览器上方小图等进行修改<br>使用new tab redirect插件重定向新建标签页到你的新标签页地址，修改浏览器启动页和首页为你的新标签页地址<br>！！！注意请不要删除原作者在源码中的版权声明信息</p>
 <h3 id="增强功能"><a href="#增强功能" class="headerlink" title="增强功能"></a>增强功能</h3><h4 id="添加天气组件"><a href="#添加天气组件" class="headerlink" title="添加天气组件"></a>添加天气组件</h4><p>前往<a target="_blank" rel="noopener" href="https://dev.qweather.com/widget/">这里</a>创建一个天气小组件<br>复制代码，粘贴到原来代码中天气小组件的位置<br>这是原来的，请换掉它</p>
 <pre><code>&lt;!--天气--&gt;
