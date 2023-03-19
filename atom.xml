@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nyaku.moe/"/>
-  <updated>2023-01-17T13:09:01.053Z</updated>
+  <updated>2023-03-19T05:06:37.339Z</updated>
   <id>https://nyaku.moe/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何解决chrome自带翻译无法使用的问题（非一般的改hosts/魔法上网）</title>
+    <link href="https://nyaku.moe/2023/03/18/google-translate-fix/"/>
+    <id>https://nyaku.moe/2023/03/18/google-translate-fix/</id>
+    <published>2023-03-18T12:42:07.000Z</published>
+    <updated>2023-03-19T05:06:37.339Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;上一年（2022年）10月份左右开始，谷歌翻译退出中国大陆，导致中国大陆地区的chrome自带翻译无法使用。目前网上的解决方案主要是修改hosts或者挂系统代理，但这两种方法一个容易失效，另一个不够方便，因此本文将向你介绍一种不一样的解决方法。&lt;/p&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+    
+      <category term="chrome,谷歌浏览器,谷歌翻译,nginx,反代" scheme="https://nyaku.moe/tags/chrome-%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8-%E8%B0%B7%E6%AD%8C%E7%BF%BB%E8%AF%91-nginx-%E5%8F%8D%E4%BB%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>Stable Diffusion webui的部署运行以及embedding训练</title>
