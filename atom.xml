@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nyaku.moe/"/>
-  <updated>2023-03-19T05:06:37.339Z</updated>
+  <updated>2024-07-29T02:14:26.843Z</updated>
   <id>https://nyaku.moe/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>折腾使用Caddy反向代理jsdelivr</title>
+    <link href="https://nyaku.moe/2024/07/29/%E6%8A%98%E8%85%BE%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86jsdelivr/"/>
+    <id>https://nyaku.moe/2024/07/29/折腾使用Caddy反向代理jsdelivr/</id>
+    <published>2024-07-29T01:06:34.000Z</published>
+    <updated>2024-07-29T02:14:26.843Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;缘起&quot;&gt;&lt;a href=&quot;#缘起&quot; class=&quot;headerlink&quot; title=&quot;缘起&quot;&gt;&lt;/a&gt;缘起&lt;/h2&gt;&lt;p&gt;最近我把服务器的web
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://nyaku.moe/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Caddy,Caddy2,反向代理,jsdelivr,uri" scheme="https://nyaku.moe/tags/Caddy-Caddy2-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86-jsdelivr-uri/"/>
+    
+  </entry>
   
   <entry>
     <title>如何解决chrome自带翻译无法使用的问题（非一般的改hosts/魔法上网）</title>
