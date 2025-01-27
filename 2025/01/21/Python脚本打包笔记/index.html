@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
   
-  <title itemprop="name">Category: 技术 | 一之濑亚子| いちのせあこ</title>
+  <title itemprop="name">Python脚本打包笔记 | 一之濑亚子| いちのせあこ</title>
   
     <link rel="shortcut icon" href="/images/favicon.png">
   
@@ -644,633 +644,268 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://pic-oss.mouup.top/pic/2025/01/2800e27cc6633498bfefebcc11efc858.png);" src="https://js-cdn.mouup.top/gh/imouup/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://pic-oss.mouup.top/pic/2025/01/2800e27cc6633498bfefebcc11efc858.png">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      Python脚本打包笔记</h1>
+      <p class="entry-census">
+        <span>
+          <a href="nyaku.moe">
+            <img src="https://pico.cdn.mouup.top/picavatar202206.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="nyaku.moe">nyaku</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2025-1-21<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">野生技术协会</h1>
-    <span class="cat-des">
-      <p>Geek – Only for Love</p>
-    </span>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>最近写了一个python爬虫的脚本，想打包放上Github的Release，又不想用pyinstaller<br>偶然间发现了Pystand这个项目，打算尝试一下</p>
+<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a target="_blank" href="https://github.com/skywind3000/PyStand" style="position: relative; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; box-sizing: border-box; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-items: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 390px; min-height: 84px; border-radius: 8px; max-width: 100%; overflow: hidden; margin: 16px auto; padding: 12px 12px 9px 12px; background-color: #F6F6F6;"><span class="LinkCard-contents"><span style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; max-height: 40px; line-height: 1.25; color: #121212;">skywind3000/PyStand - Github</span><span style="display: -webkit-box; font-size: 13px; height: 18px; line-height: 18px; color: #999; word-break: break-all; text-overflow: ellipsis; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical;"><span style="display: inline-flex; align-items: center;"><svg class="Zi Zi--InsertLink" fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M13.414 4.222a4.5 4.5 0 1 1 6.364 6.364l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005a2.5 2.5 0 1 0-3.536-3.536l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005zm-6.187 6.187a.5.5 0 0 1 .638-.058l.07.058.706.707a.5.5 0 0 1 .058.638l-.058.07-3.005 3.004a2.5 2.5 0 0 0 3.405 3.658l.13-.122 3.006-3.005a.5.5 0 0 1 .638-.058l.069.058.707.707a.5.5 0 0 1 .058.638l-.058.069-3.005 3.005a4.5 4.5 0 0 1-6.524-6.196l.16-.168 3.005-3.005zm8.132-3.182a.25.25 0 0 1 .353 0l1.061 1.06a.25.25 0 0 1 0 .354l-8.132 8.132a.25.25 0 0 1-.353 0l-1.061-1.06a.25.25 0 0 1 0-.354l8.132-8.132z"></path></svg></span><span>https://github.com/skywind3000/PyStand</span></span></span></a></p>
+<p><br></p>
+<h1 id="开始打包"><a href="#开始打包" class="headerlink" title="开始打包"></a>开始打包</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="1-首先准备好要打包的项目"><a href="#1-首先准备好要打包的项目" class="headerlink" title="1.首先准备好要打包的项目"></a>1.首先准备好要打包的项目</h3><p><a data-fancybox="gallery" data-caption="the mftools troject" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/01/3e03ad45232cde5d90c6674f169bf1f9.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/01/3e03ad45232cde5d90c6674f169bf1f9.png" alt="the mftools troject"></a></p>
+<blockquote>
+<p>这是我给Mfuns写的一个<a target="_blank" rel="noopener" href="https://github.com/imouup/Mfuns_tools">小工具</a>，可以把网盘外链转成直链 </p>
+</blockquote>
+<h3 id="2-下载嵌入式Python包"><a href="#2-下载嵌入式Python包" class="headerlink" title="2. 下载嵌入式Python包"></a>2. 下载嵌入式Python包</h3><p><a target="_blank" href="https://www.python.org/downloads/release/python-3810/" style="position: relative; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; box-sizing: border-box; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-items: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 390px; min-height: 84px; border-radius: 8px; max-width: 100%; overflow: hidden; margin: 16px auto; padding: 12px 12px 9px 12px; background-color: #F6F6F6;"><span class="LinkCard-contents"><span style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; max-height: 40px; line-height: 1.25; color: #121212;">Python 3.8.10</span><span style="display: -webkit-box; font-size: 13px; height: 18px; line-height: 18px; color: #999; word-break: break-all; text-overflow: ellipsis; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical;"><span style="display: inline-flex; align-items: center;"><svg class="Zi Zi--InsertLink" fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M13.414 4.222a4.5 4.5 0 1 1 6.364 6.364l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005a2.5 2.5 0 1 0-3.536-3.536l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005zm-6.187 6.187a.5.5 0 0 1 .638-.058l.07.058.706.707a.5.5 0 0 1 .058.638l-.058.07-3.005 3.004a2.5 2.5 0 0 0 3.405 3.658l.13-.122 3.006-3.005a.5.5 0 0 1 .638-.058l.069.058.707.707a.5.5 0 0 1 .058.638l-.058.069-3.005 3.005a4.5 4.5 0 0 1-6.524-6.196l.16-.168 3.005-3.005zm8.132-3.182a.25.25 0 0 1 .353 0l1.061 1.06a.25.25 0 0 1 0 .354l-8.132 8.132a.25.25 0 0 1-.353 0l-1.061-1.06a.25.25 0 0 1 0-.354l8.132-8.132z"></path></svg></span><span>https://www.python.org/downloads/release/python-3810/</span></span></span></a></p>
+<p><br></p>
+<p><a data-fancybox="gallery" data-caption="py3.8.10embeddable" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/01/97a3ae2f55694f2cfabb60122dd7c994.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/01/97a3ae2f55694f2cfabb60122dd7c994.png" alt="py3.8.10embeddable"></a></p>
+<p>这里选择Python3.8.10 的32位版本嵌入包，因为Python3.8.10 是最后一个支持Win7的版本，使用32位可以使得包更紧凑</p>
+<p>下载完以后解压缩，在前面准备好的项目文件夹下新建<code>runtime</code>目录，把解压得到的文件放到里面去</p>
+<p><br></p>
+<h2 id="编译PyStand项目"><a href="#编译PyStand项目" class="headerlink" title="编译PyStand项目"></a>编译PyStand项目</h2><p>PyStand的Release页只提供了GUI版本，但我这是一个命令行脚本，因此必须手动编译</p>
+<p>同时我也想更换一下图标</p>
+<blockquote>
+<p>以下内容参考了这位大佬的文章 </p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/myd7349/9f7c6334e67d1aee68a722a15df4a62a">How-to-use-PyStand</a></p>
+</blockquote>
+<h3 id="下载cmake-amp-安装C-编译器"><a href="#下载cmake-amp-安装C-编译器" class="headerlink" title="下载cmake &amp; 安装C++编译器"></a>下载cmake &amp; 安装C++编译器</h3><h4 id="Cmake"><a href="#Cmake" class="headerlink" title="Cmake"></a>Cmake</h4><p><a target="_blank" href="https://cmake.org/download/" style="position: relative; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; box-sizing: border-box; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-items: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 390px; min-height: 84px; border-radius: 8px; max-width: 100%; overflow: hidden; margin: 16px auto; padding: 12px 12px 9px 12px; background-color: #F6F6F6;"><span class="LinkCard-contents"><span style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; max-height: 40px; line-height: 1.25; color: #121212;">Cmake downloads</span><span style="display: -webkit-box; font-size: 13px; height: 18px; line-height: 18px; color: #999; word-break: break-all; text-overflow: ellipsis; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical;"><span style="display: inline-flex; align-items: center;"><svg class="Zi Zi--InsertLink" fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M13.414 4.222a4.5 4.5 0 1 1 6.364 6.364l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005a2.5 2.5 0 1 0-3.536-3.536l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005zm-6.187 6.187a.5.5 0 0 1 .638-.058l.07.058.706.707a.5.5 0 0 1 .058.638l-.058.07-3.005 3.004a2.5 2.5 0 0 0 3.405 3.658l.13-.122 3.006-3.005a.5.5 0 0 1 .638-.058l.069.058.707.707a.5.5 0 0 1 .058.638l-.058.069-3.005 3.005a4.5 4.5 0 0 1-6.524-6.196l.16-.168 3.005-3.005zm8.132-3.182a.25.25 0 0 1 .353 0l1.061 1.06a.25.25 0 0 1 0 .354l-8.132 8.132a.25.25 0 0 1-.353 0l-1.061-1.06a.25.25 0 0 1 0-.354l8.132-8.132z"></path></svg></span><span>https://cmake.org/download/</span></span></span></a></p>
+<p>我选择直接下载便携版（zip后缀），然后把里面的bin目录添加到PATH</p>
+<h4 id="C-编译器"><a href="#C-编译器" class="headerlink" title="C++编译器"></a>C++编译器</h4><p>因为还不太懂C++，选择直接安装Visual Studio的C++环境 =￣ω￣=</p>
+<hr>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译!"></a>编译!</h3><p>首先Clone PyStand的仓库 <code>git clone https://github.com/skywind3000/PyStand</code></p>
+<blockquote>
+<p>换图标：只要替换根目录下的<code>appicon.ico</code>文件即可</p>
+</blockquote>
+<p><br></p>
+<p>新建一个文件夹build文件夹存放编译过程中的文件 <code>mkdir build &amp;&amp; cd build</code></p>
+<p>开始Configure</p>
+<pre><code>cmake -S .. -B . -DPYSTAND_CONSOLE=ON -A Win32
+# -DPYSTAND_CONSOLE=ON指定了生成的是一个控制台项目，如果你要生成GUI项目删去它或者改成OFF即可
+# -A Win32指定生成的是32位应用
+</code></pre><p>编译</p>
+<pre><code>cmake --build . --config Release
+# --config Release指定编译的版本的Release版本而不是Debug版本
+</code></pre><p>然后应该能在Release文件夹下找到<code>PyStand.exe</code>文件，把它复制到最开始准备好的项目文件夹中</p>
+<p><br></p>
+<h2 id="准备第三方库"><a href="#准备第三方库" class="headerlink" title="准备第三方库"></a>准备第三方库</h2><p>准备第三方库有两种方法:</p>
+<ul>
+<li>第一种是利用另一个同版本纯净Python的虚拟环境</li>
+<li>第二种是直接在Python embeddable版本中安装pip来安装，第二种方法可以看看<a target="_blank" rel="noopener" href="https://gist.github.com/myd7349/9f7c6334e67d1aee68a722a15df4a62a#user-content-%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E7%9A%84%E4%BE%8B%E5%AD%90vitables">大佬的文章</a></li>
+</ul>
+<p>我用的是第一种方法</p>
+<h3 id="先在沙盒中安装与嵌入版同版本的Python"><a href="#先在沙盒中安装与嵌入版同版本的Python" class="headerlink" title="先在沙盒中安装与嵌入版同版本的Python"></a>先在沙盒中安装与嵌入版同版本的Python</h3><p><a data-fancybox="gallery" data-caption="install py3.8.10 in winsandbox" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/01/2c36a7d2726a18ecf13b0635e271864d.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/01/2c36a7d2726a18ecf13b0635e271864d.png" alt="install py3.8.10 in winsandbox"></a></p>
+<h3 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h3><pre><code>C:\Users\WDAGUtilityAccount&gt;python -m venv test
+</code></pre><h3 id="在虚拟环境中安装依赖"><a href="#在虚拟环境中安装依赖" class="headerlink" title="在虚拟环境中安装依赖"></a>在虚拟环境中安装依赖</h3><p>首先在PyCharm到处requirements.txt文件</p>
+<p>在<code>工具</code>中选择<code>同步Python要求</code>(sync python requirements)<br><a data-fancybox="gallery" data-caption="sync python requirements" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/01/73731b002a55bd2c2348db1bdbe8ce37.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/01/73731b002a55bd2c2348db1bdbe8ce37.png" alt="sync python requirements"></a></p>
+<p>导出requirements.txt文件<br><a data-fancybox="gallery" data-caption="export requirements.txt" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/01/b47471a9c6d08dccfe5be1bc6e10f435.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/01/b47471a9c6d08dccfe5be1bc6e10f435.png" alt="export requirements.txt"></a></p>
+<p>这会在项目根目录下生成requirements.txt文件，把它拷贝到刚才创建的虚拟环境test的目录所在的目录中</p>
+<p>安装依赖</p>
+<pre><code># 先激活虚拟环境
+C:\Users\WDAGUtilityAccount&gt;test\Scripts\activate
+# 安装依赖
+(test) C:\Users\WDAGUtilityAccount&gt;pip install -r requirements.txt
+</code></pre><p>安装完成后，把<code>test\Lib\site-packages</code>目录下没用的依赖删掉，然后把整个<code>site-packages</code>文件夹复制到最开始准备好项目文件夹下</p>
+<h2 id="小修小补"><a href="#小修小补" class="headerlink" title="小修小补"></a>小修小补</h2><h3 id="修改Python文件"><a href="#修改Python文件" class="headerlink" title="修改Python文件"></a>修改Python文件</h3><p>为了确保各个python文件都能顺利加载，我修改了Mftools.py文件，加入了以下内容</p>
+<pre><code>sys.path.append(r&#39;.\src&#39;)
+sys.path.append(r&#39;.\site-packages&#39;)
+sys.path.append(r&#39;.\plugins\pan_transfer&#39;)
+</code></pre><p>同时在pan_transfer.py文件中也加入了，因为不加入就会报错</p>
+<pre><code>sys.path.append(r&#39;.\src&#39;)
+sys.path.append(r&#39;.\site-packages&#39;)
+sys.path.append(r&#39;.\plugins\pan_transfer&#39;)
+</code></pre><p>其实我还不太清楚为什么用了<code>subprocess</code>后原本的模块搜索目录列表会无法生效，之后可以试试<code>import</code></p>
+<h3 id="修改文件名"><a href="#修改文件名" class="headerlink" title="修改文件名"></a>修改文件名</h3><p>这是项目作者的说明：</p>
+<blockquote>
+<p>PyStand.exe的功能是：</p>
+<ul>
+<li>自动加载 PyStand.exe 同级目录下面 runtime 子目录内的 Embedded Python</li>
+<li>自动启动 PyStand.exe 同级目录下面的 PyStand.int 程序（Python 代码）</li>
+<li>如果改名，会加载对应名称的 .int 文件，比如改为 MyDemo.exe 就会加载 MyDemo.int</li>
+<li>会自动添加 PyStand.exe 同级目录下的 site-packages 目录，库可以放到里面</li>
+</ul>
+</blockquote>
+<p><br></p>
+<p>我这个项目是通过根目录的<code>Mftools.py</code>用<code>subprocess</code>运行子目录下的py文件实现的</p>
+<p>因此我需要把根目录下的<code>Mftools.py</code>更名为<code>Mftools.int</code>，同时将<code>PyStand.exe</code>更名为<code>Mftools.exe</code></p>
+<p>最后的目录结构如下：<br><a data-fancybox="gallery" data-caption="dir structure" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/01/31e718eff2b43b45d0cbb9755d8c0cb5.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/01/31e718eff2b43b45d0cbb9755d8c0cb5.png" alt="dir structure"></a></p>
+<p>到这里就打包完成了，可以在命令行里打开<code>Mftools.exe</code>看看有没有有没问题</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.mouup.top/pico/picalipay.jpg"></li>
+                <li class="wechat-code"><img src="https://pico.cdn.mouup.top/picpicwxzs-small.jfif"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2024/07/29/%E6%8A%98%E8%85%BE%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86jsdelivr/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://js-cdn.mouup.top/gh/imouup/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://pic-oss.mouup.top/pic/2024/07/f9b7c09282274d0972512ed25c465fb1.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://pic-oss.mouup.top/pic/2024/07/f9b7c09282274d0972512ed25c465fb1.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                折腾使用Caddy反向代理jsdelivr</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
   
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2025/01/21/Python%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85%E7%AC%94%E8%AE%B0/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://pic-oss.mouup.top/pic/2025/01/2800e27cc6633498bfefebcc11efc858.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2025/01/21/Python%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85%E7%AC%94%E8%AE%B0/">
-    Python脚本打包笔记</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2025-1-21</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2025/01/21/Python%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85%E7%AC%94%E8%AE%B0/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
   
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2024/07/29/%E6%8A%98%E8%85%BE%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86jsdelivr/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://pic-oss.mouup.top/pic/2024/07/f9b7c09282274d0972512ed25c465fb1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2024/07/29/%E6%8A%98%E8%85%BE%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86jsdelivr/">
-    折腾使用Caddy反向代理jsdelivr</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2024-7-29</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2024/07/29/%E6%8A%98%E8%85%BE%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86jsdelivr/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2023/01/16/Stable-Diffusion-setup-run-train/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.mouup.top/pico/picaipaintexamlpe.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2023/01/16/Stable-Diffusion-setup-run-train/">
-    Stable Diffusion webui的部署运行以及embedding训练</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2023-1-16</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2023/01/16/Stable-Diffusion-setup-run-train/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2022/08/16/cloudflare-tunnel/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.mouup.top/pico/picpixiv100029456_p0.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2022/08/16/cloudflare-tunnel/">
-    用Cloudflare Tunnel进行内网穿透以及实现其他妙用</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2022-8-16</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2022/08/16/cloudflare-tunnel/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/08/09/ServerStatus-Hotaru%E4%BA%91%E6%8E%A2%E9%92%88-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7%E5%AE%A4/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.mouup.top/pico/pic%E7%9B%91%E6%8E%A7%E5%AE%A4%E6%88%AA%E5%9B%BE1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/08/09/ServerStatus-Hotaru%E4%BA%91%E6%8E%A2%E9%92%88-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7%E5%AE%A4/">
-    ServerStatus-Hotaru云探针----搭建服务器监控室 （已弃用）</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-8-9</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/08/09/ServerStatus-Hotaru%E4%BA%91%E6%8E%A2%E9%92%88-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7%E5%AE%A4/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/07/01/Dev-sidecar%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E7%A8%8B%E5%BA%8F%E5%91%98%E5%90%84%E7%A7%8D%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://rawgh.cdn.mouup.top/docmirror/dev-sidecar/master/doc/index.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/07/01/Dev-sidecar%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E7%A8%8B%E5%BA%8F%E5%91%98%E5%90%84%E7%A7%8D%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">
-    Dev-sidecar工具解决程序员各种网络问题</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-7-1</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/07/01/Dev-sidecar%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E7%A8%8B%E5%BA%8F%E5%91%98%E5%90%84%E7%A7%8D%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/02/18/%E6%8B%A5%E6%9C%89%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.mouup.top/pico/pic97162127.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/02/18/%E6%8B%A5%E6%9C%89%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5/">
-    拥有一个自己的新建标签页</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-2-18</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/02/18/%E6%8B%A5%E6%9C%89%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/01/31/Onedrive%E6%A1%8C%E9%9D%A2%E7%89%88%E7%99%BB%E5%BD%95%E7%99%BD%E5%B1%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://i.pcmag.com/imagery/reviews/065LBaNWT3jlc8HjQsR6vXE-19.1569479905.fit_scale.size_760x427.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/01/31/Onedrive%E6%A1%8C%E9%9D%A2%E7%89%88%E7%99%BB%E5%BD%95%E7%99%BD%E5%B1%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-    Onedrive桌面版登录白屏解决方案</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-1-31</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/01/31/Onedrive%E6%A1%8C%E9%9D%A2%E7%89%88%E7%99%BB%E5%BD%95%E7%99%BD%E5%B1%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/01/27/%E8%A7%86%E9%A2%91%E5%B5%8C%E5%85%A5%E6%B5%8B%E8%AF%95/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/imouup/pic/0.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/01/27/%E8%A7%86%E9%A2%91%E5%B5%8C%E5%85%A5%E6%B5%8B%E8%AF%95/">
-    视频嵌入测试</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-1-27</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/01/27/%E8%A7%86%E9%A2%91%E5%B5%8C%E5%85%A5%E6%B5%8B%E8%AF%95/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+      <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+      <div id="waline"></div>
+      <style>
+      #waline textarea {
+          box-sizing: border-box;
+          background: url("https://gitee.com/cungudafa/source/raw/master/img/gif/Sitich/Sitich2.gif") 100% 100% no-repeat;
+      }
+      </style>
+      <script>
+          Waline.init({
+                    el: '#waline',
+                    serverURL: 'https://waline.cdn.mouup.top/',
+                    lang: 'zh-CN',
+                    requiredFields: ['nick','mail'], //设置必填项
+                    placeholder: '来啊，快活啊！（Ctrl+Enter发送）',
+                    visitor: 'true',
+                    emoji: [
+                            '//unpkg.com/@waline/emojis@1.0.1/weibo',
+                            '//unpkg.com/@waline/emojis@1.0.1/bilibili',
+                            ],
+                    avatar: 'mp',
+                    dark: 'auto',
+                    });
+        </script>
+        <style>
+            /*设置 Waline 的主题色*/
+                :root {
+                 /* 字体大小 */
+                --waline-font-size: 16px;
 
+                  /* 常规颜色 */
+                 --waline-white: #fff;
+                 --waline-light-grey: rgb(255, 206, 71);
+                 --waline-dark-grey: rgb(87, 87, 87);
 
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+                 /* 主题色 */
+                 --waline-theme-color: #ffc341;
+                 --waline-active-color: hsl(36, 100%, 63%);
+
+                 /* 布局颜色 */
+                 --waline-color: rgb(185, 185, 185);
+                 --waline-bgcolor: #fff;
+                  --waline-bgcolor-light: #f8f8f8;
+                 --waline-bgcolor-hover: #ffffff;
+                 --waline-border-color: rgb(197, 197, 197);
+                 --waline-disable-bgcolor: #f8f8f8;
+                 --waline-disable-color: #bbb;
+                 --waline-code-bgcolor: #7c7c7c;
+
+                 /* 特殊颜色 */
+                 --waline-bq-color: #f0f0f0;
+
+                 /* 头像 */
+                 --waline-avatar-size: 3.25rem;
+                 --waline-m-avatar-size: calc(var(--waline-avatar-size) * 9 / 13);
+
+                 /* 徽章 */
+                 --waline-badge-color: #ffa4f0;
+                 --waline-badge-font-size: 0.775em;
+
+                  /* 信息 */
+                 --waline-info-bgcolor: #f8f8f8;
+                 --waline-info-color: rgb(177, 177, 177);
+                 --waline-info-font-size: 0.625em;
+
+                 /* 渲染选择 */
+                 --waline-border: 1px solid var(--waline-border-color);
+                 --waline-avatar-radius: 50%;
+                 --waline-box-shadow: 0;
+
+                 
+                }  
+                
+         </style>
+
+  
+  
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="nyaku.moe" class="profile gravatar"><img src="https://pico.cdn.mouup.top/picavatar202206.jpg" itemprop="image" alt="nyaku" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="nyaku.moe" itemprop="url" rel="author">nyaku</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
 
-<!-- 
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2025/01/21/Python%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85%E7%AC%94%E8%AE%B0/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://pic-oss.mouup.top/pic/2025/01/2800e27cc6633498bfefebcc11efc858.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2025/01/21/Python%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85%E7%AC%94%E8%AE%B0/">
-    Python脚本打包笔记</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2025-1-21</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2025/01/21/Python%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85%E7%AC%94%E8%AE%B0/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2024/07/29/%E6%8A%98%E8%85%BE%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86jsdelivr/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://pic-oss.mouup.top/pic/2024/07/f9b7c09282274d0972512ed25c465fb1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2024/07/29/%E6%8A%98%E8%85%BE%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86jsdelivr/">
-    折腾使用Caddy反向代理jsdelivr</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2024-7-29</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2024/07/29/%E6%8A%98%E8%85%BE%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86jsdelivr/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2023/01/16/Stable-Diffusion-setup-run-train/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.mouup.top/pico/picaipaintexamlpe.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2023/01/16/Stable-Diffusion-setup-run-train/">
-    Stable Diffusion webui的部署运行以及embedding训练</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2023-1-16</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2023/01/16/Stable-Diffusion-setup-run-train/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2022/08/16/cloudflare-tunnel/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.mouup.top/pico/picpixiv100029456_p0.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2022/08/16/cloudflare-tunnel/">
-    用Cloudflare Tunnel进行内网穿透以及实现其他妙用</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2022-8-16</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2022/08/16/cloudflare-tunnel/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/08/09/ServerStatus-Hotaru%E4%BA%91%E6%8E%A2%E9%92%88-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7%E5%AE%A4/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.mouup.top/pico/pic%E7%9B%91%E6%8E%A7%E5%AE%A4%E6%88%AA%E5%9B%BE1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/08/09/ServerStatus-Hotaru%E4%BA%91%E6%8E%A2%E9%92%88-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7%E5%AE%A4/">
-    ServerStatus-Hotaru云探针----搭建服务器监控室 （已弃用）</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-8-9</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/08/09/ServerStatus-Hotaru%E4%BA%91%E6%8E%A2%E9%92%88-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7%E5%AE%A4/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/07/01/Dev-sidecar%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E7%A8%8B%E5%BA%8F%E5%91%98%E5%90%84%E7%A7%8D%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://rawgh.cdn.mouup.top/docmirror/dev-sidecar/master/doc/index.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/07/01/Dev-sidecar%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E7%A8%8B%E5%BA%8F%E5%91%98%E5%90%84%E7%A7%8D%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">
-    Dev-sidecar工具解决程序员各种网络问题</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-7-1</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/07/01/Dev-sidecar%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E7%A8%8B%E5%BA%8F%E5%91%98%E5%90%84%E7%A7%8D%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/02/18/%E6%8B%A5%E6%9C%89%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.mouup.top/pico/pic97162127.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/02/18/%E6%8B%A5%E6%9C%89%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5/">
-    拥有一个自己的新建标签页</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-2-18</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/02/18/%E6%8B%A5%E6%9C%89%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/01/31/Onedrive%E6%A1%8C%E9%9D%A2%E7%89%88%E7%99%BB%E5%BD%95%E7%99%BD%E5%B1%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://i.pcmag.com/imagery/reviews/065LBaNWT3jlc8HjQsR6vXE-19.1569479905.fit_scale.size_760x427.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/01/31/Onedrive%E6%A1%8C%E9%9D%A2%E7%89%88%E7%99%BB%E5%BD%95%E7%99%BD%E5%B1%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-    Onedrive桌面版登录白屏解决方案</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-1-31</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/01/31/Onedrive%E6%A1%8C%E9%9D%A2%E7%89%88%E7%99%BB%E5%BD%95%E7%99%BD%E5%B1%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/01/27/%E8%A7%86%E9%A2%91%E5%B5%8C%E5%85%A5%E6%B5%8B%E8%AF%95/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/imouup/pic/0.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/01/27/%E8%A7%86%E9%A2%91%E5%B5%8C%E5%85%A5%E6%B5%8B%E8%AF%95/">
-    视频嵌入测试</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-1-27</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/01/27/%E8%A7%86%E9%A2%91%E5%B5%8C%E5%85%A5%E6%B5%8B%E8%AF%95/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
 
- -->
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>

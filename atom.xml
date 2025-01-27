@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nyaku.moe/"/>
-  <updated>2024-07-29T02:14:26.843Z</updated>
+  <updated>2025-01-27T05:00:50.496Z</updated>
   <id>https://nyaku.moe/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python脚本打包笔记</title>
+    <link href="https://nyaku.moe/2025/01/21/Python%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85%E7%AC%94%E8%AE%B0/"/>
+    <id>https://nyaku.moe/2025/01/21/Python脚本打包笔记/</id>
+    <published>2025-01-21T09:15:45.000Z</published>
+    <updated>2025-01-27T05:00:50.496Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://nyaku.moe/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="PyStand,Python,打包" scheme="https://nyaku.moe/tags/PyStand-Python-%E6%89%93%E5%8C%85/"/>
+    
+  </entry>
+  
+  <entry>
     <title>折腾使用Caddy反向代理jsdelivr</title>
     <link href="https://nyaku.moe/2024/07/29/%E6%8A%98%E8%85%BE%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86jsdelivr/"/>
     <id>https://nyaku.moe/2024/07/29/折腾使用Caddy反向代理jsdelivr/</id>
     <published>2024-07-29T01:06:34.000Z</published>
-    <updated>2024-07-29T02:14:26.843Z</updated>
+    <updated>2024-07-29T02:23:49.989Z</updated>
     
     <summary type="html">
     
