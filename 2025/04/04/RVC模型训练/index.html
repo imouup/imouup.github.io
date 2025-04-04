@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
   
-  <title itemprop="name">tags | 一之濑亚子| いちのせあこ</title>
+  <title itemprop="name">RVC模型训练 | 一之濑亚子| いちのせあこ</title>
   
     <link rel="shortcut icon" href="/images/favicon.png">
   
@@ -647,12 +647,255 @@
   </div>
 </header>
 
-        <div class="pattern-center-blank"></div>
-  
-  <div id="content" class="site-content">
-    <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      
-      <!-- .entry-content -->
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://pic-oss.mouup.top/pic/2025/04/c9f23fcbc4329ac70f5f4c9a72e98469.jpg);" src="https://js-cdn.mouup.top/gh/imouup/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://pic-oss.mouup.top/pic/2025/04/c9f23fcbc4329ac70f5f4c9a72e98469.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      RVC模型训练</h1>
+      <p class="entry-census">
+        <span>
+          <a href="nyaku.moe">
+            <img src="https://pico.cdn.mouup.top/picavatar202206.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="nyaku.moe">nyaku</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2025-4-4<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近想自己训练个模型在和别人语音的时候用，于是了解到了RVC这个项目</p>
+<p><a target="_blank" href="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI" style="position: relative; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; box-sizing: border-box; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-items: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 390px; min-height: 84px; border-radius: 8px; max-width: 100%; overflow: hidden; margin: 16px auto; padding: 12px 12px 9px 12px; background-color: #F6F6F6;"><span class="LinkCard-contents"><span style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; max-height: 40px; line-height: 1.25; color: #121212;">Retrieval-based-Voice-Conversion-WebUI</span><span style="display: -webkit-box; font-size: 13px; height: 18px; line-height: 18px; color: #999; word-break: break-all; text-overflow: ellipsis; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical;"><span style="display: inline-flex; align-items: center;"><svg class="Zi Zi--InsertLink" fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M13.414 4.222a4.5 4.5 0 1 1 6.364 6.364l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005a2.5 2.5 0 1 0-3.536-3.536l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005zm-6.187 6.187a.5.5 0 0 1 .638-.058l.07.058.706.707a.5.5 0 0 1 .058.638l-.058.07-3.005 3.004a2.5 2.5 0 0 0 3.405 3.658l.13-.122 3.006-3.005a.5.5 0 0 1 .638-.058l.069.058.707.707a.5.5 0 0 1 .058.638l-.058.069-3.005 3.005a4.5 4.5 0 0 1-6.524-6.196l.16-.168 3.005-3.005zm8.132-3.182a.25.25 0 0 1 .353 0l1.061 1.06a.25.25 0 0 1 0 .354l-8.132 8.132a.25.25 0 0 1-.353 0l-1.061-1.06a.25.25 0 0 1 0-.354l8.132-8.132z"></path></svg></span><span>https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI</span></span></span></a></p>
+<p>它可以实现<strong>人声模型的训练和实时推理</strong></p>
+<h1 id="数据集准备"><a href="#数据集准备" class="headerlink" title="数据集准备"></a>数据集准备</h1><blockquote>
+<p>Q10:需要多少训练集时长</p>
+<ul>
+<li><p><strong>推荐10min至50min</strong></p>
+</li>
+<li><p>保证音质高底噪低的情况下，如果有个人特色的音色统一，则多多益善</p>
+</li>
+<li><p>高水平的训练集（精简+音色有特色），5min至10min也是ok的，仓库作者本人就经常这么玩  </p>
+</li>
+<li><p>也有人拿1min至2min的数据来训练并且训练成功的，但是成功经验是其他人不可复现的，不太具备参考价值。这要求训练集音色特色非常明显（比如说高频气声较明显的萝莉少女音），且音质高；  </p>
+</li>
+<li><p>1min以下时长数据目前没见有人尝试（成功）过。不建议进行这种鬼畜行为。</p>
+</li>
+</ul>
+</blockquote>
+<p>根据官方说法，我们大概需要准备<strong>15分钟左右</strong>的干声</p>
+<p>我训练的是普拉娜的模型，音频数据主要来自游戏解包还有阿罗普拉频道，关于游戏解包数据我推荐使用这个项目：</p>
+<p><a target="_blank" href="https://github.com/ZM-Kimu/Blue-Archive-Asset-Downloader" style="position: relative; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; box-sizing: border-box; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-items: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 390px; min-height: 84px; border-radius: 8px; max-width: 100%; overflow: hidden; margin: 16px auto; padding: 12px 12px 9px 12px; background-color: #F6F6F6;"><span class="LinkCard-contents"><span style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; max-height: 40px; line-height: 1.25; color: #121212;">Blue Archive Asset Downloader</span><span style="display: -webkit-box; font-size: 13px; height: 18px; line-height: 18px; color: #999; word-break: break-all; text-overflow: ellipsis; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical;"><span style="display: inline-flex; align-items: center;"><svg class="Zi Zi--InsertLink" fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M13.414 4.222a4.5 4.5 0 1 1 6.364 6.364l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005a2.5 2.5 0 1 0-3.536-3.536l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005zm-6.187 6.187a.5.5 0 0 1 .638-.058l.07.058.706.707a.5.5 0 0 1 .058.638l-.058.07-3.005 3.004a2.5 2.5 0 0 0 3.405 3.658l.13-.122 3.006-3.005a.5.5 0 0 1 .638-.058l.069.058.707.707a.5.5 0 0 1 .058.638l-.058.069-3.005 3.005a4.5 4.5 0 0 1-6.524-6.196l.16-.168 3.005-3.005zm8.132-3.182a.25.25 0 0 1 .353 0l1.061 1.06a.25.25 0 0 1 0 .354l-8.132 8.132a.25.25 0 0 1-.353 0l-1.061-1.06a.25.25 0 0 1 0-.354l8.132-8.132z"></path></svg></span><span>https://github.com/ZM-Kimu/Blue-Archive-Asset-Downloader</span></span></span></a></p>
+<p>游戏解包音频可以直接用，视频提取的音轨还要做处理</p>
+<hr>
+<h2 id="一般音频处理"><a href="#一般音频处理" class="headerlink" title="一般音频处理"></a>一般音频处理</h2><p>首先打开webui，在RVC的根目录下打开go-web.bat</p>
+<p><a data-fancybox="gallery" data-caption="goweb" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/04/5975633cc0918c3174dfa7ce94adbd89.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/04/5975633cc0918c3174dfa7ce94adbd89.png" alt="goweb"></a></p>
+<p>转到<code>伴奏人声分离&amp;去混响&amp;去回声</code>选项卡</p>
+<p><a data-fancybox="gallery" data-caption="伴奏人声分离&amp;去混响&amp;去回声" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/04/2859c69b6ff1ecbff60957fbd965ab71.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/04/2859c69b6ff1ecbff60957fbd965ab71.png" alt="伴奏人声分离&amp;去混响&amp;去回声"></a></p>
+<p>把要处理的文件放在一个文件夹内，并在<code>输入待处理音频文件夹路径</code>里输入目录的路径，导出格式建议选wav，因为之后训练要用wav格式的文件<br>模型的选取可以参考作者的说明，我的建议是</p>
+<ul>
+<li>如果只是单纯的一般交谈声和bgm分离，用HP2或HP3比较适合</li>
+<li>如果是歌曲分离干声和伴奏可以考虑先用MDX-Net去混响再用DeEcho去延迟</li>
+</ul>
+<p>转换后的文件默认再RVC目录下的<code>opt</code>目录内<br>将所有的训练音频整合到同一个文件夹内</p>
+<hr>
+<h1 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h1><h2 id="Step-1-amp-2"><a href="#Step-1-amp-2" class="headerlink" title="Step 1&amp;2"></a>Step 1&amp;2</h2><h3 id="首先是基本的设置"><a href="#首先是基本的设置" class="headerlink" title="首先是基本的设置"></a>首先是基本的设置</h3><p><a data-fancybox="gallery" data-caption="step1&amp;2" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/04/491e38f855b5bdae1ae0a4b1807376ac.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/04/491e38f855b5bdae1ae0a4b1807376ac.png" alt="step1&amp;2"></a></p>
+<ul>
+<li>实验名：模型的名称</li>
+<li>目标采样率：与训练的音频相同</li>
+<li>版本选v2</li>
+<li>训练文件夹路径：填入刚才存放训练音频的文件夹路径</li>
+</ul>
+<p>其余全部默认即可</p>
+<h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><p><a data-fancybox="gallery" data-caption="step3" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/04/40eedb21265dcc3c951ce5897cfe74ed.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/04/40eedb21265dcc3c951ce5897cfe74ed.png" alt="step3"></a></p>
+<h3 id="训练设置部分："><a href="#训练设置部分：" class="headerlink" title="训练设置部分："></a>训练设置部分：</h3><p>一般保持默认即可<br>epoch在20附近比较合适</p>
+<h3 id="一键训练"><a href="#一键训练" class="headerlink" title="一键训练"></a>一键训练</h3><ul>
+<li><p>点击一键训练可以直接一次跑完step 1 &amp; 2 &amp; 3，等待输出以下内容即可</p>
+<pre><code>step3a:正在训练模型
+训练结束, 您可查看控制台训练日志或实验文件夹下的train.log
+(46248, 768),1185
+(46248, 768),1185
+training
+(46248, 768),1185
+training
+adding
+(46248, 768),1185
+training
+adding
+成功构建索引，added_IVF1185_Flat_nprobe_1_mi-test_v2.index
+全流程结束！
+</code></pre></li>
+<li><p>如果不使用一键训练，依此进行<code>处理数据</code> → <code>特征提取</code> → <code>训练模型</code> → <code>训练特征提取</code> <strong>是一样的</strong></p>
+</li>
+</ul>
+<p>更多问题可以参考官方wiki中的的<a target="_blank" rel="noopener" href="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94">常见问题解答</a></p>
+<h2 id="训练完成后的文件"><a href="#训练完成后的文件" class="headerlink" title="训练完成后的文件"></a>训练完成后的文件</h2><ul>
+<li><p>训练完成后，在<code>/assets/weights</code>目录下将会生成与实验名称同名的pth文件<br><a data-fancybox="gallery" data-caption="plana.pth" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/04/8db649ae094e87293234f948ffebe1d2.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/04/8db649ae094e87293234f948ffebe1d2.png" alt="plana.pth"></a></p>
+</li>
+<li><p>在<code>logs/&lt;实验名称&gt;</code>会生成一个<code>added</code>开头的<code>index</code>文件，这是模型的索引</p>
+</li>
+</ul>
+<p><strong>⚠️注意，<code>logs/&lt;实验名称&gt;</code>下的pth文件并不适用于推理！！！</strong></p>
+<hr>
+<h1 id="模型使用"><a href="#模型使用" class="headerlink" title="模型使用"></a>模型使用</h1><h2 id="1-WebUI"><a href="#1-WebUI" class="headerlink" title="1.WebUI"></a>1.WebUI</h2><p>在<code>模型推理</code>选项卡中刷新音色就可以看到刚刚训练好的模型，选择音色</p>
+<ul>
+<li>在<code>自动检测index路径,下拉式选择(dropdown)</code>中选择刚才的index文件</li>
+<li><code>输入待处理音频文件路径</code>中输入希望进行变声的音频文件<br>  ✨ 这里的输入音频必须是干声，否则结果将会极其鬼畜！！！</li>
+<li>调整参数，然后点击转换即可</li>
+</ul>
+<p><a data-fancybox="gallery" data-caption="reasoning" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/04/33dd78d492342d2dc5d8f13aecd4a7ff.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/04/33dd78d492342d2dc5d8f13aecd4a7ff.png" alt="reasoning"></a></p>
+<h2 id="生成实例"><a href="#生成实例" class="headerlink" title="生成实例"></a>生成实例</h2><h3 id="翻唱"><a href="#翻唱" class="headerlink" title="翻唱"></a>翻唱</h3><blockquote>
+<p>Feel my soul<br>寺泽百花</p>
+</blockquote>
+<ul>
+<li>合成：</li>
+</ul>
+<p><div id="aplayer01"></div></p>
+<script type="text/javascript">
+    const ap1 = new APlayer({
+    container: document.getElementById('aplayer01'),
+    audio: [{
+        name: 'feel my soul (feat.plana)',
+        artist: '普拉娜',
+        url: 'https://video-oss.mouup.top/feelmysoul(feat_plana).mp3',
+        cover: 'https://pic-oss.mouup.top/pic/2025/04/d8b6d827e92ddcd15ab78a31f58f0143.png'
+    }]
+});
+</script>
+
+
+<ul>
+<li>干声： </li>
+</ul>
+<p><div id="aplayer02"></div></p>
+<script type="text/javascript">
+    const ap2 = new APlayer({
+    container: document.getElementById('aplayer02'),
+    audio: [{
+        name: 'feel my soul (feat.plana, pure)',
+        artist: '普拉娜',
+        url: 'https://video-oss.mouup.top/tmpmp0o0pqt.mp3',
+        cover: 'https://pic-oss.mouup.top/pic/2025/04/d8b6d827e92ddcd15ab78a31f58f0143.png'
+    }]
+});
+</script>
+
+
+
+<hr>
+<h3 id="交谈"><a href="#交谈" class="headerlink" title="交谈"></a>交谈</h3><p><div id="aplayer03"></div></p>
+<script type="text/javascript">
+    const ap3 = new APlayer({
+    container: document.getElementById('aplayer03'),
+    audio: [{
+        name: '唱跳rap篮球music',
+        artist: '普拉娜',
+        url: 'https://video-oss.mouup.top/cxkplana.mp3'
+    }]
+});
+</script>
+
+
+<hr>
+<h2 id="2-实时语音转换"><a href="#2-实时语音转换" class="headerlink" title="2.实时语音转换"></a>2.实时语音转换</h2><p>使用RVC目录下的<code>go-realtime-gui.bat</code>即可打开实时语音转换</p>
+<h3 id="安装虚拟声卡"><a href="#安装虚拟声卡" class="headerlink" title="安装虚拟声卡"></a>安装虚拟声卡</h3><p>首先我们需要安装虚拟声卡，我用的是voicemeeter</p>
+<p><a target="_blank" href="https://voicemeeter.com" style="position: relative; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; box-sizing: border-box; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-items: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 390px; min-height: 84px; border-radius: 8px; max-width: 100%; overflow: hidden; margin: 16px auto; padding: 12px 12px 9px 12px; background-color: #F6F6F6;"><span class="LinkCard-contents"><span style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; max-height: 40px; line-height: 1.25; color: #121212;">Voicemeeter</span><span style="display: -webkit-box; font-size: 13px; height: 18px; line-height: 18px; color: #999; word-break: break-all; text-overflow: ellipsis; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical;"><span style="display: inline-flex; align-items: center;"><svg class="Zi Zi--InsertLink" fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M13.414 4.222a4.5 4.5 0 1 1 6.364 6.364l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005a2.5 2.5 0 1 0-3.536-3.536l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005zm-6.187 6.187a.5.5 0 0 1 .638-.058l.07.058.706.707a.5.5 0 0 1 .058.638l-.058.07-3.005 3.004a2.5 2.5 0 0 0 3.405 3.658l.13-.122 3.006-3.005a.5.5 0 0 1 .638-.058l.069.058.707.707a.5.5 0 0 1 .058.638l-.058.069-3.005 3.005a4.5 4.5 0 0 1-6.524-6.196l.16-.168 3.005-3.005zm8.132-3.182a.25.25 0 0 1 .353 0l1.061 1.06a.25.25 0 0 1 0 .354l-8.132 8.132a.25.25 0 0 1-.353 0l-1.061-1.06a.25.25 0 0 1 0-.354l8.132-8.132z"></path></svg></span><span>https://voicemeeter.com</span></span></span></a></p>
+<p><a data-fancybox="gallery" data-caption="voicemeeter" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/04/82a7ce467693b138e0b2adbddcd4661c.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/04/82a7ce467693b138e0b2adbddcd4661c.png" alt="voicemeeter"></a></p>
+<p>打开后：</p>
+<ul>
+<li>stereo input 1 &amp; 2 表示第一、二个物理输入设备</li>
+<li>VIRTUALINPUT 表示虚拟输入，go-realtime-gui就要在这里输入虚拟声卡<ul>
+<li>这里的A和B分别表示输出到<strong>物理输出设备</strong>和<strong>虚拟输出设备</strong>，点亮就是开启这条输出通道</li>
+<li>换句话说，打开A就会输出到耳机和音响，打开B就会输出到系统内的软件</li>
+</ul>
+</li>
+<li>最后HARDWARE OUT可以设置要输出声音的物理输出设备（例如音响和耳机）</li>
+</ul>
+<h3 id="在go-realtime-gui内"><a href="#在go-realtime-gui内" class="headerlink" title="在go-realtime-gui内"></a>在go-realtime-gui内</h3><p><a data-fancybox="gallery" data-caption="go-realtime-gui" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/04/6c5530e9d8d98ad87e72726e76e80315.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/04/6c5530e9d8d98ad87e72726e76e80315.png" alt="go-realtime-gui"></a></p>
+<ul>
+<li>输入设备设置为你的麦克风</li>
+<li>输出设备（输入声卡）直接选<code>Voicemeeter Input(VB-Audio Voi MME)</code>即可打开实时语音转换</li>
+</ul>
+<p>其他设置部分：</p>
+<ul>
+<li>音调如果是男声变女生尽量拉高，反之拉低</li>
+<li>建议打开降噪</li>
+</ul>
+<p>点击开始音频转换即可看到Voicemeeter里面虚拟通道有输入了</p>
+<h3 id="如何在软件内使用"><a href="#如何在软件内使用" class="headerlink" title="如何在软件内使用"></a>如何在软件内使用</h3><p>这里以Pr为例，在音频硬件首选项中选择输入音频设备为<code>Voicemeeter Out Bn</code><br>n为正整数</p>
+<p><strong>⚠️ 不要选择带A的，那些是物理输出</strong></p>
+<p><a data-fancybox="gallery" data-caption="pr" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/04/4d155b70437c472070424a02b630744c.png"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/04/4d155b70437c472070424a02b630744c.png" alt="pr"></a></p>
+<hr>
+<p>至此就全部完成啦 ヾ(≧▽≦*)o</p>
+<p><a data-fancybox="gallery" data-caption="cover" target="_blank" rel="noopener" href="https://pic-oss.mouup.top/pic/2025/04/c9f23fcbc4329ac70f5f4c9a72e98469.jpg"><img data-action="zoom" src="https://pic-oss.mouup.top/pic/2025/04/c9f23fcbc4329ac70f5f4c9a72e98469.jpg" alt="cover"></a></p>
+<blockquote>
+<p>封面：sensei👀<br>pid: <a target="_blank" rel="noopener" href="https://www.pixiv.net/artworks/115447576">115447576</a><br>artist: <a target="_blank" rel="noopener" href="https://www.pixiv.net/users/31909437">monthmio</a></p>
+</blockquote>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.mouup.top/pico/picalipay.jpg"></li>
+                <li class="wechat-code"><img src="https://pico.cdn.mouup.top/picpicwxzs-small.jfif"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2025/01/21/Python%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85%E7%AC%94%E8%AE%B0/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://js-cdn.mouup.top/gh/imouup/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://pic-oss.mouup.top/pic/2025/01/2800e27cc6633498bfefebcc11efc858.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://pic-oss.mouup.top/pic/2025/01/2800e27cc6633498bfefebcc11efc858.png">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                Python脚本打包笔记</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
   
   
@@ -733,43 +976,25 @@
 
   
   
-      <div class="single-reward">
-        <div class="reward-open">赏
-          <div class="reward-main">
-            <ul class="reward-row">
-              <li class="alipay-code"><img src="https://cdn.mouup.top/pico/picalipay.jpg"></li>
-              <li class="wechat-code"><img src="https://pico.cdn.mouup.top/picpicwxzs-small.jfif"></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-      <footer class="post-footer">
-        <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-        <div class="post-tags">
-        </div>
-        <div class="post-share">
-          <div class="social-share sharehidden share-component"></div>
-          <i class="iconfont show-share icon-forward"></i>
-        </div>
-      </footer><!-- .entry-footer -->
-    </article>
-      <!-- #post-## -->
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="/about/" class="profile gravatar"><img src="https://cdn.mouup.top/pico/picavatar.png" itemprop="image" alt="あこ" height="70" width="70"></a>
+          <a href="nyaku.moe" class="profile gravatar"><img src="https://pico.cdn.mouup.top/picavatar202206.jpg" itemprop="image" alt="nyaku" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="https://nyaku.moe" itemprop="url" rel="author">あこ</a>
+            <a href="nyaku.moe" itemprop="url" rel="author">nyaku</a>
             </h3>
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i>Can u see me?</p>
+        <p><i class="iconfont icon-write"></i></p>
       </section>
+    </main><!-- #main -->
   </div><!-- #primary -->
 </div>
+
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>

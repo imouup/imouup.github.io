@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nyaku.moe/"/>
-  <updated>2025-01-27T05:00:50.496Z</updated>
+  <updated>2025-04-04T10:08:34.995Z</updated>
   <id>https://nyaku.moe/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>RVC模型训练</title>
+    <link href="https://nyaku.moe/2025/04/04/RVC%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/"/>
+    <id>https://nyaku.moe/2025/04/04/RVC模型训练/</id>
+    <published>2025-04-04T07:10:20.000Z</published>
+    <updated>2025-04-04T10:08:34.995Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;最近想自己训练个模型在和别人语音的时候用，于是了解到了RVC这个项目&lt;/p&gt;
+&lt;p&gt;&lt;a target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="技术,RVC,AI" scheme="https://nyaku.moe/tags/%E6%8A%80%E6%9C%AF-RVC-AI/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python脚本打包笔记</title>
     <link href="https://nyaku.moe/2025/01/21/Python%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85%E7%AC%94%E8%AE%B0/"/>
     <id>https://nyaku.moe/2025/01/21/Python脚本打包笔记/</id>
     <published>2025-01-21T09:15:45.000Z</published>
-    <updated>2025-01-27T05:00:50.496Z</updated>
+    <updated>2025-04-04T07:47:28.280Z</updated>
     
     <summary type="html">
     
