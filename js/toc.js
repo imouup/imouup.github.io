@@ -58,7 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const activateTocLink = (id) => {
 
-        targetLink = document.querySelector(`.toc-link[href="#${CSS.escape(id)}"]`);
+        let targetLink = document.querySelector(`.toc-link[href="#${encodeURIComponent(id)}"]`);
+
 
         
 
