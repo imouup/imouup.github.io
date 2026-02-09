@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>
+        
+            如何解决chrome自带翻译无法使用的问题（非一般的改hosts/魔法上网） | Nemophila | blog of 一之濑亚子 いちのせあこ
+        
+        
+    </title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/ico/Nemo.svg" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    <!-- 引入LaTex支持css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <!-- 引入APlayer支持css和js -->
+    
+<link rel="stylesheet" href="/css/APlayer.min.css">
+
+    
+<script src="/js/APlayer.min.js"></script>
+
+    <!-- 引入Linking -->
+    
+<script src="/js/linking.js"></script>
+
+    <!-- 引入vercount计数器 -->
+    <script defer src="https://events.vercount.one/js"></script>
+    <script>
+        let HEXO_SETTINGS = {
+            root: "/", 
+            url: "https://nyaku.moe",
+            author: "izNyaku"
+        };
+
+        let THEME_SETTINGS = {
+            lazyload: {
+                enable: true,
+                loading_img: "/images/yachiyo_loading2_640.webp"
+            },
+            };        
+    </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Nemophila | blog of 一之濑亚子 いちのせあこ" type="application/atom+xml">
+</head>
+    <body>  
+    <header class="article-header">
+    
+        <div class="article-header-cover" style="background-image: url('https://cdn.mouup.top/pico/picKawaii%E3%81%8C%E3%81%99%E3%81%8D101887279_p0.png');"></div>
+    
+
+     
+
+<nav class="navbar ">
+    <a href="/" style="text-decoration: none;">
+        <h1 class="title ">Nemophila</h1> 
+    </a>
+    <div class="navlink ">
+        
+            <div class="nav-item-container ">
+                <a href="/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/home.svg'); mask-image: url('/ico/navbar/home.svg');">
+                     </div>
+                    <span>首页</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/archive.svg'); mask-image: url('/ico/navbar/archive.svg');">
+                     </div>
+                    <span>归档</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/tech/">
+                                
+                                    <i class="far fa-lightbulb" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="技术">技术</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/talk/">
+                                
+                                    <i class="fas fa-pen" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="杂谈">杂谈</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/note/">
+                                
+                                    <i class="far fa-note-sticky" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="笔记">笔记</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/list.svg'); mask-image: url('/ico/navbar/list.svg');">
+                     </div>
+                    <span>Lists</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/bangumis/">
+                                
+                                    <i class="fas fa-tv" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="番组">番组</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/music/">
+                                
+                                    <i class="far fa-headphones" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="音乐">音乐</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="/friends/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/heart.svg'); mask-image: url('/ico/navbar/heart.svg');">
+                     </div>
+                    <span>Friends</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/coffee.svg'); mask-image: url('/ico/navbar/coffee.svg');">
+                     </div>
+                    <span>Project</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila">
+                                
+                                <span data-content="Nemophila">Nemophila</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+        <a href="/atom.xml" class="navlink-rss ">
+            <div class="nav-icon " 
+                style="-webkit-mask-image: url('/ico/navbar/rss.svg'); mask-image: url('/ico/navbar/rss.svg');">
+            </div>
+        </a>
+    </div>
+    <a href="/search" class="search ">
+        <div class="nav-icon " 
+            style="-webkit-mask-image: url('/ico/navbar/search.svg'); mask-image: url('/ico/navbar/search.svg');">
+        </div>
+    </a>
+    
+</nav>
+    <div class="article-info need-shadow">
+        <h1 class="article-title">如何解决chrome自带翻译无法使用的问题（非一般的改hosts/魔法上网）</h1>
+        <span class="article-author-avatar-date-readtime">
+            <img src="/images/avatar.jpg" alt="Article author's Avatar" draggable="false" class="article-author-avatar no-lazyload">
+            <h2 class="article-author-name">一之濑亚子</h2>
+            ·
+            <time class="article-date" datetime="2023-03-18T12:42:07.000Z">2023-03-18</time>
+            ·
+            <span class="article-readtime"><span id="vercount_value_page_pv">Loading...</span>次阅读</span>
+        </span>
+    </div>
+</header>
+<div class="article-content-container">
+    <article class="article-content">
+        <aside id="article-toc" role="navigation">
+    <div id="toc-wrapper">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text"> 写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text"> 原理说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%93%88%E5%90%89%E9%A9%AC%E8%B7%AF%E5%93%9F"><span class="toc-number">3.</span> <span class="toc-text"> 哈吉马路哟！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%8D%E4%BB%A3%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-number">3.1.</span> <span class="toc-text"> 配置服务端反代（配置服务端）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cloudflare"><span class="toc-number">3.1.1.</span> <span class="toc-text"> cloudflare</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vercel"><span class="toc-number">3.1.2.</span> <span class="toc-text"> vercel</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%8F%8D%E4%BB%A3"><span class="toc-number">3.2.</span> <span class="toc-text"> 本地反代</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDnginx"><span class="toc-number">3.2.1.</span> <span class="toc-text"> 下载nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6"><span class="toc-number">3.2.2.</span> <span class="toc-text"> 自签证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.2.3.</span> <span class="toc-text"> 修改nginx配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8Cnginx"><span class="toc-number">3.2.4.</span> <span class="toc-text"> 运行nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9hosts"><span class="toc-number">3.2.5.</span> <span class="toc-text"> 修改hosts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="toc-number">3.2.6.</span> <span class="toc-text"> 开机自启</span></a></li></ol></li></ol></li></ol>
+    </div>
+</aside>
+
+<!-- TODO: 增加展开子标题功能 -->
+        <p>上一年（2022年）10月份左右开始，谷歌翻译退出中国大陆，导致中国大陆地区的chrome自带翻译无法使用。目前网上的解决方案主要是修改hosts或者挂系统代理，但这两种方法一个容易失效，另一个不够方便，因此本文将向你介绍一种不一样的解决方法。</p>
+<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
+<p>如果你不想折腾，你可以直接下载<a target="_blank" rel="noopener" href="https://pan.nyaku.moe/f/vakhp/chrome%E8%87%AA%E5%B8%A6%E7%BF%BB%E8%AF%91%E4%BF%AE%E5%A4%8D.zip">这个压缩包</a>，按照README里的教程操作即可，开箱即用。</p>
+<p>如果上面的下载地址失效了可以用这个<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1wzSlueNjLKC-VkHKA5gyCg?pwd=r5a6">备用下载地址</a></p>
+<blockquote>
+<p>因为workers每日调用额度只有10万次，如果太多人用，我自建的服务端可能会超限然后无法使用，所以强烈推荐大家自建服务端</p>
+</blockquote>
+<hr>
+<p>如果你感兴趣的话可以继续往下看(●’◡’●)</p>
+<hr>
+<h1 id="原理说明"><a class="markdownIt-Anchor" href="#原理说明"></a> 原理说明</h1>
+<p>本文介绍的方法是：<strong>「两层反向代理」</strong>，即先用cloudflare或者vercel反代谷歌翻译的api <code>translate.googleapis.com</code> ,再在本地用nginx反代第一层反代的域名</p>
+<h1 id="哈吉马路哟"><a class="markdownIt-Anchor" href="#哈吉马路哟"></a> 哈吉马路哟！</h1>
+<p>下面开始正式教程</p>
+<h2 id="配置服务端反代配置服务端"><a class="markdownIt-Anchor" href="#配置服务端反代配置服务端"></a> 配置服务端反代（配置服务端）</h2>
+<p>首先我们要用cf或者vercel反代谷歌翻译的api</p>
+<h3 id="cloudflare"><a class="markdownIt-Anchor" href="#cloudflare"></a> cloudflare</h3>
+<p>如果你选择使用cf的话，请参考以下步骤</p>
+<p>1.打开<a target="_blank" rel="noopener" href="https://dash.cloudflare.com/">cloudflare面板</a>，进入“workers”页面</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic2023-03-18212146.png" alt="workers" class="lazyload"></p>
+<p>点击创建服务</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic20230318212309.png" alt="创建服务" class="lazyload"></p>
+<p>点击快速编辑，替换为以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const hostname = &quot;https://translate.googleapis.com&quot;</span><br><span class="line"></span><br><span class="line">function handleRequest(request) &#123;</span><br><span class="line">    let url = new URL(request.url);</span><br><span class="line">    return fetch(new Request(hostname + url.pathname,request))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addEventListener(&quot;fetch&quot;, event =&gt; &#123;</span><br><span class="line">  event.respondWith(handleRequest(event.request))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>点击保存部署</p>
+<p>2.设置workers路由</p>
+<blockquote>
+<p>因为workers.dev被墙了</p>
+</blockquote>
+<p>回到主页，点击“网站”</p>
+<p>点进你的域名，新建一条A记录，名称随意（这里我用translate）,ip地址随便填（比如我填8.8.8.8），<strong>一定要把云朵点上！</strong></p>
+<p>进入“workers路由”<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic2023-03-18213413.png" alt="workersluyou" class="lazyload"></p>
+<p>点添加路由<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic2023-03-18213646.png" alt="添加路由" class="lazyload"></p>
+<p>&quot;路由&quot;填``https://&lt;你前面弄的域名&gt;/*<br />
+&quot;服务&quot;选择之前的那个workers<br />
+&quot;环境&quot;为production</p>
+<p>保存即可</p>
+<p>如果设置正确，大概一两分钟后，访问你设置的域名就可以肯定这样的页面了</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic20230318214009.png" alt="这样的页面" class="lazyload"></p>
+<p>(别被404吓到了，这是正常的。另外，一般情况下谷歌的图标是显示不出来的)</p>
+<h3 id="vercel"><a class="markdownIt-Anchor" href="#vercel"></a> vercel</h3>
+<p>如果你不想用cf而是选择用vercel，你可以参考以下内容进行配置</p>
+<p>首先注册vercel账号</p>
+<p>然后用以下命令在本地安装vercel cli（注意，你必须先安装node）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g vercel</span><br></pre></td></tr></table></figure>
+<p>然后登录vercel</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vercel login</span><br></pre></td></tr></table></figure>
+<p>随便找个文件夹新建一个json文件，名字随意，粘贴以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;version&quot;: 2,</span><br><span class="line">  &quot;routes&quot;: [</span><br><span class="line">    &#123;&quot;src&quot;: &quot;/(.*)&quot;,&quot;dest&quot;: &quot;https://translate.googleapis.com/$1&quot;&#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>保存退出，在json文件所在目录呼出终端，运行以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">verceL-A &lt;文件名&gt;.json--prod</span><br></pre></td></tr></table></figure>
+<p>按步骤部署，一般一直回车就行了</p>
+<p>部署完成后打开vercel的面板，为这个project绑定一个域名，这里不多赘述</p>
+<blockquote>
+<p>因为vercel.app也被污染了</p>
+</blockquote>
+<p>到这里我们就完成了服务端的部署</p>
+<h2 id="本地反代"><a class="markdownIt-Anchor" href="#本地反代"></a> 本地反代</h2>
+<h3 id="下载nginx"><a class="markdownIt-Anchor" href="#下载nginx"></a> 下载nginx</h3>
+<p>首先<a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">下载nginx</a></p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic2023-03-19130226.png" alt="download" class="lazyload"></p>
+<p>一般下载稳定版就好了</p>
+<h3 id="自签证书"><a class="markdownIt-Anchor" href="#自签证书"></a> 自签证书</h3>
+<p>0.你首先需要安装好openssl</p>
+<h4 id="1创建ca证书"><a class="markdownIt-Anchor" href="#1创建ca证书"></a> 1.创建CA证书</h4>
+<p>创建CA证书</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out nyaCA.key 2048</span><br></pre></td></tr></table></figure>
+<p>生成CA公钥</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -x509 -key nyaCA.key -out nyaCA.cer -days 36500</span><br></pre></td></tr></table></figure>
+<p>按说明输入信息，其中Common可以随便填</p>
+<h4 id="2创建服务器证书"><a class="markdownIt-Anchor" href="#2创建服务器证书"></a> 2.创建服务器证书</h4>
+<p>首先生成服务器秘钥</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 2048</span><br></pre></td></tr></table></figure>
+<p>创建签名请求<br />
+新建一个名叫openssl.cnf的文件，粘贴以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line">tsa_policy2 = 1.2.3.4.5.6</span><br><span class="line">tsa_policy3 = 1.2.3.4.5.7</span><br><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default  # The default ca section</span><br><span class="line">[ CA_default ]</span><br><span class="line">dir  = ./demoCA  # Where everything is kept</span><br><span class="line">certs  = $dir/certs  # Where the issued certs are kept</span><br><span class="line">crl_dir  = $dir/crl  # Where the issued crl are kept</span><br><span class="line">database = $dir/index.txt # database index file.</span><br><span class="line">new_certs_dir = $dir/newcerts  # default place for new certs.</span><br><span class="line">certificate = $dir/cacert.pem  # The CA certificate</span><br><span class="line">serial  = $dir/serial   # The current serial number</span><br><span class="line">crlnumber = $dir/crlnumber # the current crl number</span><br><span class="line">crl  = $dir/crl.pem   # The current CRL</span><br><span class="line">private_key = $dir/private/cakey.pem# The private key</span><br><span class="line">RANDFILE = $dir/private/.rand # private random number file</span><br><span class="line">x509_extensions = usr_cert  # The extentions to add to the cert</span><br><span class="line">name_opt  = ca_default  # Subject Name options</span><br><span class="line">cert_opt  = ca_default  # Certificate field options</span><br><span class="line">default_days = 365   # how long to certify for</span><br><span class="line">default_crl_days= 30   # how long before next CRL</span><br><span class="line">default_md = default  # use public key default MD</span><br><span class="line">preserve = no   # keep passed DN ordering</span><br><span class="line">policy  = policy_match</span><br><span class="line">[ policy_match ]</span><br><span class="line">countryName  = match</span><br><span class="line">stateOrProvinceName = match</span><br><span class="line">organizationName = match</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName  = supplied</span><br><span class="line">emailAddress  = optional</span><br><span class="line">[ policy_anything ]</span><br><span class="line">countryName  = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">localityName  = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName  = supplied</span><br><span class="line">emailAddress  = optional</span><br><span class="line">[ req ]</span><br><span class="line">default_bits  = 1024</span><br><span class="line">default_keyfile  = privkey.pem</span><br><span class="line">distinguished_name = req_distinguished_name</span><br><span class="line">attributes  = req_attributes</span><br><span class="line">x509_extensions = v3_ca # The extentions to add to the self signed cert</span><br><span class="line">string_mask = utf8only</span><br><span class="line">req_extensions = v3_req # The extensions to add to a certificate request</span><br><span class="line">[ req_distinguished_name ]</span><br><span class="line">countryName   = Country Name (2 letter code)</span><br><span class="line">countryName_default  = CN</span><br><span class="line">countryName_min   = 2</span><br><span class="line">countryName_max   = 2</span><br><span class="line">stateOrProvinceName  = State or Province Name (full name)</span><br><span class="line">stateOrProvinceName_default = Mama</span><br><span class="line">localityName   = Locality Name (eg, city)</span><br><span class="line">0.organizationName  = Organization Name (eg, company)</span><br><span class="line">0.organizationName_default = nya</span><br><span class="line">organizationalUnitName  = Organizational Unit Name (eg, section)</span><br><span class="line">commonName   = Common Name (e.g. server FQDN or YOUR name)</span><br><span class="line">commonName_max   = 64</span><br><span class="line">emailAddress   = Email Address</span><br><span class="line">emailAddress_max  = 64</span><br><span class="line">[ req_attributes ]</span><br><span class="line">challengePassword  = A challenge password</span><br><span class="line">challengePassword_min  = 4</span><br><span class="line">challengePassword_max  = 20</span><br><span class="line">unstructuredName  = An optional company name</span><br><span class="line">[ usr_cert ]</span><br><span class="line">basicConstraints=CA:FALSE</span><br><span class="line">nsCertType = client, email, objsign</span><br><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">nsComment   = &quot;OpenSSL Generated Certificate&quot;</span><br><span class="line">subjectKeyIdentifier=hash</span><br><span class="line">authorityKeyIdentifier=keyid,issuer</span><br><span class="line">[ svr_cert ]</span><br><span class="line">basicConstraints=CA:FALSE</span><br><span class="line">nsCertType   = server</span><br><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment, dataEncipherment, keyAgreement</span><br><span class="line">subjectKeyIdentifier=hash</span><br><span class="line">authorityKeyIdentifier=keyid,issuer</span><br><span class="line">extendedKeyUsage = serverAuth,clientAuth</span><br><span class="line">[ v3_req ]</span><br><span class="line">subjectAltName = @alt_names</span><br><span class="line"></span><br><span class="line">[ alt_names ]</span><br><span class="line">DNS.1 = translate.googleapis.com</span><br><span class="line">[ v3_ca ]</span><br><span class="line">subjectKeyIdentifier=hash</span><br><span class="line">authorityKeyIdentifier=keyid:always,issuer</span><br><span class="line">basicConstraints = CA:true</span><br><span class="line">[ crl_ext ]</span><br><span class="line">authorityKeyIdentifier=keyid:always</span><br><span class="line">[ proxy_cert_ext ]</span><br><span class="line">basicConstraints=CA:FALSE</span><br><span class="line">nsComment   = &quot;OpenSSL Generated Certificate&quot;</span><br><span class="line">subjectKeyIdentifier=hash</span><br><span class="line">authorityKeyIdentifier=keyid,issuer</span><br><span class="line">proxyCertInfo=critical,language:id-ppl-anyLanguage,pathlen:3,policy:foo</span><br><span class="line">[ tsa ]</span><br><span class="line">default_tsa = tsa_config1 # the default TSA section</span><br><span class="line">[ tsa_config1 ]</span><br><span class="line">dir  = ./demoCA  # TSA root directory</span><br><span class="line">serial  = $dir/tsaserial # The current serial number (mandatory)</span><br><span class="line">crypto_device = builtin  # OpenSSL engine to use for signing</span><br><span class="line">signer_cert = $dir/tsacert.pem  # The TSA signing certificate</span><br><span class="line">     # (optional)</span><br><span class="line">certs  = $dir/cacert.pem # Certificate chain to include in reply</span><br><span class="line">     # (optional)</span><br><span class="line">signer_key = $dir/private/tsakey.pem # The TSA private key (optional)</span><br><span class="line">default_policy = tsa_policy1  # Policy if request did not specify it</span><br><span class="line">     # (optional)</span><br><span class="line">other_policies = tsa_policy2, tsa_policy3 # acceptable policies (optional)</span><br><span class="line">digests  = md5, sha1  # Acceptable message digests (mandatory)</span><br><span class="line">accuracy = secs:1, millisecs:500, microsecs:100 # (optional)</span><br><span class="line">clock_precision_digits  = 0 # number of digits after dot. (optional)</span><br><span class="line">ordering  = yes # Is ordering defined for timestamps?</span><br><span class="line">    # (optional, default: no)</span><br><span class="line">tsa_name  = yes # Must the TSA name be included in the reply?</span><br><span class="line">    # (optional, default: no)</span><br><span class="line">ess_cert_id_chain = no # Must the ESS cert id chain be included?</span><br><span class="line">    # (optional, default: no)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>保存后运行以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -config openssl.cnf -new -out server.req -key server.key</span><br></pre></td></tr></table></figure>
+<p>注意这里的Common Name填<code>translate.googleapis.com</code></p>
+<p>通过CA机构证书对服务器证书进行签名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req  -extfile openssl.cnf -extensions v3_req -in server.req -out server.cer -CAkey nyaCA.key -CA nyaCA.cer -days 36500 -CAcreateserial -CAserial serial</span><br></pre></td></tr></table></figure>
+<p>然后将生成的server.cer(公钥)和server.key(密钥)部署到nginx</p>
+<h4 id="3信任ca机构证书"><a class="markdownIt-Anchor" href="#3信任ca机构证书"></a> 3.信任CA机构证书</h4>
+<p>如果是Windows的话直接双击生成的nyaCA.cer，将证书导入到<code>受信任的根证书颁发机构即可</code></p>
+<blockquote>
+<p>自签证书部分参考了<a target="_blank" rel="noopener" href="https://www.tangyuecan.com/2021/12/17/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E6%90%AD%E5%BB%BA%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AF%E4%BF%A1%E4%BB%BB%E7%9A%84ssl%E8%AF%81%E4%B9%A6/">这篇文章</a></p>
+</blockquote>
+<blockquote>
+<p>如果你懒得折腾可以直接用我给你的压缩包里签好的证书</p>
+</blockquote>
+<h3 id="修改nginx配置文件"><a class="markdownIt-Anchor" href="#修改nginx配置文件"></a> 修改nginx配置文件</h3>
+<p>修改conf目录下的<code>nginx.conf</code>文件<br />
+在http的大括号内加入<code>include tranlate.conf;</code>(不要漏了分号)</p>
+<p>在conf目录下新建一个名叫<code>translate.conf</code>的文件，粘贴以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name translate.googleapis.com;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    ssl_certificate &lt;公钥路径&gt;; </span><br><span class="line">    ssl_certificate_key &lt;私钥路径&gt;; </span><br><span class="line"></span><br><span class="line">    client_max_body_size 50M;</span><br><span class="line"></span><br><span class="line">    location /</span><br><span class="line">  &#123;</span><br><span class="line">    proxy_pass https://&lt;服务端域名&gt;;   #注意后面没有“/”</span><br><span class="line">    proxy_set_header Host &lt;服务端域名&gt;;</span><br><span class="line">    #向后端传递访客 ip</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header REMOTE-HOST $remote_addr;</span><br><span class="line">    #向后端传递访客 ip （反代CF增加规则）</span><br><span class="line">   </span><br><span class="line">    proxy_ssl_name &lt;服务端域名&gt;;</span><br><span class="line">    proxy_ssl_server_name on;</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>修改其中的&lt;服务端域名&gt;、&lt;公钥路径&gt;、&lt;私钥路径&gt;</p>
+<h3 id="运行nginx"><a class="markdownIt-Anchor" href="#运行nginx"></a> 运行nginx</h3>
+<p>建议先在nginx.exe所在目录用终端运行nginx，看看有没有报错</p>
+<p>如果一切正常就可以双击nginx.exe让nginx在后台运行了</p>
+<h3 id="修改hosts"><a class="markdownIt-Anchor" href="#修改hosts"></a> 修改hosts</h3>
+<p>在<code>C:\Windows\System32\drivers\etc</code>下的hosts文件中添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 translate.googleapis.com</span><br></pre></td></tr></table></figure>
+<h3 id="开机自启"><a class="markdownIt-Anchor" href="#开机自启"></a> 开机自启</h3>
+<p>为nginx.exe创建快捷方式，然后将快捷方式复制到目录<code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp</code>下即可</p>
+<p>至此大功告成</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic20230319114506.png" alt="test0" class="lazyload"></p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic%E2%99%A1%E2%99%A1104950815_p0.png" alt="good" class="lazyload"></p>
+
+    </article>
+    
+        <div class="article-cclicense">
+            <a class="article-cclicense-text" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        </div>
+    
+    
+        <div class="article-next" 
+            
+                style="--bg-url: url('https://cdn.mouup.top/pico/picaipaintexamlpe.png');"
+            >
+            <a class="article-next-link-card" href="/2023/01/16/Stable-Diffusion-setup-run-train/">
+                <p class="article-next-text1">Next Post</p>
+                <p class="article-next-title">Stable Diffusion webui的部署运行以及embedding训练</p>
+            </a>
+        </div>
+    
+    
+        <div id="waline"></div>
+            <script type="module">
+                import { init } from '/js/waline.js';
+
+                init({
+                el: '#waline',
+                serverURL: 'https://waline.cdn.mouup.top/',
+                });
+            </script>
+        </div>
+    
+        
+
+<!-- TODO: 整理waline -->
+
+
+
+<!-- 引入代码块所用js -->
+
+<script src="/js/addImgTitle.js"></script>
+
+
+<script src="/js/highlight.js"></script>
+ 
+
+<script src="/js/toc.js"></script>
+
+
+
+    <footer id="footer">
+    <img src="/ico/Nemo.svg" alt="Nemophila" id="nemo-footer">
+    <p>Theme <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila"><strong>Nemophila</strong></a></p>
+    <p>Powered by Love from <a href="https://nyaku.moe">izNyaku</a></p>
+    <div id="footer-space"></div>
+    <p>© 2021 - 2026 izNyaku. All rights reserved.</p>
+    
+         <a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20212022">萌ICP备20212022号</a>
+    
+       
+</footer>
+
+    
+        
+<script src="/js/lazyload.js"></script>
+  <!-- lazyload -->
+    
+    
+    <a id="up">
+    <img src="/images/yachiyo.PNG" class="yachiyo-up no-lazy">
+</a>
+    
+<script src="/js/up.js"></script>
+
+    
+    
+    </body>
+</html>

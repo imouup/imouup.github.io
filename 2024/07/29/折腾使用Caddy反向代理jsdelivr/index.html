@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>
+        
+            折腾使用Caddy反向代理jsdelivr | Nemophila | blog of 一之濑亚子 いちのせあこ
+        
+        
+    </title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/ico/Nemo.svg" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    <!-- 引入LaTex支持css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <!-- 引入APlayer支持css和js -->
+    
+<link rel="stylesheet" href="/css/APlayer.min.css">
+
+    
+<script src="/js/APlayer.min.js"></script>
+
+    <!-- 引入Linking -->
+    
+<script src="/js/linking.js"></script>
+
+    <!-- 引入vercount计数器 -->
+    <script defer src="https://events.vercount.one/js"></script>
+    <script>
+        let HEXO_SETTINGS = {
+            root: "/", 
+            url: "https://nyaku.moe",
+            author: "izNyaku"
+        };
+
+        let THEME_SETTINGS = {
+            lazyload: {
+                enable: true,
+                loading_img: "/images/yachiyo_loading2_640.webp"
+            },
+            };        
+    </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Nemophila | blog of 一之濑亚子 いちのせあこ" type="application/atom+xml">
+</head>
+    <body>  
+    <header class="article-header">
+    
+        <div class="article-header-cover" style="background-image: url('https://pic-oss.mouup.top/pic/2024/07/f9b7c09282274d0972512ed25c465fb1.jpg');"></div>
+    
+
+     
+
+<nav class="navbar ">
+    <a href="/" style="text-decoration: none;">
+        <h1 class="title ">Nemophila</h1> 
+    </a>
+    <div class="navlink ">
+        
+            <div class="nav-item-container ">
+                <a href="/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/home.svg'); mask-image: url('/ico/navbar/home.svg');">
+                     </div>
+                    <span>首页</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/archive.svg'); mask-image: url('/ico/navbar/archive.svg');">
+                     </div>
+                    <span>归档</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/tech/">
+                                
+                                    <i class="far fa-lightbulb" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="技术">技术</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/talk/">
+                                
+                                    <i class="fas fa-pen" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="杂谈">杂谈</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/note/">
+                                
+                                    <i class="far fa-note-sticky" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="笔记">笔记</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/list.svg'); mask-image: url('/ico/navbar/list.svg');">
+                     </div>
+                    <span>Lists</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/bangumis/">
+                                
+                                    <i class="fas fa-tv" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="番组">番组</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/music/">
+                                
+                                    <i class="far fa-headphones" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="音乐">音乐</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="/friends/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/heart.svg'); mask-image: url('/ico/navbar/heart.svg');">
+                     </div>
+                    <span>Friends</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/coffee.svg'); mask-image: url('/ico/navbar/coffee.svg');">
+                     </div>
+                    <span>Project</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila">
+                                
+                                <span data-content="Nemophila">Nemophila</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+        <a href="/atom.xml" class="navlink-rss ">
+            <div class="nav-icon " 
+                style="-webkit-mask-image: url('/ico/navbar/rss.svg'); mask-image: url('/ico/navbar/rss.svg');">
+            </div>
+        </a>
+    </div>
+    <a href="/search" class="search ">
+        <div class="nav-icon " 
+            style="-webkit-mask-image: url('/ico/navbar/search.svg'); mask-image: url('/ico/navbar/search.svg');">
+        </div>
+    </a>
+    
+</nav>
+    <div class="article-info need-shadow">
+        <h1 class="article-title">折腾使用Caddy反向代理jsdelivr</h1>
+        <span class="article-author-avatar-date-readtime">
+            <img src="/images/avatar.jpg" alt="Article author's Avatar" draggable="false" class="article-author-avatar no-lazyload">
+            <h2 class="article-author-name">一之濑亚子</h2>
+            ·
+            <time class="article-date" datetime="2024-07-29T01:06:34.000Z">2024-07-29</time>
+            ·
+            <span class="article-readtime"><span id="vercount_value_page_pv">Loading...</span>次阅读</span>
+        </span>
+    </div>
+</header>
+<div class="article-content-container">
+    <article class="article-content">
+        <aside id="article-toc" role="navigation">
+    <div id="toc-wrapper">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%98%E8%B5%B7"><span class="toc-number">1.</span> <span class="toc-text"> 缘起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B"><span class="toc-number">2.</span> <span class="toc-text"> 开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.1.</span> <span class="toc-text"> 准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#caddy%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B9%A6%E5%86%99"><span class="toc-number">2.2.</span> <span class="toc-text"> Caddy配置文件书写</span></a></li></ol></li></ol>
+    </div>
+</aside>
+
+<!-- TODO: 增加展开子标题功能 -->
+        <h2 id="缘起"><a class="markdownIt-Anchor" href="#缘起"></a> 缘起</h2>
+<p>最近我把服务器的web server从nginx换到了Caddy2，（因为Caddy2真的太tm人性化了），但随之而来，我发现caddy反代的的语法和nginx差别似乎并不小，折腾了好久才搞好了图床的反代，故书此文以记之。</p>
+<h2 id="开始"><a class="markdownIt-Anchor" href="#开始"></a> 开始</h2>
+<p>⚠️注意：本文中所写的Caddy均指Caddy V2，V1与V2的语法存在较大差别，请留意！</p>
+<h3 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h3>
+<p>还是常规的任务，将域名解析到服务器</p>
+<h3 id="caddy配置文件书写"><a class="markdownIt-Anchor" href="#caddy配置文件书写"></a> Caddy配置文件书写</h3>
+<h4 id="1"><a class="markdownIt-Anchor" href="#1"></a> 1</h4>
+<p>打开Caddy配置文件目录，我的在/etc/caddy下，你可以直接编辑Caddyfile，也可以创建另一个文件将其引入到Caddyfile,我选择在sites文件夹下新建cdn.conf并将其引入<br />
+首先编辑Caddyfile，加入引用句段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import /etc/caddy/sites/*.conf</span><br></pre></td></tr></table></figure>
+<p>然后新建或打开sites文件夹<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2024/07/3d235f15a564391f98ad5b6d075fbef3.png" alt="/etc/caddy" class="lazyload"><br />
+新建cdn.conf文件</p>
+<h4 id="2编辑文件内容"><a class="markdownIt-Anchor" href="#2编辑文件内容"></a> 2.编辑文件内容</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim cdn.conf</span><br></pre></td></tr></table></figure>
+<p>首先设定域名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cdn.xxxxx.moe:443&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>设置自动更新ssl证书</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cdn.xxxxx.moe:443 &#123;</span><br><span class="line">	tls 233333@gmail.com  #这里填你自己的邮箱</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr/>
+<p>我希望当别人直接访问<code>cdn.xxxxx.moe</code>时跳转到一个说明页面<code>nyacdn.moe</code>，而访问<code>cdn.xxxxx.moe/pico/</code>时则执行图床的反代。我需要使用<a target="_blank" rel="noopener" href="https://caddy2.dengxiaolong.com/docs/caddyfile/directives/handle">handle</a>语法，它类似nginx中的<code>location</code>指令。</p>
+<p>因而语法结构如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cdn.xxxxx.moe:443 &#123;</span><br><span class="line">	tls 233333@gmail.com</span><br><span class="line">	handle / &#123;</span><br><span class="line">		redir https://nyacdn.moe permanent</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	handle /pico/* &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr/>
+接下来是反向代理的部分
+由于语法不同，Caddy中不能像nginx一样直接用```proxy_pass```反代路径
+<blockquote>
+<p>上游地址不能包含路径或查询字符串，因为这将意味着在代理时同时重写请求，这种行为没有被定义或支持<a href="#footnote1">[1]</a></p>
+</blockquote>
+<p>我本来想用<a target="_blank" rel="noopener" href="https://caddy2.dengxiaolong.com/docs/caddyfile/directives/rewrite">rewrite</a>的，但是折腾了很久之后我发现它并不适用，最后我发现了caddy还有<a target="_blank" rel="noopener" href="https://caddy2.dengxiaolong.com/docs/caddyfile/directives/uri">uri</a>这个语法，完美地实现了我的需要。</p>
+<p>首先让<code>cdn.xxxxx.moe/pico/</code>反代<code>https://cdn.jsdelivr.net</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">handle /pico/* &#123;</span><br><span class="line">	reverse_proxy https://cdn.jsdelivr.net</span><br><span class="line">           header_up Host &#123;upstream_hostport&#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>记得一定要加上<code>header_up Host &#123;upstream_hostport&#125;</code>否则jsdelivr会拦截</p>
+<p>然后用<code>uri</code>改写url</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">handle /pico/* &#123;</span><br><span class="line">		uri replace /pico/ /gh/xxxxx/pico/</span><br><span class="line">		reverse_proxy https://cdn.jsdelivr.net &#123;</span><br><span class="line">			header_up Host &#123;upstream_hostport&#125;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后的配置文件长这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cdn.xxxxxx.moe:443 &#123;</span><br><span class="line">	tls 233333@gmail.com</span><br><span class="line">	handle / &#123;</span><br><span class="line">		redir https://nyacdn.moe permanent</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	handle /pico/* &#123;</span><br><span class="line">		uri replace /pico/ /gh/xxxxx/pico/</span><br><span class="line">		reverse_proxy https://cdn.jsdelivr.net &#123;</span><br><span class="line">			header_up Host &#123;upstream_hostport&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>回到Caddyfile所在目录，使用<code>caddy validate</code>检查配置文件是否有问题</p>
+<p>没有问题的话使用<code>caddy reload</code>重载配置文件，或者重启caddy</p>
+<p>大功告成！<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2024/07/dc8fc1e6e08409f05d70b2207ff2b62e.png" alt="success" class="lazyload"></p>
+<li id="footnote1">
+[1]:[参考Caddy文档关于reverse_proxy语法的说明](https://caddy2.dengxiaolong.com/docs/caddyfile/directives/reverse_proxy)
+</li>
+    </article>
+    
+        <div class="article-cclicense">
+            <a class="article-cclicense-text" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        </div>
+    
+    
+        <div class="article-next" 
+            
+                style="--bg-url: url('https://cdn.mouup.top/pico/picKawaii%E3%81%8C%E3%81%99%E3%81%8D101887279_p0.png');"
+            >
+            <a class="article-next-link-card" href="/2023/03/18/google-translate-fix/">
+                <p class="article-next-text1">Next Post</p>
+                <p class="article-next-title">如何解决chrome自带翻译无法使用的问题（非一般的改hosts/魔法上网）</p>
+            </a>
+        </div>
+    
+    
+        <div id="waline"></div>
+            <script type="module">
+                import { init } from '/js/waline.js';
+
+                init({
+                el: '#waline',
+                serverURL: 'https://waline.cdn.mouup.top/',
+                });
+            </script>
+        </div>
+    
+        
+
+<!-- TODO: 整理waline -->
+
+
+
+<!-- 引入代码块所用js -->
+
+<script src="/js/addImgTitle.js"></script>
+
+
+<script src="/js/highlight.js"></script>
+ 
+
+<script src="/js/toc.js"></script>
+
+
+
+    <footer id="footer">
+    <img src="/ico/Nemo.svg" alt="Nemophila" id="nemo-footer">
+    <p>Theme <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila"><strong>Nemophila</strong></a></p>
+    <p>Powered by Love from <a href="https://nyaku.moe">izNyaku</a></p>
+    <div id="footer-space"></div>
+    <p>© 2021 - 2026 izNyaku. All rights reserved.</p>
+    
+         <a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20212022">萌ICP备20212022号</a>
+    
+       
+</footer>
+
+    
+        
+<script src="/js/lazyload.js"></script>
+  <!-- lazyload -->
+    
+    
+    <a id="up">
+    <img src="/images/yachiyo.PNG" class="yachiyo-up no-lazy">
+</a>
+    
+<script src="/js/up.js"></script>
+
+    
+    
+    </body>
+</html>

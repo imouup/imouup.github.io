@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>
+        
+            Stable Diffusion webui的部署运行以及embedding训练 | Nemophila | blog of 一之濑亚子 いちのせあこ
+        
+        
+    </title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/ico/Nemo.svg" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    <!-- 引入LaTex支持css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <!-- 引入APlayer支持css和js -->
+    
+<link rel="stylesheet" href="/css/APlayer.min.css">
+
+    
+<script src="/js/APlayer.min.js"></script>
+
+    <!-- 引入Linking -->
+    
+<script src="/js/linking.js"></script>
+
+    <!-- 引入vercount计数器 -->
+    <script defer src="https://events.vercount.one/js"></script>
+    <script>
+        let HEXO_SETTINGS = {
+            root: "/", 
+            url: "https://nyaku.moe",
+            author: "izNyaku"
+        };
+
+        let THEME_SETTINGS = {
+            lazyload: {
+                enable: true,
+                loading_img: "/images/yachiyo_loading2_640.webp"
+            },
+            };        
+    </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Nemophila | blog of 一之濑亚子 いちのせあこ" type="application/atom+xml">
+</head>
+    <body>  
+    <header class="article-header">
+    
+        <div class="article-header-cover" style="background-image: url('https://cdn.mouup.top/pico/picaipaintexamlpe.png');"></div>
+    
+
+     
+
+<nav class="navbar ">
+    <a href="/" style="text-decoration: none;">
+        <h1 class="title ">Nemophila</h1> 
+    </a>
+    <div class="navlink ">
+        
+            <div class="nav-item-container ">
+                <a href="/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/home.svg'); mask-image: url('/ico/navbar/home.svg');">
+                     </div>
+                    <span>首页</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/archive.svg'); mask-image: url('/ico/navbar/archive.svg');">
+                     </div>
+                    <span>归档</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/tech/">
+                                
+                                    <i class="far fa-lightbulb" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="技术">技术</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/talk/">
+                                
+                                    <i class="fas fa-pen" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="杂谈">杂谈</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/note/">
+                                
+                                    <i class="far fa-note-sticky" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="笔记">笔记</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/list.svg'); mask-image: url('/ico/navbar/list.svg');">
+                     </div>
+                    <span>Lists</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/bangumis/">
+                                
+                                    <i class="fas fa-tv" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="番组">番组</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/music/">
+                                
+                                    <i class="far fa-headphones" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="音乐">音乐</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="/friends/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/heart.svg'); mask-image: url('/ico/navbar/heart.svg');">
+                     </div>
+                    <span>Friends</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/coffee.svg'); mask-image: url('/ico/navbar/coffee.svg');">
+                     </div>
+                    <span>Project</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila">
+                                
+                                <span data-content="Nemophila">Nemophila</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+        <a href="/atom.xml" class="navlink-rss ">
+            <div class="nav-icon " 
+                style="-webkit-mask-image: url('/ico/navbar/rss.svg'); mask-image: url('/ico/navbar/rss.svg');">
+            </div>
+        </a>
+    </div>
+    <a href="/search" class="search ">
+        <div class="nav-icon " 
+            style="-webkit-mask-image: url('/ico/navbar/search.svg'); mask-image: url('/ico/navbar/search.svg');">
+        </div>
+    </a>
+    
+</nav>
+    <div class="article-info need-shadow">
+        <h1 class="article-title">Stable Diffusion webui的部署运行以及embedding训练</h1>
+        <span class="article-author-avatar-date-readtime">
+            <img src="/images/avatar.jpg" alt="Article author's Avatar" draggable="false" class="article-author-avatar no-lazyload">
+            <h2 class="article-author-name">一之濑亚子</h2>
+            ·
+            <time class="article-date" datetime="2023-01-16T09:11:08.000Z">2023-01-16</time>
+            ·
+            <span class="article-readtime"><span id="vercount_value_page_pv">Loading...</span>次阅读</span>
+        </span>
+    </div>
+</header>
+<div class="article-content-container">
+    <article class="article-content">
+        <aside id="article-toc" role="navigation">
+    <div id="toc-wrapper">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%86%99%E7%82%B9%E4%B8%9C%E8%A5%BF"><span class="toc-number">1.</span> <span class="toc-text"> 随机写点东西</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2"><span class="toc-number">2.</span> <span class="toc-text"> 开始部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF"><span class="toc-number">2.1.</span> <span class="toc-text"> 我的系统信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.2.</span> <span class="toc-text"> 准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%BC%8F%E5%BC%80%E6%90%9E"><span class="toc-number">2.3.</span> <span class="toc-text"> 正式开搞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%AF%E6%97%B6%E5%80%99%E7%8E%A9%E4%BA%86"><span class="toc-number">3.</span> <span class="toc-text"> 是时候玩了</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text"> 简单介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#embedding%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text"> embedding的使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#embedding%E7%9A%84%E7%82%BC%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text"> embedding的炼制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C-2"><span class="toc-number">4.1.</span> <span class="toc-text"> 准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%BC%8F%E5%BC%80%E5%A7%8B"><span class="toc-number">4.2.</span> <span class="toc-text"> 正式开始</span></a></li></ol></li></ol>
+    </div>
+</aside>
+
+<!-- TODO: 增加展开子标题功能 -->
+        <h2 id="随机写点东西"><a class="markdownIt-Anchor" href="#随机写点东西"></a> 随机写点东西</h2>
+<p>我觉得是时候给刚学会 的ai绘画技巧做个归档了（不然以后忘了就又要重来了）</p>
+<hr>
+<h2 id="开始部署"><a class="markdownIt-Anchor" href="#开始部署"></a> 开始部署</h2>
+<h3 id="我的系统信息"><a class="markdownIt-Anchor" href="#我的系统信息"></a> 我的系统信息</h3>
+<p>系统：Windows10<br />
+GPU：RTX3060ti</p>
+<h3 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h3>
+<h4 id="安装anaconda"><a class="markdownIt-Anchor" href="#安装anaconda"></a> 安装anaconda</h4>
+<p>访问<a target="_blank" rel="noopener" href="https://www.anaconda.com/">anaconda官网</a>直接下载安装，建议使用IDM或者挂梯</p>
+<p>安装时建议选择just me,这样更方便添加环境变量<br />
+勾选添加到path<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic173019.png" alt="add to path" class="lazyload"></p>
+<h4 id="网络"><a class="markdownIt-Anchor" href="#网络"></a> 网络</h4>
+<p>1.最好准备一把梯子</p>
+<p>2.对conda和pip进行换源</p>
+<h5 id="conda换源"><a class="markdownIt-Anchor" href="#conda换源"></a> conda换源</h5>
+<p>打开Windows终端，输入以下命令输出.condarc文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+<p>打开<code>C:\users\你的用户名\.condarc</code></p>
+<p>粘贴以下内容（换为清华源）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span><br><span class="line">ssl_verify: true</span><br></pre></td></tr></table></figure>
+<h5 id="pip换源"><a class="markdownIt-Anchor" href="#pip换源"></a> pip换源</h5>
+<p>在<code>C:\users\你的用户名\AppData\Roaming</code>中新建或打开<code>pip</code>文件夹，在里面新建或修改<code>pip.ini</code>文件，粘贴以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+<h3 id="正式开搞"><a class="markdownIt-Anchor" href="#正式开搞"></a> 正式开搞</h3>
+</br>
+<h4 id="1环境配置"><a class="markdownIt-Anchor" href="#1环境配置"></a> 1.环境配置</h4>
+<p>打开anaconda，新建一个环境，python版本选择3.10.8。不能用base环境因为base环境python版本为3.9，使用Stable Diffusion webui需要3.10.6以上</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic174403.png" alt="create" class="lazyload"></p>
+<blockquote>
+<p>当然你也可以在命令行创建环境</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;conda create -n aipaint python=3.10</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>配置环境时先clone项目仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git</span><br></pre></td></tr></table></figure>
+<p>进入项目仓库，右键「在终端中打开」，如果你没有这个选项，就按住shift右键在powershell中打开</p>
+</br>
+<p>激活创建好的环境</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate aipaint</span><br></pre></td></tr></table></figure>
+<p>执行以下命令安装依赖项（如果的依赖项要求有改动，请改为最新要求）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge</span><br></pre></td></tr></table></figure>
+<p>如果换源成功的话安装过程是很快的</p>
+</br>
+<h4 id="2模型下载"><a class="markdownIt-Anchor" href="#2模型下载"></a> 2.模型下载</h4>
+<blockquote>
+<p>推荐下载novelai泄露的模型</p>
+</blockquote>
+<p>1.novelai模型:包括 4g的一般模型<a target="_blank" rel="noopener" href="https://cloudflare-ipfs.com/ipfs/bafybeicpamreyp2bsocyk3hpxr7ixb2g2rnrequub3j2ahrkdxbvfbvjc4/model.ckpt">animefull-final-pruned</a>和7g的<a target="_blank" rel="noopener" href="https://pan.nyaku.moe/f/2QhQ/animefull-latest.ckpt">animefull-final-latest模型</a></p>
+<p>2.stable diffusion模型：前往<a target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic185053.png">huggingFace</a><br />
+这两个模型一个是毕竟小的，一个是比较大 的，自己选着下（需要注册huggleface账号）</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic185053.png" alt="stable-diffusion模型" class="lazyload"></p>
+<p>3.Waifu Diffusion模型：<a target="_blank" rel="noopener" href="https://huggingface.co/hakurei/waifu-diffusion-v1-4/tree/main">下载地址</a>,选择性下载.ckpt后缀的文件</p>
+<h4 id="3运行"><a class="markdownIt-Anchor" href="#3运行"></a> 3.运行</h4>
+<p>然后，在命令行输入<code>webui.bat</code>运行安装脚本（不要直接双击，否则会使用默认环境中的python3.9）然后脚本就会自动安装剩余的依赖项并运行Stable Diffusion webui</p>
+<p>当你看到命令行输出以下内容时就部署完毕且成功运行了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Installing requirements for Web UI</span><br><span class="line">Launching Web UI with arguments:</span><br><span class="line">No module &#x27;xformers&#x27;. Proceeding without it.</span><br><span class="line">LatentDiffusion: Running in eps-prediction mode</span><br><span class="line">DiffusionWrapper has 859.52 M params.</span><br><span class="line">Loading weights [e6e8e1fc] from G:\stable-diffusion-webui\models\Stable-diffusion\novel.ckpt</span><br><span class="line">Applying cross attention optimization (Doggettx).</span><br><span class="line">Textual inversion embeddings loaded(4): ha_hutao, natsuki_nacho, nya_gzc, yileina</span><br><span class="line">Model loaded in 33.5s (0.5s create model, 30.1s load weights).</span><br><span class="line">Running on local URL:  http://127.0.0.1:7860</span><br><span class="line"></span><br><span class="line">To create a public link, set `share=True` in `launch()`.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>你需要知道的一点：webui的脚本在初次运行时其实在项目目录新建了一个虚拟环境（venv）因此此后每一次运行webui只需要双击打开webui.bat文件即可</p>
+</blockquote>
+<h4 id="4额外配置"><a class="markdownIt-Anchor" href="#4额外配置"></a> 4.额外配置</h4>
+<p>安装deepbooru和xformers</p>
+<p>编辑项目目录下的webui-user.bat文件</p>
+<p>它里面原本应该是这样的（没有中文）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line"></span><br><span class="line">set PYTHON= &lt;python路径&gt;</span><br><span class="line"></span><br><span class="line">set GIT= &lt;git路径&gt;</span><br><span class="line"></span><br><span class="line">set VENV_DIR= &lt;虚拟环境所在目录名称&gt; </span><br><span class="line"></span><br><span class="line">set COMMANDLINE_ARGS= &lt;你要附加的命令&gt;</span><br><span class="line"></span><br><span class="line">call webui.bat</span><br></pre></td></tr></table></figure>
+<p><strong>python路径：</strong> 填<code>&lt;webui的目录路径&gt;\venv\Scripts\Python.exe</code>,例如<code>H:\stable-diffusion-webui\venv\Scripts\Python.exe</code></p>
+<p><strong>git路径：</strong> 一般不用管</p>
+<p><strong>虚拟环境所在目录名称：</strong> 默认为venv，不用修改</p>
+<p><strong>你要附加的命令：</strong> 我们要安装deepbooru和xformers所以在这里填上<code>--deepbooru --xformers</code></p>
+<p>改完之后就是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line"></span><br><span class="line">set PYTHON=H:\stable-diffusion-webui\venv\Scripts\Python.exe</span><br><span class="line"></span><br><span class="line">set GIT=</span><br><span class="line"></span><br><span class="line">set VENV_DIR=venv</span><br><span class="line"></span><br><span class="line">set COMMANDLINE_ARGS=--xformers</span><br><span class="line"></span><br><span class="line">call webui.bat</span><br></pre></td></tr></table></figure>
+<p>保存退出然后运行它就可以完成安装了（如果安装失败可能是网络问题）</p>
+<hr>
+<h2 id="是时候玩了"><a class="markdownIt-Anchor" href="#是时候玩了"></a> 是时候玩了</h2>
+<p>打开<a target="_blank" rel="noopener" href="http://127.0.0.1:7860/">127.0.0.1:7860</a>进入webui页面</p>
+<h3 id="简单介绍"><a class="markdownIt-Anchor" href="#简单介绍"></a> 简单介绍</h3>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic191459.png" alt="介绍" class="lazyload"></p>
+<p><em><strong>特别说明：</strong></em></p>
+<p><strong>Sampling method:</strong> 采样方法。不同的采样方法得到图片的效果不同，二次元一般用Euler_a和DDIM</p>
+<p><strong>Sampling steps：</strong> 生成步骤。越高代表细节越丰富，但过高不一定就很好，一般在30左右</p>
+<p><strong>CFG Scale：</strong> 数值越高图像越接近关键词描述的内容，同时会影响柔和度和清晰度，Scale值越高我感觉图会看起来更清晰，也就是线条会更加明显。</p>
+<p><strong>Batch count：</strong> 队列数（一般为1就好了）</p>
+<p><strong>Batch size：</strong> 单个队列中生成多少张图</p>
+<p><strong>Seed：</strong> 填写种子。可以填入别人的种子，使用种子可以获得相似的出图效果</p>
+<p>输入咒语就可以开始生成图片啦！</p>
+<blockquote>
+<p>特别推荐</p>
+<p>大佬开发的写咒语网站<a target="_blank" rel="noopener" href="https://ai.dawnmark.cn/">AI词汇加速器</a>，可以快速生成咒语</p>
+</blockquote>
+<p><strong>常用咒语：</strong></p>
+<p>1.一般默认正面咒语：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;an extremely delicate and beautiful girl&#125;, 8k wallpaper, &#123;&#123;&#123;masterpiece&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>2.标准负面咒语：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry</span><br></pre></td></tr></table></figure>
+<h3 id="embedding的使用"><a class="markdownIt-Anchor" href="#embedding的使用"></a> embedding的使用</h3>
+<blockquote>
+<p>embedding，也就是一般私炉炼出来的丹，负载在模型上使用</p>
+</blockquote>
+<p>在网络上下载后缀为.pt的文件后。将其放入webui目录下的<code>embeddings</code>文件夹中即可使用</p>
+<p>使用embedding时只需在正面咒语的框内输入制作者炼制时使用的prompt即可</p>
+<p>例如我现在下载了一个伊雷娜的embedding，我只需使用``yileina```，就可以使用它了</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic194653.png" alt="lizi" class="lazyload"></p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic00285-1028413214-yileina.png" alt="伊雷娜我真的好喜欢你啊！" class="lazyload"></p>
+<h2 id="embedding的炼制"><a class="markdownIt-Anchor" href="#embedding的炼制"></a> embedding的炼制</h2>
+<p>如果网上找不到你需要的embedding，那是时候来当炼金师了</p>
+<h3 id="准备工作-2"><a class="markdownIt-Anchor" href="#准备工作-2"></a> 准备工作</h3>
+<h4 id="首先你要找图"><a class="markdownIt-Anchor" href="#首先你要找图"></a> <strong>首先你要找图</strong></h4>
+<p>1.可以取pixiv抓取画作（推荐使用<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/powerful-pixiv-downloader/dkndmhgdcmjdmkdonmbgjpijejdcilfh">Powerful Pixiv Downloader</a>）</p>
+<p>2.或者取e站下图包（里站）</p>
+<h4 id="然后对图片进行筛选和预处理"><a class="markdownIt-Anchor" href="#然后对图片进行筛选和预处理"></a> <strong>然后对图片进行筛选和预处理</strong></h4>
+<p>1.请筛选出人物突出（单人），背景比较干净的图片，不要出现边框、文字等内容</p>
+<p>2.对于背景比较复制的图片可以使用<a target="_blank" rel="noopener" href="https://github.com/danielgatis/rembg">rembg</a>去除背景</p>
+<p>安装过程非常简单，按照README就行了（注意先装onnxruntime-gpu，README里有说）</p>
+<p>然后在终端进入你放选好的图片的文件夹(pic)的前一个文件夹，新建一个放置处理后文件的文件夹<picok1>，使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rembg p pic picok1</span><br></pre></td></tr></table></figure>
+<p>记得看一下处理情况，有些如果处理得比较差的话可以考虑用回原图</p>
+<p>3.裁剪：建议用<a target="_blank" rel="noopener" href="https://www.onlinephotosoft.com/birme/">这个网站</a>手动裁剪，当然你也可以到下一步让webui来剪</p>
+<p>用网站裁剪记得将图片大小调为512x512,处理完将图片存储到一个新的文件夹(我命名为picok2)</p>
+<h4 id="调整webui设置"><a class="markdownIt-Anchor" href="#调整webui设置"></a> <strong>调整webui设置</strong></h4>
+<p>打开<code>setting</code>选项卡，点<code>Training</code>,勾选<code>Move VAE and CLIP to RAM when training if possible. Saves VRAM.</code>  (这个操作可以在训练时节省显存)，然后点Apply settings确认修改。</p>
+<h3 id="正式开始"><a class="markdownIt-Anchor" href="#正式开始"></a> 正式开始</h3>
+<p><strong>点Train选项卡</strong></p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic200634.png" alt="create" class="lazyload"></p>
+<p>输入你要训练的embedding的名称,它将会作为你后续使用这个embedding时的prompt</p>
+<p>在Number of vectors per token中，如果你是训练人物，建议在6以上，如果是画风建议在10以上</p>
+<p><strong>点击Preprocess images预处理图片</strong></p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/picchrome_SXZ2h807vR.png" alt="prepic" class="lazyload"></p>
+<p><strong>Create flipped copies：</strong> 创建镜像图片。建议勾选，能得到双份样本。</p>
+<p><strong>Split oversized images：</strong> 把过大的图片裁切成多张。我们已经切好图片了，所以不需要。</p>
+<p><strong>Auto focal point crop：</strong> 自动聚焦，就是自动截出过大的图片的重点部分（ai认为的重点）。我们同样不需要</p>
+<p><strong>Use BLIP for caption：</strong> 和 <strong>Use deepbooru for caption</strong> 建议勾选，特别是deepbooru对于二次元炼丹有帮助</p>
+<p>点preprocess进行预处理</p>
+<h4 id="点train进入训练选项"><a class="markdownIt-Anchor" href="#点train进入训练选项"></a> <strong>点train进入训练选项</strong></h4>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic201741.png" alt="train" class="lazyload"></p>
+<p>未完待续…</p>
+
+    </article>
+    
+        <div class="article-cclicense">
+            <a class="article-cclicense-text" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        </div>
+    
+    
+        <div class="article-next" 
+            
+                style="--bg-url: url('https://cdn.mouup.top/pico/picpixiv100029456_p0.jpg');"
+            >
+            <a class="article-next-link-card" href="/2022/08/16/cloudflare-tunnel/">
+                <p class="article-next-text1">Next Post</p>
+                <p class="article-next-title">用Cloudflare Tunnel进行内网穿透以及实现其他妙用</p>
+            </a>
+        </div>
+    
+    
+        <div id="waline"></div>
+            <script type="module">
+                import { init } from '/js/waline.js';
+
+                init({
+                el: '#waline',
+                serverURL: 'https://waline.cdn.mouup.top/',
+                });
+            </script>
+        </div>
+    
+        
+
+<!-- TODO: 整理waline -->
+
+
+
+<!-- 引入代码块所用js -->
+
+<script src="/js/addImgTitle.js"></script>
+
+
+<script src="/js/highlight.js"></script>
+ 
+
+<script src="/js/toc.js"></script>
+
+
+
+    <footer id="footer">
+    <img src="/ico/Nemo.svg" alt="Nemophila" id="nemo-footer">
+    <p>Theme <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila"><strong>Nemophila</strong></a></p>
+    <p>Powered by Love from <a href="https://nyaku.moe">izNyaku</a></p>
+    <div id="footer-space"></div>
+    <p>© 2021 - 2026 izNyaku. All rights reserved.</p>
+    
+         <a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20212022">萌ICP备20212022号</a>
+    
+       
+</footer>
+
+    
+        
+<script src="/js/lazyload.js"></script>
+  <!-- lazyload -->
+    
+    
+    <a id="up">
+    <img src="/images/yachiyo.PNG" class="yachiyo-up no-lazy">
+</a>
+    
+<script src="/js/up.js"></script>
+
+    
+    
+    </body>
+</html>

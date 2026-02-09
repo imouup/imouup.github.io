@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>
+        
+            ServerStatus-Hotaru云探针----搭建服务器监控室 （已弃用） | Nemophila | blog of 一之濑亚子 いちのせあこ
+        
+        
+    </title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/ico/Nemo.svg" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    <!-- 引入LaTex支持css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <!-- 引入APlayer支持css和js -->
+    
+<link rel="stylesheet" href="/css/APlayer.min.css">
+
+    
+<script src="/js/APlayer.min.js"></script>
+
+    <!-- 引入Linking -->
+    
+<script src="/js/linking.js"></script>
+
+    <!-- 引入vercount计数器 -->
+    <script defer src="https://events.vercount.one/js"></script>
+    <script>
+        let HEXO_SETTINGS = {
+            root: "/", 
+            url: "https://nyaku.moe",
+            author: "izNyaku"
+        };
+
+        let THEME_SETTINGS = {
+            lazyload: {
+                enable: true,
+                loading_img: "/images/yachiyo_loading2_640.webp"
+            },
+            };        
+    </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Nemophila | blog of 一之濑亚子 いちのせあこ" type="application/atom+xml">
+</head>
+    <body>  
+    <header class="article-header">
+    
+        <div class="article-header-cover" style="background-image: url('https://cdn.mouup.top/pico/pic%E7%9B%91%E6%8E%A7%E5%AE%A4%E6%88%AA%E5%9B%BE1.png');"></div>
+    
+
+     
+
+<nav class="navbar ">
+    <a href="/" style="text-decoration: none;">
+        <h1 class="title ">Nemophila</h1> 
+    </a>
+    <div class="navlink ">
+        
+            <div class="nav-item-container ">
+                <a href="/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/home.svg'); mask-image: url('/ico/navbar/home.svg');">
+                     </div>
+                    <span>首页</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/archive.svg'); mask-image: url('/ico/navbar/archive.svg');">
+                     </div>
+                    <span>归档</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/tech/">
+                                
+                                    <i class="far fa-lightbulb" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="技术">技术</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/talk/">
+                                
+                                    <i class="fas fa-pen" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="杂谈">杂谈</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/note/">
+                                
+                                    <i class="far fa-note-sticky" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="笔记">笔记</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/list.svg'); mask-image: url('/ico/navbar/list.svg');">
+                     </div>
+                    <span>Lists</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/bangumis/">
+                                
+                                    <i class="fas fa-tv" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="番组">番组</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/music/">
+                                
+                                    <i class="far fa-headphones" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="音乐">音乐</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="/friends/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/heart.svg'); mask-image: url('/ico/navbar/heart.svg');">
+                     </div>
+                    <span>Friends</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/coffee.svg'); mask-image: url('/ico/navbar/coffee.svg');">
+                     </div>
+                    <span>Project</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila">
+                                
+                                <span data-content="Nemophila">Nemophila</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+        <a href="/atom.xml" class="navlink-rss ">
+            <div class="nav-icon " 
+                style="-webkit-mask-image: url('/ico/navbar/rss.svg'); mask-image: url('/ico/navbar/rss.svg');">
+            </div>
+        </a>
+    </div>
+    <a href="/search" class="search ">
+        <div class="nav-icon " 
+            style="-webkit-mask-image: url('/ico/navbar/search.svg'); mask-image: url('/ico/navbar/search.svg');">
+        </div>
+    </a>
+    
+</nav>
+    <div class="article-info need-shadow">
+        <h1 class="article-title">ServerStatus-Hotaru云探针----搭建服务器监控室 （已弃用）</h1>
+        <span class="article-author-avatar-date-readtime">
+            <img src="/images/avatar.jpg" alt="Article author's Avatar" draggable="false" class="article-author-avatar no-lazyload">
+            <h2 class="article-author-name">一之濑亚子</h2>
+            ·
+            <time class="article-date" datetime="2021-08-09T10:14:29.000Z">2021-08-09</time>
+            ·
+            <span class="article-readtime"><span id="vercount_value_page_pv">Loading...</span>次阅读</span>
+        </span>
+    </div>
+</header>
+<div class="article-content-container">
+    <article class="article-content">
+        <aside id="article-toc" role="navigation">
+    <div id="toc-wrapper">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E6%97%B6%E6%8F%90%E9%86%92"><span class="toc-number">1.</span> <span class="toc-text"> 过时提醒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E4%B8%80%E8%A7%88"><span class="toc-number">2.</span> <span class="toc-text"> 效果一览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA"><span class="toc-number">3.</span> <span class="toc-text"> 开始搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D"><span class="toc-number">3.1.</span> <span class="toc-text"> 开始之前</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%BC%8F%E5%BC%80%E5%A7%8B"><span class="toc-number">3.2.</span> <span class="toc-text"> 正式开始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">3.3.</span> <span class="toc-text"> 其他</span></a></li></ol></li></ol>
+    </div>
+</aside>
+
+<!-- TODO: 增加展开子标题功能 -->
+        <h2 id="过时提醒"><a class="markdownIt-Anchor" href="#过时提醒"></a> 过时提醒</h2>
+<p>我现在已经转战uptime了<br />
+<a target="_blank" rel="noopener" href="https://status.mouup.top">一之濑亚子的监控室</a></p>
+<h2 id="效果一览"><a class="markdownIt-Anchor" href="#效果一览"></a> 效果一览</h2>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic%E7%9B%91%E6%8E%A7%E5%AE%A4%E6%88%AA%E5%9B%BE1.png" alt="" class="lazyload"><br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic%E7%9B%91%E6%8E%A7%E5%AE%A4%E6%88%AA%E5%9B%BE2.png" alt="" class="lazyload"></p>
+<p><a target="_blank" rel="noopener" href="https://care.mouup.top/" title="我的监控室">我的监控室</a></p>
+<h2 id="开始搭建"><a class="markdownIt-Anchor" href="#开始搭建"></a> 开始搭建</h2>
+<h3 id="开始之前"><a class="markdownIt-Anchor" href="#开始之前"></a> 开始之前</h3>
+<p>在开始搭建之前，我们首先要明确两个概念<br />
+服务端和客户端<br />
+服务端：即“监控室”，安装在放置“监控网站”的服务器上<br />
+（安装服务端的服务器同时可以安装客户端，相当于监控自己）<br />
+客户端：即“摄像头”，安装在需要被监控的服务器上</p>
+<h3 id="正式开始"><a class="markdownIt-Anchor" href="#正式开始"></a> 正式开始</h3>
+<h4 id="1-下载安装脚本"><a class="markdownIt-Anchor" href="#1-下载安装脚本"></a> 1 下载安装脚本</h4>
+<p>如果正在使用的账户不是，先使用<code>sudo su</code> 登入root账户，否则后面会因权限不够安装失败<br />
+然后使用以下命令下载脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/CokeMine/ServerStatus-Hotaru/master/status.sh</span><br></pre></td></tr></table></figure>
+<h4 id="2-配置服务端服务器完全干净未安装过任何环境如宝塔nginx"><a class="markdownIt-Anchor" href="#2-配置服务端服务器完全干净未安装过任何环境如宝塔nginx"></a> 2 配置服务端（服务器完全干净，未安装过任何环境，如宝塔，nginx)</h4>
+<p>使用<code>bash status.sh s</code>命令打开服务段脚本<br />
+然后回出现以下选项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> 0. 升级脚本</span><br><span class="line"> ————————————</span><br><span class="line">  1. 安装 服务端</span><br><span class="line">  2. 更新 服务端</span><br><span class="line">  3. 卸载 服务端</span><br><span class="line">————————————</span><br><span class="line">  4. 启动 服务端</span><br><span class="line">  5. 停止 服务端</span><br><span class="line">  6. 重启 服务端</span><br><span class="line">————————————</span><br><span class="line">  7. 设置 服务端配置</span><br><span class="line">  8. 查看 服务端信息</span><br><span class="line">  9. 查看 服务端日志</span><br><span class="line">————————————</span><br><span class="line"> 10. 切换为 客户端菜单</span><br></pre></td></tr></table></figure>
+<p>输入1开始安装，如果你没有使用宝塔面板或没有安装其他web服务器（例如nginx)可以直接一路回车</p>
+<h4 id="已配置其他web服务器"><a class="markdownIt-Anchor" href="#已配置其他web服务器"></a> 已配置其他web服务器</h4>
+<p>操作同上<br />
+但到了<br />
+<code>[信息] 是否由脚本自动配置HTTP服务(服务端的在线监控网站)，如果选择 N，则请在其他HTTP服务中配置网站根目录为：/usr/local/ServerStatus/web [Y/n] (默认: Y 自动部署):</code><br />
+这一步选N，不部署HTTP服务<br />
+然后请自行到你已安装了的web服务器去配置HTTP服务，只要将<br />
+网站根目录设置为/usr/local/ServerStatus/web即可</p>
+<h4 id="安装了宝塔面板"><a class="markdownIt-Anchor" href="#安装了宝塔面板"></a> 安装了宝塔面板</h4>
+<p>同样是到配置HTTP服务器那一步选N<br />
+打开宝塔面板<br />
+新建网站<br />
+修改网站运行目录为/usr/local/ServerStatus/web<br />
+注意：在网站设置的“网站目录”一栏修改运行目录是不行的<br />
+宝塔面板不允许将运行目录设置在usr目录下<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic%E5%AE%9D%E5%A1%94%E6%8A%A5%E9%94%99.png" alt="" class="lazyload"></p>
+<p>所以你需要在配置文件的root行将默认的运行路径改为/usr/local/ServerStatus/web<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic151121.png" alt="" class="lazyload"><br />
+就是图片中标黄的一行</p>
+<h4 id="3-创建监控账户"><a class="markdownIt-Anchor" href="#3-创建监控账户"></a> 3 创建监控账户</h4>
+<p>这里的每个账户只能对应一台服务器，安装客户端时就会询问账号密码<br />
+使用<code>bash status.sh s</code>进入服务端配置界面<br />
+键入7进入 “设置 服务端配置”<br />
+键入1 新建账户 注意密码不能使用特殊字符，只能是数字和字母，否则会报错账号或密码错误</p>
+<p>该程序本身自带了一个服务器，可以删除</p>
+<h4 id="安装客户端"><a class="markdownIt-Anchor" href="#安装客户端"></a> 安装客户端</h4>
+<p>在此之前，请务必开放探针程序监听的端口，默认端口为35601<br />
+如果自己修改了请记得放行<br />
+注意：如果使用了宝塔面板，云服务商和宝塔面板都要设置端口放行</p>
+<p>使用<code>bash status.sh c</code>进入客户端安装界面，如果是本机安装可直接使用127.0.0.1（本机），如果是其他服务器，请输入服务端公网IP或你设置的域名</p>
+<p>账号密码输入你为这个客户端设置的账号密码</p>
+<p>配置完成后回到服务端，重启服务端（先停止再启动）</p>
+<p>正常来说到这里配置就完成了</p>
+<h3 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h3>
+<p>监控网站的title，图标等可以在源码修改</p>
+
+    </article>
+    
+        <div class="article-cclicense">
+            <a class="article-cclicense-text" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        </div>
+    
+    
+        <div class="article-next" 
+            
+                style="--bg-url: url('https://rawgh.cdn.mouup.top/docmirror/dev-sidecar/master/doc/index.png');"
+            >
+            <a class="article-next-link-card" href="/2021/07/01/Dev-sidecar%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%86%B3%E7%A8%8B%E5%BA%8F%E5%91%98%E5%90%84%E7%A7%8D%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">
+                <p class="article-next-text1">Next Post</p>
+                <p class="article-next-title">Dev-sidecar工具解决程序员各种网络问题</p>
+            </a>
+        </div>
+    
+    
+        <div id="waline"></div>
+            <script type="module">
+                import { init } from '/js/waline.js';
+
+                init({
+                el: '#waline',
+                serverURL: 'https://waline.cdn.mouup.top/',
+                });
+            </script>
+        </div>
+    
+        
+
+<!-- TODO: 整理waline -->
+
+
+
+<!-- 引入代码块所用js -->
+
+<script src="/js/addImgTitle.js"></script>
+
+
+<script src="/js/highlight.js"></script>
+ 
+
+<script src="/js/toc.js"></script>
+
+
+
+    <footer id="footer">
+    <img src="/ico/Nemo.svg" alt="Nemophila" id="nemo-footer">
+    <p>Theme <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila"><strong>Nemophila</strong></a></p>
+    <p>Powered by Love from <a href="https://nyaku.moe">izNyaku</a></p>
+    <div id="footer-space"></div>
+    <p>© 2021 - 2026 izNyaku. All rights reserved.</p>
+    
+         <a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20212022">萌ICP备20212022号</a>
+    
+       
+</footer>
+
+    
+        
+<script src="/js/lazyload.js"></script>
+  <!-- lazyload -->
+    
+    
+    <a id="up">
+    <img src="/images/yachiyo.PNG" class="yachiyo-up no-lazy">
+</a>
+    
+<script src="/js/up.js"></script>
+
+    
+    
+    </body>
+</html>

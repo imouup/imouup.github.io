@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>
+        
+            如何使用docker部署mastodon | Nemophila | blog of 一之濑亚子 いちのせあこ
+        
+        
+    </title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/ico/Nemo.svg" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    <!-- 引入LaTex支持css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <!-- 引入APlayer支持css和js -->
+    
+<link rel="stylesheet" href="/css/APlayer.min.css">
+
+    
+<script src="/js/APlayer.min.js"></script>
+
+    <!-- 引入Linking -->
+    
+<script src="/js/linking.js"></script>
+
+    <!-- 引入vercount计数器 -->
+    <script defer src="https://events.vercount.one/js"></script>
+    <script>
+        let HEXO_SETTINGS = {
+            root: "/", 
+            url: "https://nyaku.moe",
+            author: "izNyaku"
+        };
+
+        let THEME_SETTINGS = {
+            lazyload: {
+                enable: true,
+                loading_img: "/images/yachiyo_loading2_640.webp"
+            },
+            };        
+    </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Nemophila | blog of 一之濑亚子 いちのせあこ" type="application/atom+xml">
+</head>
+    <body>  
+    <header class="article-header">
+    
+        <div class="article-header-cover" style="background-image: url('https://cdn.mouup.top/pico/pic2022-07-26161858.png');"></div>
+    
+
+     
+
+<nav class="navbar ">
+    <a href="/" style="text-decoration: none;">
+        <h1 class="title ">Nemophila</h1> 
+    </a>
+    <div class="navlink ">
+        
+            <div class="nav-item-container ">
+                <a href="/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/home.svg'); mask-image: url('/ico/navbar/home.svg');">
+                     </div>
+                    <span>首页</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/archive.svg'); mask-image: url('/ico/navbar/archive.svg');">
+                     </div>
+                    <span>归档</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/tech/">
+                                
+                                    <i class="far fa-lightbulb" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="技术">技术</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/talk/">
+                                
+                                    <i class="fas fa-pen" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="杂谈">杂谈</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/note/">
+                                
+                                    <i class="far fa-note-sticky" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="笔记">笔记</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/list.svg'); mask-image: url('/ico/navbar/list.svg');">
+                     </div>
+                    <span>Lists</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/bangumis/">
+                                
+                                    <i class="fas fa-tv" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="番组">番组</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/music/">
+                                
+                                    <i class="far fa-headphones" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="音乐">音乐</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="/friends/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/heart.svg'); mask-image: url('/ico/navbar/heart.svg');">
+                     </div>
+                    <span>Friends</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/coffee.svg'); mask-image: url('/ico/navbar/coffee.svg');">
+                     </div>
+                    <span>Project</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila">
+                                
+                                <span data-content="Nemophila">Nemophila</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+        <a href="/atom.xml" class="navlink-rss ">
+            <div class="nav-icon " 
+                style="-webkit-mask-image: url('/ico/navbar/rss.svg'); mask-image: url('/ico/navbar/rss.svg');">
+            </div>
+        </a>
+    </div>
+    <a href="/search" class="search ">
+        <div class="nav-icon " 
+            style="-webkit-mask-image: url('/ico/navbar/search.svg'); mask-image: url('/ico/navbar/search.svg');">
+        </div>
+    </a>
+    
+</nav>
+    <div class="article-info need-shadow">
+        <h1 class="article-title">如何使用docker部署mastodon</h1>
+        <span class="article-author-avatar-date-readtime">
+            <img src="/images/avatar.jpg" alt="Article author's Avatar" draggable="false" class="article-author-avatar no-lazyload">
+            <h2 class="article-author-name">一之濑亚子</h2>
+            ·
+            <time class="article-date" datetime="2022-07-26T07:57:01.000Z">2022-07-26</time>
+            ·
+            <span class="article-readtime"><span id="vercount_value_page_pv">Loading...</span>次阅读</span>
+        </span>
+    </div>
+</header>
+<div class="article-content-container">
+    <article class="article-content">
+        <aside id="article-toc" role="navigation">
+    <div id="toc-wrapper">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text"> 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text"> 具体流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8ubuntu-2004"><span class="toc-number">2.1.</span> <span class="toc-text"> 服务器配置（使用Ubuntu 20.04）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2mastodon"><span class="toc-number">2.2.</span> <span class="toc-text"> 部署mastodon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%BC%8F%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2"><span class="toc-number">2.3.</span> <span class="toc-text"> 正式开始部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx%E9%85%8D%E7%BD%AE"><span class="toc-number">2.4.</span> <span class="toc-text"> nginx配置</span></a></li></ol></li></ol>
+    </div>
+</aside>
+
+<!-- TODO: 增加展开子标题功能 -->
+        <p>使用docker部署mastodon可以很大程度上简化部署流程，而且对服务器性能要求似乎会更低。</p>
+<h2 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h2>
+<ul>
+<li>一台服务器（我使用的是1核1G的服务器，建议不要学我）</li>
+<li>ssh客户端</li>
+<li>postgresql服务器（我使用的是Azure的学生版）<br />
+我为了方便迁移（<s>删除实例</s>）选择将数据库分开部署</li>
+<li>mailgun</li>
+</ul>
+<h2 id="具体流程"><a class="markdownIt-Anchor" href="#具体流程"></a> 具体流程</h2>
+<h3 id="服务器配置使用ubuntu-2004"><a class="markdownIt-Anchor" href="#服务器配置使用ubuntu-2004"></a> 服务器配置（使用Ubuntu 20.04）</h3>
+<p>参照<a target="_blank" rel="noopener" href="https://docs.joinmastodon.org/admin/prerequisites/">mastodon官方文档</a>进行配置</p>
+<p>1.编辑/etc/ssh/sshd_config并查找PasswordAuthentication. 确保它未注释并设置为no. 如果您进行了任何更改，请重新启动 sshd：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart ssh.service </span><br></pre></td></tr></table></figure>
+<p>2.更新系统包</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update &amp;&amp; apt upgrade -y </span><br></pre></td></tr></table></figure>
+<p>3.安装 fail2ban</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install fail2ban </span><br></pre></td></tr></table></figure>
+<p>编辑/etc/fail2ban/jail.local加入以下内容</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[DEFAULT]</span><br><span class="line">destemail = your@email.here</span><br><span class="line">sendername = Fail2Ban</span><br><span class="line"></span><br><span class="line">[sshd]</span><br><span class="line">enabled = true</span><br><span class="line">port = 22</span><br><span class="line"></span><br><span class="line">[sshd-ddos]</span><br><span class="line">enabled = true</span><br><span class="line">port = 22</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>重启fail2ban</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart fail2ban</span><br></pre></td></tr></table></figure>
+<p>4.安装防火墙并仅将 SSH、HTTP 和 HTTPS 端口列入白名单</p>
+<p>首先，安装<code> iptables-persistent</code>。在安装过程中，它会询问您是否要保留当前规则,选择拒绝。</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y iptables-persistent</span><br></pre></td></tr></table></figure>
+<p>编辑<code>/etc/iptables/rules.v4 </code>加入以下内容</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> *filter</span><br><span class="line"></span><br><span class="line">#  Allow all loopback (lo0) traffic and drop all traffic to 127/8 that doesn&#x27;t use lo0</span><br><span class="line">-A INPUT -i lo -j ACCEPT</span><br><span class="line">-A INPUT ! -i lo -d 127.0.0.0/8 -j REJECT</span><br><span class="line"></span><br><span class="line">#  Accept all established inbound connections</span><br><span class="line">-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line"></span><br><span class="line">#  Allow all outbound traffic - you can modify this to only allow certain traffic</span><br><span class="line">-A OUTPUT -j ACCEPT</span><br><span class="line"></span><br><span class="line">#  Allow HTTP and HTTPS connections from anywhere (the normal ports for websites and SSL).</span><br><span class="line">-A INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line">-A INPUT -p tcp --dport 443 -j ACCEPT</span><br><span class="line"></span><br><span class="line">#  Allow SSH connections</span><br><span class="line">#  The -dport number should be the same port number you set in sshd_config</span><br><span class="line">-A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT</span><br><span class="line"></span><br><span class="line">#  Allow ping</span><br><span class="line">-A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT</span><br><span class="line"></span><br><span class="line">#  Log iptables denied calls</span><br><span class="line">-A INPUT -m limit --limit 5/min -j LOG --log-prefix &quot;iptables denied: &quot; --log-level 7</span><br><span class="line"></span><br><span class="line">#  Reject all other inbound - default deny unless explicitly allowed policy</span><br><span class="line">-A INPUT -j REJECT</span><br><span class="line">-A FORWARD -j REJECT</span><br><span class="line"></span><br><span class="line">COMMIT</span><br></pre></td></tr></table></figure>
+<p>手动加载配置</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables-restore &lt; /etc/iptables/rules.v4</span><br></pre></td></tr></table></figure>
+<p>5.安装常用命令</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y curl wget gnupg apt-transport-https lsb-release ca-certificates</span><br></pre></td></tr></table></figure>
+<p>6.安装docker和docker-compose</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> bash &lt;(curl -L https://get.docker.com/)</span><br><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<h3 id="部署mastodon"><a class="markdownIt-Anchor" href="#部署mastodon"></a> 部署mastodon</h3>
+<p>为了便于管理，你可以新建一个用户</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser mastodon</span><br></pre></td></tr></table></figure>
+<p>进入该用户的文件夹</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /home/mastodon</span><br></pre></td></tr></table></figure>
+<p>为mastodon新建一个文件夹并进入</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir mastodon &amp; cd mastodon</span><br></pre></td></tr></table></figure>
+<p>拉取最新版镜像</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull tootsuite/mastodon:latest</span><br><span class="line">wget https://raw.githubusercontent.com/tootsuite/mastodon/master/docker-compose.yml</span><br></pre></td></tr></table></figure>
+<p>修改docker-compose.yml</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim docker-compose.yml</span><br></pre></td></tr></table></figure>
+<p>! 找到<code>web</code>、<code>streaming</code>、<code>sidekiq</code>分类，将其中的<code>image: tootsuite/mastodon</code>全部改成<code>image: tootsuite/mastodon:latest</code></p>
+<p>（latest可以改成其他版本号，这取决于你拉取的镜像版本）</p>
+<p>将elasticsearch版本改为7.10.2</p>
+<p>保存退出</p>
+<h3 id="正式开始部署"><a class="markdownIt-Anchor" href="#正式开始部署"></a> 正式开始部署</h3>
+<p>在<code>/home/mastodon/mastodon</code>文件夹中创建空白<code>.env.production</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch .env.production</span><br></pre></td></tr></table></figure>
+<p>root用户中执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose run --rm web bundle exec rake mastodon:setup</span><br></pre></td></tr></table></figure>
+<p>然后它会询问一系列问题：</p>
+<ol>
+<li>
+<p>Domain name: （你的域名）</p>
+</li>
+<li>
+<p>Do you want to enable single user mode? No.（是否使用单人模式，选择“不”）</p>
+</li>
+<li>
+<p>Are you using Docker to run Mastodon? Yes</p>
+</li>
+<li>
+<ul>
+<li>PostgreSQL host: （这取决于你自己的postgresql地址）</li>
+<li>PostgreSQL port: 5432</li>
+<li>Name of PostgreSQL database: 这取决于你自己的postgresql数据库名称）</li>
+<li>Name of PostgreSQL user: （你的数据库账号）</li>
+<li>Password of PostgreSQL user: （你的数据库密码）</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Redis host: mastodon_redis_1</li>
+</ul>
+<p>（注意这里的mastodon，如果在上面你新建的文件夹为其他名字请改为你自己所取的名字）</p>
+<ul>
+<li>Redis port: 6379</li>
+<li>Redis password: （无密码直接回车）</li>
+</ul>
+</li>
+<li>
+<p>Do you want to store uploaded files on the cloud?<br />
+（是否使用对象储存，取决于个人需求，若不使用则媒体文件全部储存在本服务器，否则请配置对象储存，若使用对象储存请填写相关参数）</p>
+</li>
+<li>
+<p>Do you want to send e-mails from localhost? No<br />
+（填写你的smtp发信资料,我使用了mailgun）</p>
+</li>
+</ol>
+<p>！然后会出现<code>.env.production</code>配置,请先复制下来，进程完成后请编辑<code>.env.production</code>，并加入复制的内容</p>
+<p>然后它会问你是否你初始化数据库和创建管理员账户，均填yes</p>
+<p>为相应文件夹赋权</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown 991:991 -R ./public</span><br></pre></td></tr></table></figure>
+<p>启动Mastodon</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker-compose down</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+<h3 id="nginx配置"><a class="markdownIt-Anchor" href="#nginx配置"></a> nginx配置</h3>
+<p>安装nginx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nginx -y</span><br></pre></td></tr></table></figure>
+<p>配置nginx</p>
+<p>进入nginx配置文件目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/nginx/conf.d</span><br></pre></td></tr></table></figure>
+<p>下载官方配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/mastodon/mastodon/main/dist/nginx.conf &amp; mv nginx.conf mastodon.conf</span><br></pre></td></tr></table></figure>
+<p>编辑配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim mastodon.conf</span><br></pre></td></tr></table></figure>
+<p>将所有example.com改成你自己的域名<br />
+将<code>/home/mastodon/live/public</code>改成<code>/home/mastodon/mastodon/public</code></p>
+<p>先将<code>listen 443 ssl http2;</code>、<code>listen [::]:443 ssl http2</code>以及所有ssl开头的项用#注释掉</p>
+<p>保存退出</p>
+<p>获取ssl证书（使用cerbot）<br />
+安装cerbot</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt install snapd</span><br><span class="line">sudo snap install core; sudo snap refresh core</span><br><span class="line">sudo snap install --classic certbot</span><br><span class="line">sudo ln -s /snap/bin/certbot /usr/bin/certbot</span><br></pre></td></tr></table></figure>
+<p>获取证书</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot certonly --nginx -d</span><br></pre></td></tr></table></figure>
+<p>重新编辑nginx配置文件，将之前的注释内容取消注释<br />
+将<code>ssl_certificate</code>和<code>ssl_certificate_key</code>也取消注释</p>
+<p>使用<code>nginx -t</code>检查配置是否有误</p>
+<p>无误后使用<code>ngnix -s reload</code>重载配置</p>
+<p>然后你用你的域名应该就可以打开mastodon了（当然，前提是你设置好了dns）</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic20220720_061559073_iOS.jpg" alt="" class="lazyload"></p>
+
+    </article>
+    
+        <div class="article-cclicense">
+            <a class="article-cclicense-text" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        </div>
+    
+    
+        <div class="article-next" 
+            
+                style="--bg-url: url('https://cdn.mouup.top/pico/pic20220711_003644904_iOS.jpg');"
+            >
+            <a class="article-next-link-card" href="/2022/07/11/nyaku-moe/">
+                <p class="article-next-text1">Next Post</p>
+                <p class="article-next-title">正式启用nyaku.moe</p>
+            </a>
+        </div>
+    
+    
+        <div id="waline"></div>
+            <script type="module">
+                import { init } from '/js/waline.js';
+
+                init({
+                el: '#waline',
+                serverURL: 'https://waline.cdn.mouup.top/',
+                });
+            </script>
+        </div>
+    
+        
+
+<!-- TODO: 整理waline -->
+
+
+
+<!-- 引入代码块所用js -->
+
+<script src="/js/addImgTitle.js"></script>
+
+
+<script src="/js/highlight.js"></script>
+ 
+
+<script src="/js/toc.js"></script>
+
+
+
+    <footer id="footer">
+    <img src="/ico/Nemo.svg" alt="Nemophila" id="nemo-footer">
+    <p>Theme <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila"><strong>Nemophila</strong></a></p>
+    <p>Powered by Love from <a href="https://nyaku.moe">izNyaku</a></p>
+    <div id="footer-space"></div>
+    <p>© 2021 - 2026 izNyaku. All rights reserved.</p>
+    
+         <a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20212022">萌ICP备20212022号</a>
+    
+       
+</footer>
+
+    
+        
+<script src="/js/lazyload.js"></script>
+  <!-- lazyload -->
+    
+    
+    <a id="up">
+    <img src="/images/yachiyo.PNG" class="yachiyo-up no-lazy">
+</a>
+    
+<script src="/js/up.js"></script>
+
+    
+    
+    </body>
+</html>

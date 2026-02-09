@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>
+        
+            Python脚本打包笔记 | Nemophila | blog of 一之濑亚子 いちのせあこ
+        
+        
+    </title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/ico/Nemo.svg" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    <!-- 引入LaTex支持css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <!-- 引入APlayer支持css和js -->
+    
+<link rel="stylesheet" href="/css/APlayer.min.css">
+
+    
+<script src="/js/APlayer.min.js"></script>
+
+    <!-- 引入Linking -->
+    
+<script src="/js/linking.js"></script>
+
+    <!-- 引入vercount计数器 -->
+    <script defer src="https://events.vercount.one/js"></script>
+    <script>
+        let HEXO_SETTINGS = {
+            root: "/", 
+            url: "https://nyaku.moe",
+            author: "izNyaku"
+        };
+
+        let THEME_SETTINGS = {
+            lazyload: {
+                enable: true,
+                loading_img: "/images/yachiyo_loading2_640.webp"
+            },
+            };        
+    </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Nemophila | blog of 一之濑亚子 いちのせあこ" type="application/atom+xml">
+</head>
+    <body>  
+    <header class="article-header">
+    
+        <div class="article-header-cover" style="background-image: url('https://pic-oss.mouup.top/pic/2025/01/2800e27cc6633498bfefebcc11efc858.png');"></div>
+    
+
+     
+
+<nav class="navbar ">
+    <a href="/" style="text-decoration: none;">
+        <h1 class="title ">Nemophila</h1> 
+    </a>
+    <div class="navlink ">
+        
+            <div class="nav-item-container ">
+                <a href="/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/home.svg'); mask-image: url('/ico/navbar/home.svg');">
+                     </div>
+                    <span>首页</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/archive.svg'); mask-image: url('/ico/navbar/archive.svg');">
+                     </div>
+                    <span>归档</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/tech/">
+                                
+                                    <i class="far fa-lightbulb" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="技术">技术</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/talk/">
+                                
+                                    <i class="fas fa-pen" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="杂谈">杂谈</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/note/">
+                                
+                                    <i class="far fa-note-sticky" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="笔记">笔记</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/list.svg'); mask-image: url('/ico/navbar/list.svg');">
+                     </div>
+                    <span>Lists</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/bangumis/">
+                                
+                                    <i class="fas fa-tv" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="番组">番组</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/music/">
+                                
+                                    <i class="far fa-headphones" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="音乐">音乐</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="/friends/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/heart.svg'); mask-image: url('/ico/navbar/heart.svg');">
+                     </div>
+                    <span>Friends</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/coffee.svg'); mask-image: url('/ico/navbar/coffee.svg');">
+                     </div>
+                    <span>Project</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila">
+                                
+                                <span data-content="Nemophila">Nemophila</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+        <a href="/atom.xml" class="navlink-rss ">
+            <div class="nav-icon " 
+                style="-webkit-mask-image: url('/ico/navbar/rss.svg'); mask-image: url('/ico/navbar/rss.svg');">
+            </div>
+        </a>
+    </div>
+    <a href="/search" class="search ">
+        <div class="nav-icon " 
+            style="-webkit-mask-image: url('/ico/navbar/search.svg'); mask-image: url('/ico/navbar/search.svg');">
+        </div>
+    </a>
+    
+</nav>
+    <div class="article-info need-shadow">
+        <h1 class="article-title">Python脚本打包笔记</h1>
+        <span class="article-author-avatar-date-readtime">
+            <img src="/images/avatar.jpg" alt="Article author's Avatar" draggable="false" class="article-author-avatar no-lazyload">
+            <h2 class="article-author-name">一之濑亚子</h2>
+            ·
+            <time class="article-date" datetime="2025-01-21T09:15:45.000Z">2025-01-21</time>
+            ·
+            <span class="article-readtime"><span id="vercount_value_page_pv">Loading...</span>次阅读</span>
+        </span>
+    </div>
+</header>
+<div class="article-content-container">
+    <article class="article-content">
+        <aside id="article-toc" role="navigation">
+    <div id="toc-wrapper">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text"> 写在前面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80"><span class="toc-number">1.1.</span> <span class="toc-text"> 项目地址</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E6%89%93%E5%8C%85"><span class="toc-number">2.</span> <span class="toc-text"> 开始打包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.1.</span> <span class="toc-text"> 准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E9%A6%96%E5%85%88%E5%87%86%E5%A4%87%E5%A5%BD%E8%A6%81%E6%89%93%E5%8C%85%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 1.首先准备好要打包的项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BD%E5%B5%8C%E5%85%A5%E5%BC%8Fpython%E5%8C%85"><span class="toc-number">2.1.2.</span> <span class="toc-text"> 2. 下载嵌入式Python包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91pystand%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.2.</span> <span class="toc-text"> 编译PyStand项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDcmake-%E5%AE%89%E8%A3%85c%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 下载cmake &amp; 安装C++编译器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 编译!</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93"><span class="toc-number">2.3.</span> <span class="toc-text"> 准备第三方库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E5%9C%A8%E6%B2%99%E7%9B%92%E4%B8%AD%E5%AE%89%E8%A3%85%E4%B8%8E%E5%B5%8C%E5%85%A5%E7%89%88%E5%90%8C%E7%89%88%E6%9C%AC%E7%9A%84python"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 先在沙盒中安装与嵌入版同版本的Python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="toc-number">2.3.2.</span> <span class="toc-text"> 创建虚拟环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E4%B8%AD%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="toc-number">2.3.3.</span> <span class="toc-text"> 在虚拟环境中安装依赖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E4%BF%AE%E5%B0%8F%E8%A1%A5"><span class="toc-number">2.4.</span> <span class="toc-text"> 小修小补</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9python%E6%96%87%E4%BB%B6"><span class="toc-number">2.4.1.</span> <span class="toc-text"> 修改Python文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-number">2.4.2.</span> <span class="toc-text"> 修改文件名</span></a></li></ol></li></ol></li></ol>
+    </div>
+</aside>
+
+<!-- TODO: 增加展开子标题功能 -->
+        <h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
+<p>最近写了一个python爬虫的脚本，想打包放上Github的Release，又不想用pyinstaller<br />
+偶然间发现了Pystand这个项目，打算尝试一下</p>
+<h2 id="项目地址"><a class="markdownIt-Anchor" href="#项目地址"></a> 项目地址</h2>
+<hr />
+<p>skywind3000/PyStand - Github<br />
+<a target="_blank" rel="noopener" href="https://github.com/skywind3000/PyStand">https://github.com/skywind3000/PyStand</a></p>
+<hr />
+<br>
+<h1 id="开始打包"><a class="markdownIt-Anchor" href="#开始打包"></a> 开始打包</h1>
+<h2 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h2>
+<h3 id="1首先准备好要打包的项目"><a class="markdownIt-Anchor" href="#1首先准备好要打包的项目"></a> 1.首先准备好要打包的项目</h3>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/01/3e03ad45232cde5d90c6674f169bf1f9.png" alt="the mftools troject" class="lazyload"></p>
+<blockquote>
+<p>这是我给Mfuns写的一个<a target="_blank" rel="noopener" href="https://github.com/imouup/Mfuns_tools">小工具</a>，可以把网盘外链转成直链</p>
+</blockquote>
+<h3 id="2-下载嵌入式python包"><a class="markdownIt-Anchor" href="#2-下载嵌入式python包"></a> 2. 下载嵌入式Python包</h3>
+<hr />
+<p>Python 3.8.10<br />
+<a target="_blank" rel="noopener" href="https://www.python.org/downloads/release/python-3810/">https://www.python.org/downloads/release/python-3810/</a></p>
+<hr />
+<br>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/01/97a3ae2f55694f2cfabb60122dd7c994.png" alt="py3.8.10embeddable" class="lazyload"></p>
+<p>这里选择Python3.8.10 的32位版本嵌入包，因为Python3.8.10 是最后一个支持Win7的版本，使用32位可以使得包更紧凑</p>
+<p>下载完以后解压缩，在前面准备好的项目文件夹下新建<code>runtime</code>目录，把解压得到的文件放到里面去</p>
+<br>
+<h2 id="编译pystand项目"><a class="markdownIt-Anchor" href="#编译pystand项目"></a> 编译PyStand项目</h2>
+<p>PyStand的Release页只提供了GUI版本，但我这是一个命令行脚本，因此必须手动编译</p>
+<p>同时我也想更换一下图标</p>
+<blockquote>
+<p>以下内容参考了这位大佬的文章</p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/myd7349/9f7c6334e67d1aee68a722a15df4a62a">How-to-use-PyStand</a></p>
+</blockquote>
+<h3 id="下载cmake-安装c编译器"><a class="markdownIt-Anchor" href="#下载cmake-安装c编译器"></a> 下载cmake &amp; 安装C++编译器</h3>
+<h4 id="cmake"><a class="markdownIt-Anchor" href="#cmake"></a> Cmake</h4>
+<hr />
+<p>Cmake downloads<br />
+<a target="_blank" rel="noopener" href="https://cmake.org/download/">https://cmake.org/download/</a></p>
+<hr />
+<p>我选择直接下载便携版（zip后缀），然后把里面的bin目录添加到PATH</p>
+<h4 id="c编译器"><a class="markdownIt-Anchor" href="#c编译器"></a> C++编译器</h4>
+<p>因为还不太懂C++，选择直接安装Visual Studio的C++环境 =￣ω￣=</p>
+<hr />
+<h3 id="编译"><a class="markdownIt-Anchor" href="#编译"></a> 编译!</h3>
+<p>首先Clone PyStand的仓库 <code>git clone https://github.com/skywind3000/PyStand</code></p>
+<blockquote>
+<p>换图标：只要替换根目录下的<code>appicon.ico</code>文件即可</p>
+</blockquote>
+<br>
+<p>新建一个文件夹build文件夹存放编译过程中的文件 <code>mkdir build &amp;&amp; cd build</code></p>
+<p>开始Configure</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cmake -S .. -B . -DPYSTAND_CONSOLE=ON -A Win32</span><br><span class="line"># -DPYSTAND_CONSOLE=ON指定了生成的是一个控制台项目，如果你要生成GUI项目删去它或者改成OFF即可</span><br><span class="line"># -A Win32指定生成的是32位应用</span><br></pre></td></tr></table></figure>
+<p>编译</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmake --build . --config Release</span><br><span class="line"># --config Release指定编译的版本的Release版本而不是Debug版本</span><br></pre></td></tr></table></figure>
+<p>然后应该能在Release文件夹下找到<code>PyStand.exe</code>文件，把它复制到最开始准备好的项目文件夹中</p>
+<br>
+<h2 id="准备第三方库"><a class="markdownIt-Anchor" href="#准备第三方库"></a> 准备第三方库</h2>
+<p>准备第三方库有两种方法:</p>
+<ul>
+<li>第一种是利用另一个同版本纯净Python的虚拟环境</li>
+<li>第二种是直接在Python embeddable版本中安装pip来安装，第二种方法可以看看<a target="_blank" rel="noopener" href="https://gist.github.com/myd7349/9f7c6334e67d1aee68a722a15df4a62a#user-content-%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E7%9A%84%E4%BE%8B%E5%AD%90vitables">大佬的文章</a></li>
+</ul>
+<p>我用的是第一种方法</p>
+<h3 id="先在沙盒中安装与嵌入版同版本的python"><a class="markdownIt-Anchor" href="#先在沙盒中安装与嵌入版同版本的python"></a> 先在沙盒中安装与嵌入版同版本的Python</h3>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/01/2c36a7d2726a18ecf13b0635e271864d.png" alt="install py3.8.10 in winsandbox" class="lazyload"></p>
+<h3 id="创建虚拟环境"><a class="markdownIt-Anchor" href="#创建虚拟环境"></a> 创建虚拟环境</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\WDAGUtilityAccount&gt;python -m venv test</span><br></pre></td></tr></table></figure>
+<h3 id="在虚拟环境中安装依赖"><a class="markdownIt-Anchor" href="#在虚拟环境中安装依赖"></a> 在虚拟环境中安装依赖</h3>
+<p>首先在PyCharm到处requirements.txt文件</p>
+<p>在<code>工具</code>中选择<code>同步Python要求</code>(sync python requirements)<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/01/73731b002a55bd2c2348db1bdbe8ce37.png" alt="sync python requirements" class="lazyload"></p>
+<p>导出requirements.txt文件<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/01/b47471a9c6d08dccfe5be1bc6e10f435.png" alt="export requirements.txt" class="lazyload"></p>
+<p>这会在项目根目录下生成requirements.txt文件，把它拷贝到刚才创建的虚拟环境test的目录所在的目录中</p>
+<p>安装依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 先激活虚拟环境</span><br><span class="line">C:\Users\WDAGUtilityAccount&gt;test\Scripts\activate</span><br><span class="line"># 安装依赖</span><br><span class="line">(test) C:\Users\WDAGUtilityAccount&gt;pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+<p>安装完成后，把<code>test\Lib\site-packages</code>目录下没用的依赖删掉，然后把整个<code>site-packages</code>文件夹复制到最开始准备好项目文件夹下</p>
+<h2 id="小修小补"><a class="markdownIt-Anchor" href="#小修小补"></a> 小修小补</h2>
+<h3 id="修改python文件"><a class="markdownIt-Anchor" href="#修改python文件"></a> 修改Python文件</h3>
+<p>为了确保各个python文件都能顺利加载，我修改了Mftools.py文件，加入了以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sys.path.append(r&#x27;.\src&#x27;)</span><br><span class="line">sys.path.append(r&#x27;.\site-packages&#x27;)</span><br><span class="line">sys.path.append(r&#x27;.\plugins\pan_transfer&#x27;)</span><br></pre></td></tr></table></figure>
+<p>同时在pan_transfer.py文件中也加入了，因为不加入就会报错</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sys.path.append(r&#x27;.\src&#x27;)</span><br><span class="line">sys.path.append(r&#x27;.\site-packages&#x27;)</span><br><span class="line">sys.path.append(r&#x27;.\plugins\pan_transfer&#x27;)</span><br></pre></td></tr></table></figure>
+<p>其实我还不太清楚为什么用了<code>subprocess</code>后原本的模块搜索目录列表会无法生效，之后可以试试<code>import</code></p>
+<h3 id="修改文件名"><a class="markdownIt-Anchor" href="#修改文件名"></a> 修改文件名</h3>
+<p>这是项目作者的说明：</p>
+<blockquote>
+<p>PyStand.exe的功能是：</p>
+<ul>
+<li>自动加载 PyStand.exe 同级目录下面 runtime 子目录内的 Embedded Python</li>
+<li>自动启动 PyStand.exe 同级目录下面的 PyStand.int 程序（Python 代码）</li>
+<li>如果改名，会加载对应名称的 .int 文件，比如改为 MyDemo.exe 就会加载 MyDemo.int</li>
+<li>会自动添加 PyStand.exe 同级目录下的 site-packages 目录，库可以放到里面</li>
+</ul>
+</blockquote>
+<br>
+<p>我这个项目是通过根目录的<code>Mftools.py</code>用<code>subprocess</code>运行子目录下的py文件实现的</p>
+<p>因此我需要把根目录下的<code>Mftools.py</code>更名为<code>Mftools.int</code>，同时将<code>PyStand.exe</code>更名为<code>Mftools.exe</code></p>
+<p>最后的目录结构如下：<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/01/31e718eff2b43b45d0cbb9755d8c0cb5.png" alt="dir structure" class="lazyload"></p>
+<p>到这里就打包完成了，可以在命令行里打开<code>Mftools.exe</code>看看有没有有没问题</p>
+
+    </article>
+    
+        <div class="article-cclicense">
+            <a class="article-cclicense-text" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        </div>
+    
+    
+        <div class="article-next" 
+            
+                style="--bg-url: url('https://pic-oss.mouup.top/pic/2024/07/f9b7c09282274d0972512ed25c465fb1.jpg');"
+            >
+            <a class="article-next-link-card" href="/2024/07/29/%E6%8A%98%E8%85%BE%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86jsdelivr/">
+                <p class="article-next-text1">Next Post</p>
+                <p class="article-next-title">折腾使用Caddy反向代理jsdelivr</p>
+            </a>
+        </div>
+    
+    
+        <div id="waline"></div>
+            <script type="module">
+                import { init } from '/js/waline.js';
+
+                init({
+                el: '#waline',
+                serverURL: 'https://waline.cdn.mouup.top/',
+                });
+            </script>
+        </div>
+    
+        
+
+<!-- TODO: 整理waline -->
+
+
+
+<!-- 引入代码块所用js -->
+
+<script src="/js/addImgTitle.js"></script>
+
+
+<script src="/js/highlight.js"></script>
+ 
+
+<script src="/js/toc.js"></script>
+
+
+
+    <footer id="footer">
+    <img src="/ico/Nemo.svg" alt="Nemophila" id="nemo-footer">
+    <p>Theme <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila"><strong>Nemophila</strong></a></p>
+    <p>Powered by Love from <a href="https://nyaku.moe">izNyaku</a></p>
+    <div id="footer-space"></div>
+    <p>© 2021 - 2026 izNyaku. All rights reserved.</p>
+    
+         <a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20212022">萌ICP备20212022号</a>
+    
+       
+</footer>
+
+    
+        
+<script src="/js/lazyload.js"></script>
+  <!-- lazyload -->
+    
+    
+    <a id="up">
+    <img src="/images/yachiyo.PNG" class="yachiyo-up no-lazy">
+</a>
+    
+<script src="/js/up.js"></script>
+
+    
+    
+    </body>
+</html>

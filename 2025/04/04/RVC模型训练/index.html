@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>
+        
+            RVC模型训练 | Nemophila | blog of 一之濑亚子 いちのせあこ
+        
+        
+    </title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/ico/Nemo.svg" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    <!-- 引入LaTex支持css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <!-- 引入APlayer支持css和js -->
+    
+<link rel="stylesheet" href="/css/APlayer.min.css">
+
+    
+<script src="/js/APlayer.min.js"></script>
+
+    <!-- 引入Linking -->
+    
+<script src="/js/linking.js"></script>
+
+    <!-- 引入vercount计数器 -->
+    <script defer src="https://events.vercount.one/js"></script>
+    <script>
+        let HEXO_SETTINGS = {
+            root: "/", 
+            url: "https://nyaku.moe",
+            author: "izNyaku"
+        };
+
+        let THEME_SETTINGS = {
+            lazyload: {
+                enable: true,
+                loading_img: "/images/yachiyo_loading2_640.webp"
+            },
+            };        
+    </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Nemophila | blog of 一之濑亚子 いちのせあこ" type="application/atom+xml">
+</head>
+    <body>  
+    <header class="article-header">
+    
+        <div class="article-header-cover" style="background-image: url('https://pic-oss.mouup.top/pic/2025/04/c9f23fcbc4329ac70f5f4c9a72e98469.jpg');"></div>
+    
+
+     
+
+<nav class="navbar ">
+    <a href="/" style="text-decoration: none;">
+        <h1 class="title ">Nemophila</h1> 
+    </a>
+    <div class="navlink ">
+        
+            <div class="nav-item-container ">
+                <a href="/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/home.svg'); mask-image: url('/ico/navbar/home.svg');">
+                     </div>
+                    <span>首页</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/archive.svg'); mask-image: url('/ico/navbar/archive.svg');">
+                     </div>
+                    <span>归档</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/tech/">
+                                
+                                    <i class="far fa-lightbulb" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="技术">技术</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/talk/">
+                                
+                                    <i class="fas fa-pen" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="杂谈">杂谈</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/note/">
+                                
+                                    <i class="far fa-note-sticky" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="笔记">笔记</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/list.svg'); mask-image: url('/ico/navbar/list.svg');">
+                     </div>
+                    <span>Lists</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/bangumis/">
+                                
+                                    <i class="fas fa-tv" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="番组">番组</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/music/">
+                                
+                                    <i class="far fa-headphones" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="音乐">音乐</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="/friends/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/heart.svg'); mask-image: url('/ico/navbar/heart.svg');">
+                     </div>
+                    <span>Friends</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/coffee.svg'); mask-image: url('/ico/navbar/coffee.svg');">
+                     </div>
+                    <span>Project</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila">
+                                
+                                <span data-content="Nemophila">Nemophila</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+        <a href="/atom.xml" class="navlink-rss ">
+            <div class="nav-icon " 
+                style="-webkit-mask-image: url('/ico/navbar/rss.svg'); mask-image: url('/ico/navbar/rss.svg');">
+            </div>
+        </a>
+    </div>
+    <a href="/search" class="search ">
+        <div class="nav-icon " 
+            style="-webkit-mask-image: url('/ico/navbar/search.svg'); mask-image: url('/ico/navbar/search.svg');">
+        </div>
+    </a>
+    
+</nav>
+    <div class="article-info need-shadow">
+        <h1 class="article-title">RVC模型训练</h1>
+        <span class="article-author-avatar-date-readtime">
+            <img src="/images/avatar.jpg" alt="Article author's Avatar" draggable="false" class="article-author-avatar no-lazyload">
+            <h2 class="article-author-name">一之濑亚子</h2>
+            ·
+            <time class="article-date" datetime="2025-04-04T07:10:20.000Z">2025-04-04</time>
+            ·
+            <span class="article-readtime"><span id="vercount_value_page_pv">Loading...</span>次阅读</span>
+        </span>
+    </div>
+</header>
+<div class="article-content-container">
+    <article class="article-content">
+        <aside id="article-toc" role="navigation">
+    <div id="toc-wrapper">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text"> 数据集准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text"> 一般音频处理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83"><span class="toc-number">3.</span> <span class="toc-text"> 模型训练</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#step-12"><span class="toc-number">3.1.</span> <span class="toc-text"> Step 1&amp;2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A6%96%E5%85%88%E6%98%AF%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.1.1.</span> <span class="toc-text"> 首先是基本的设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#step-3"><span class="toc-number">3.2.</span> <span class="toc-text"> Step 3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E8%AE%BE%E7%BD%AE%E9%83%A8%E5%88%86"><span class="toc-number">3.2.1.</span> <span class="toc-text"> 训练设置部分：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E8%AE%AD%E7%BB%83"><span class="toc-number">3.2.2.</span> <span class="toc-text"> 一键训练</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E5%AE%8C%E6%88%90%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">3.3.</span> <span class="toc-text"> 训练完成后的文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text"> 模型使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1webui"><span class="toc-number">4.1.</span> <span class="toc-text"> 1.WebUI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%AE%9E%E4%BE%8B"><span class="toc-number">4.2.</span> <span class="toc-text"> 生成实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BF%BB%E5%94%B1"><span class="toc-number">4.2.1.</span> <span class="toc-text"> 翻唱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E8%B0%88"><span class="toc-number">4.2.2.</span> <span class="toc-text"> 交谈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E5%AE%9E%E6%97%B6%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%8D%A2"><span class="toc-number">4.3.</span> <span class="toc-text"> 2.实时语音转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E5%A3%B0%E5%8D%A1"><span class="toc-number">4.3.1.</span> <span class="toc-text"> 安装虚拟声卡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8go-realtime-gui%E5%86%85"><span class="toc-number">4.3.2.</span> <span class="toc-text"> 在go-realtime-gui内</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E8%BD%AF%E4%BB%B6%E5%86%85%E4%BD%BF%E7%94%A8"><span class="toc-number">4.3.3.</span> <span class="toc-text"> 如何在软件内使用</span></a></li></ol></li></ol></li></ol>
+    </div>
+</aside>
+
+<!-- TODO: 增加展开子标题功能 -->
+        <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>最近想自己训练个模型在和别人语音的时候用，于是了解到了RVC这个项目</p>
+<hr />
+<p>Retrieval-based-Voice-Conversion-WebUI<br />
+<a target="_blank" rel="noopener" href="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI">https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI</a></p>
+<hr />
+<p>它可以实现<strong>人声模型的训练和实时推理</strong></p>
+<h1 id="数据集准备"><a class="markdownIt-Anchor" href="#数据集准备"></a> 数据集准备</h1>
+<blockquote>
+<p>Q10:需要多少训练集时长</p>
+<ul>
+<li>
+<p><strong>推荐10min至50min</strong></p>
+</li>
+<li>
+<p>保证音质高底噪低的情况下，如果有个人特色的音色统一，则多多益善</p>
+</li>
+<li>
+<p>高水平的训练集（精简+音色有特色），5min至10min也是ok的，仓库作者本人就经常这么玩</p>
+</li>
+<li>
+<p>也有人拿1min至2min的数据来训练并且训练成功的，但是成功经验是其他人不可复现的，不太具备参考价值。这要求训练集音色特色非常明显（比如说高频气声较明显的萝莉少女音），且音质高；</p>
+</li>
+<li>
+<p>1min以下时长数据目前没见有人尝试（成功）过。不建议进行这种鬼畜行为。</p>
+</li>
+</ul>
+</blockquote>
+<p>根据官方说法，我们大概需要准备<strong>15分钟左右</strong>的干声</p>
+<p>我训练的是普拉娜的模型，音频数据主要来自游戏解包还有阿罗普拉频道，关于游戏解包数据我推荐使用这个项目：</p>
+<hr />
+<p>Blue Archive Asset Downloader<br />
+<a target="_blank" rel="noopener" href="https://github.com/ZM-Kimu/Blue-Archive-Asset-Downloader">https://github.com/ZM-Kimu/Blue-Archive-Asset-Downloader</a></p>
+<hr />
+<p>游戏解包音频可以直接用，视频提取的音轨还要做处理</p>
+<hr />
+<h2 id="一般音频处理"><a class="markdownIt-Anchor" href="#一般音频处理"></a> 一般音频处理</h2>
+<p>首先打开webui，在RVC的根目录下打开go-web.bat</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/04/5975633cc0918c3174dfa7ce94adbd89.png" alt="goweb" class="lazyload"></p>
+<p>转到<code>伴奏人声分离&amp;去混响&amp;去回声</code>选项卡</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/04/2859c69b6ff1ecbff60957fbd965ab71.png" alt="伴奏人声分离&amp;去混响&amp;去回声" class="lazyload"></p>
+<p>把要处理的文件放在一个文件夹内，并在<code>输入待处理音频文件夹路径</code>里输入目录的路径，导出格式建议选wav，因为之后训练要用wav格式的文件<br />
+模型的选取可以参考作者的说明，我的建议是</p>
+<ul>
+<li>如果只是单纯的一般交谈声和bgm分离，用HP2或HP3比较适合</li>
+<li>如果是歌曲分离干声和伴奏可以考虑先用MDX-Net去混响再用DeEcho去延迟</li>
+</ul>
+<p>转换后的文件默认再RVC目录下的<code>opt</code>目录内<br />
+将所有的训练音频整合到同一个文件夹内</p>
+<hr />
+<h1 id="模型训练"><a class="markdownIt-Anchor" href="#模型训练"></a> 模型训练</h1>
+<h2 id="step-12"><a class="markdownIt-Anchor" href="#step-12"></a> Step 1&amp;2</h2>
+<h3 id="首先是基本的设置"><a class="markdownIt-Anchor" href="#首先是基本的设置"></a> 首先是基本的设置</h3>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/04/491e38f855b5bdae1ae0a4b1807376ac.png" alt="step1&amp;2" class="lazyload"></p>
+<ul>
+<li>实验名：模型的名称</li>
+<li>目标采样率：与训练的音频相同</li>
+<li>版本选v2</li>
+<li>训练文件夹路径：填入刚才存放训练音频的文件夹路径</li>
+</ul>
+<p>其余全部默认即可</p>
+<h2 id="step-3"><a class="markdownIt-Anchor" href="#step-3"></a> Step 3</h2>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/04/40eedb21265dcc3c951ce5897cfe74ed.png" alt="step3" class="lazyload"></p>
+<h3 id="训练设置部分"><a class="markdownIt-Anchor" href="#训练设置部分"></a> 训练设置部分：</h3>
+<p>一般保持默认即可<br />
+epoch在20附近比较合适</p>
+<h3 id="一键训练"><a class="markdownIt-Anchor" href="#一键训练"></a> 一键训练</h3>
+<ul>
+<li>点击一键训练可以直接一次跑完step 1 &amp; 2 &amp; 3，等待输出以下内容即可</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">step3a:正在训练模型</span><br><span class="line">训练结束, 您可查看控制台训练日志或实验文件夹下的train.log</span><br><span class="line">(46248, 768),1185</span><br><span class="line">(46248, 768),1185</span><br><span class="line">training</span><br><span class="line">(46248, 768),1185</span><br><span class="line">training</span><br><span class="line">adding</span><br><span class="line">(46248, 768),1185</span><br><span class="line">training</span><br><span class="line">adding</span><br><span class="line">成功构建索引，added_IVF1185_Flat_nprobe_1_mi-test_v2.index</span><br><span class="line">全流程结束！</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果不使用一键训练，依此进行<code>处理数据</code> → <code>特征提取</code> → <code>训练模型</code> → <code>训练特征提取</code> <strong>是一样的</strong></li>
+</ul>
+<p>更多问题可以参考官方wiki中的的<a target="_blank" rel="noopener" href="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94">常见问题解答</a></p>
+<h2 id="训练完成后的文件"><a class="markdownIt-Anchor" href="#训练完成后的文件"></a> 训练完成后的文件</h2>
+<ul>
+<li>
+<p>训练完成后，在<code>/assets/weights</code>目录下将会生成与实验名称同名的pth文件<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/04/8db649ae094e87293234f948ffebe1d2.png" alt="plana.pth" class="lazyload"></p>
+</li>
+<li>
+<p>在<code>logs/&lt;实验名称&gt;</code>会生成一个<code>added</code>开头的<code>index</code>文件，这是模型的索引</p>
+</li>
+</ul>
+<p><strong>⚠️注意，<code>logs/&lt;实验名称&gt;</code>下的pth文件并不适用于推理！！！</strong></p>
+<hr />
+<h1 id="模型使用"><a class="markdownIt-Anchor" href="#模型使用"></a> 模型使用</h1>
+<h2 id="1webui"><a class="markdownIt-Anchor" href="#1webui"></a> 1.WebUI</h2>
+<p>在<code>模型推理</code>选项卡中刷新音色就可以看到刚刚训练好的模型，选择音色</p>
+<ul>
+<li>在<code>自动检测index路径,下拉式选择(dropdown)</code>中选择刚才的index文件</li>
+<li><code>输入待处理音频文件路径</code>中输入希望进行变声的音频文件<br />
+✨ 这里的输入音频必须是干声，否则结果将会极其鬼畜！！！</li>
+<li>调整参数，然后点击转换即可</li>
+</ul>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/04/33dd78d492342d2dc5d8f13aecd4a7ff.png" alt="reasoning" class="lazyload"></p>
+<h2 id="生成实例"><a class="markdownIt-Anchor" href="#生成实例"></a> 生成实例</h2>
+<h3 id="翻唱"><a class="markdownIt-Anchor" href="#翻唱"></a> 翻唱</h3>
+<blockquote>
+<p>Feel my soul<br />
+寺泽百花</p>
+</blockquote>
+<ul>
+<li>合成：</li>
+</ul>
+<div id="aplayer01"></div>
+<script type="text/javascript">
+    const ap1 = new APlayer({
+    container: document.getElementById('aplayer01'),
+    audio: [{
+        name: 'feel my soul (feat.plana)',
+        artist: '普拉娜',
+        url: 'https://video-oss.mouup.top/feelmysoul(feat_plana).mp3',
+        cover: 'https://pic-oss.mouup.top/pic/2025/04/d8b6d827e92ddcd15ab78a31f58f0143.png'
+    }]
+});
+</script>
+<ul>
+<li>干声：</li>
+</ul>
+<div id="aplayer02"></div>
+<script type="text/javascript">
+    const ap2 = new APlayer({
+    container: document.getElementById('aplayer02'),
+    audio: [{
+        name: 'feel my soul (feat.plana, pure)',
+        artist: '普拉娜',
+        url: 'https://video-oss.mouup.top/tmpmp0o0pqt.mp3',
+        cover: 'https://pic-oss.mouup.top/pic/2025/04/d8b6d827e92ddcd15ab78a31f58f0143.png'
+    }]
+});
+</script>
+<hr />
+<h3 id="交谈"><a class="markdownIt-Anchor" href="#交谈"></a> 交谈</h3>
+<div id="aplayer03"></div>
+<script type="text/javascript">
+    const ap3 = new APlayer({
+    container: document.getElementById('aplayer03'),
+    audio: [{
+        name: '唱跳rap篮球music',
+        artist: '普拉娜',
+        url: 'https://video-oss.mouup.top/cxkplana.mp3'
+    }]
+});
+</script>
+<hr />
+<h2 id="2实时语音转换"><a class="markdownIt-Anchor" href="#2实时语音转换"></a> 2.实时语音转换</h2>
+<p>使用RVC目录下的<code>go-realtime-gui.bat</code>即可打开实时语音转换</p>
+<h3 id="安装虚拟声卡"><a class="markdownIt-Anchor" href="#安装虚拟声卡"></a> 安装虚拟声卡</h3>
+<p>首先我们需要安装虚拟声卡，我用的是voicemeeter</p>
+<hr />
+<p>Voicemeeter<br />
+<a target="_blank" rel="noopener" href="https://voicemeeter.com">https://voicemeeter.com</a></p>
+<hr />
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/04/82a7ce467693b138e0b2adbddcd4661c.png" alt="voicemeeter" class="lazyload"></p>
+<p>打开后：</p>
+<ul>
+<li>stereo input 1 &amp; 2 表示第一、二个物理输入设备</li>
+<li>VIRTUALINPUT 表示虚拟输入，go-realtime-gui就要在这里输入虚拟声卡
+<ul>
+<li>这里的A和B分别表示输出到<strong>物理输出设备</strong>和<strong>虚拟输出设备</strong>，点亮就是开启这条输出通道</li>
+<li>换句话说，打开A就会输出到耳机和音响，打开B就会输出到系统内的软件</li>
+</ul>
+</li>
+<li>最后HARDWARE OUT可以设置要输出声音的物理输出设备（例如音响和耳机）</li>
+</ul>
+<h3 id="在go-realtime-gui内"><a class="markdownIt-Anchor" href="#在go-realtime-gui内"></a> 在go-realtime-gui内</h3>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/04/6c5530e9d8d98ad87e72726e76e80315.png" alt="go-realtime-gui" class="lazyload"></p>
+<ul>
+<li>输入设备设置为你的麦克风</li>
+<li>输出设备（输入声卡）直接选<code>Voicemeeter Input(VB-Audio Voi MME)</code>即可打开实时语音转换</li>
+</ul>
+<p>其他设置部分：</p>
+<ul>
+<li>音调如果是男声变女生尽量拉高，反之拉低</li>
+<li>建议打开降噪</li>
+</ul>
+<p>点击开始音频转换即可看到Voicemeeter里面虚拟通道有输入了</p>
+<h3 id="如何在软件内使用"><a class="markdownIt-Anchor" href="#如何在软件内使用"></a> 如何在软件内使用</h3>
+<p>这里以Pr为例，在音频硬件首选项中选择输入音频设备为<code>Voicemeeter Out Bn</code><br />
+n为正整数</p>
+<p><strong>⚠️ 不要选择带A的，那些是物理输出</strong></p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/04/4d155b70437c472070424a02b630744c.png" alt="pr" class="lazyload"></p>
+<hr />
+<p>至此就全部完成啦 ヾ(≧▽≦*)o</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2025/04/c9f23fcbc4329ac70f5f4c9a72e98469.jpg" alt="cover" class="lazyload"></p>
+<blockquote>
+<p>封面：sensei👀<br />
+pid: <a target="_blank" rel="noopener" href="https://www.pixiv.net/artworks/115447576">115447576</a><br />
+artist: <a target="_blank" rel="noopener" href="https://www.pixiv.net/users/31909437">monthmio</a></p>
+</blockquote>
+
+    </article>
+    
+        <div class="article-cclicense">
+            <a class="article-cclicense-text" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        </div>
+    
+    
+        <div class="article-next" 
+            
+                style="--bg-url: url('https://pic-oss.mouup.top/pic/2025/01/2800e27cc6633498bfefebcc11efc858.png');"
+            >
+            <a class="article-next-link-card" href="/2025/01/21/Python%E8%84%9A%E6%9C%AC%E6%89%93%E5%8C%85%E7%AC%94%E8%AE%B0/">
+                <p class="article-next-text1">Next Post</p>
+                <p class="article-next-title">Python脚本打包笔记</p>
+            </a>
+        </div>
+    
+    
+        <div id="waline"></div>
+            <script type="module">
+                import { init } from '/js/waline.js';
+
+                init({
+                el: '#waline',
+                serverURL: 'https://waline.cdn.mouup.top/',
+                });
+            </script>
+        </div>
+    
+        
+
+<!-- TODO: 整理waline -->
+
+
+
+<!-- 引入代码块所用js -->
+
+<script src="/js/addImgTitle.js"></script>
+
+
+<script src="/js/highlight.js"></script>
+ 
+
+<script src="/js/toc.js"></script>
+
+
+
+    <footer id="footer">
+    <img src="/ico/Nemo.svg" alt="Nemophila" id="nemo-footer">
+    <p>Theme <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila"><strong>Nemophila</strong></a></p>
+    <p>Powered by Love from <a href="https://nyaku.moe">izNyaku</a></p>
+    <div id="footer-space"></div>
+    <p>© 2021 - 2026 izNyaku. All rights reserved.</p>
+    
+         <a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20212022">萌ICP备20212022号</a>
+    
+       
+</footer>
+
+    
+        
+<script src="/js/lazyload.js"></script>
+  <!-- lazyload -->
+    
+    
+    <a id="up">
+    <img src="/images/yachiyo.PNG" class="yachiyo-up no-lazy">
+</a>
+    
+<script src="/js/up.js"></script>
+
+    
+    
+    </body>
+</html>
