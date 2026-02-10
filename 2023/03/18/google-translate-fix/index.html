@@ -24,6 +24,8 @@
     
 <script src="/js/APlayer.min.js"></script>
 
+    <!-- 引入Metingjs -->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     <!-- 引入Linking -->
     
 <script src="/js/linking.js"></script>
@@ -394,12 +396,12 @@
         </div>
     
     
-        <div id="waline"></div>
+        <div class="waline"></div>
             <script type="module">
                 import { init } from '/js/waline.js';
 
                 init({
-                el: '#waline',
+                el: '.waline',
                 serverURL: 'https://waline.cdn.mouup.top/',
                 });
             </script>
