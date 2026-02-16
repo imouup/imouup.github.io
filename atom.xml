@@ -6,7 +6,7 @@
   <link href="https://nyaku.moe/atom.xml" rel="self"/>
   
   <link href="https://nyaku.moe/"/>
-  <updated>2026-02-16T14:09:50.478Z</updated>
+  <updated>2026-02-16T14:28:47.036Z</updated>
   <id>https://nyaku.moe/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://nyaku.moe/2026/02/16/Theme-Nemophila-dev-log1/"/>
     <id>https://nyaku.moe/2026/02/16/Theme-Nemophila-dev-log1/</id>
     <published>2026-02-16T10:41:18.000Z</published>
-    <updated>2026-02-16T14:09:50.478Z</updated>
+    <updated>2026-02-16T14:28:47.036Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="更新日志"><a class="markdownIt-Anchor" href="#更新日志"></a> 更新日志</h1><h2 id="搜索页-search"><a class="markdownIt-Anchor" href="#搜索页-search"></a> 搜索页 Search</h2><p>搜索页已完成，目前直接使用了js的 <code>indexOf</code> 函数实现搜索，支持用空格表示AND。<br /><img src="https://pic-oss.mouup.top/pic/2026/02/a4de92f2b898b99005975b460312f185.png" alt="page of searching" /></p><h2 id="tag"><a class="markdownIt-Anchor" href="#tag"></a> Tag</h2><p>已完成：在post卡片展示tag以及 <code>Tag页面</code></p><ul><li><p>Tag页面示例：<br /><img src="https://pic-oss.mouup.top/pic/2026/02/e08bbe0eba6a2064c5176ece169d8763.png" alt="Tag: Nemophila" /></p></li><li><p>文章卡片示例：<br /><img src="https://pic-oss.mouup.top/pic/2026/02/800ccb80cd8cbaceef63c8eefa3c7d25.png" alt="Post-card-example" /></p></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="更新日志"><a class="markdownIt-Anchor" href="#更新日志"></a> 更新日志</h1><h2 id="搜索页-search"><a class="markdownIt-Anchor" href="#搜索页-search"></a> 搜索页 Search</h2><p>搜索页已完成，目前直接使用了js的 <code>indexOf</code> 函数实现搜索，支持用空格表示AND。<br /><img src="https://pic-oss.mouup.top/pic/2026/02/a4de92f2b898b99005975b460312f185.png" alt="page of searching" /></p><h2 id="tag"><a class="markdownIt-Anchor" href="#tag"></a> Tag</h2><p>已完成：在post卡片展示tag以及 <code>Tag页面</code></p><ul><li><p>Tag页面示例：<br /><img src="https://pic-oss.mouup.top/pic/2026/02/e08bbe0eba6a2064c5176ece169d8763.png" alt="Tag: Nemophila" /></p></li><li><p>文章卡片示例：<br /><img src="https://pic-oss.mouup.top/pic/2026/02/800ccb80cd8cbaceef63c8eefa3c7d25.png" alt="Post-card-example" /></p></li></ul><h2 id="优化字体加载"><a class="markdownIt-Anchor" href="#优化字体加载"></a> 优化字体加载</h2><p>Noto系列字体改用 Google fonts (Global) 和 <a href="http://font.im">font.im</a> (China Mainland) 以优化加载速度。</p>]]></content>
     
     
     <summary type="html">Nemophila主题截至v0.2.0已实现的功能</summary>
