@@ -1,6 +1,8 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
 <!DOCTYPE html>
 <html>
-    <head>
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<head>
     <title>
         
             Nemophila 主题开发日志 log[0] | Nemophila | blog of 一之濑亚子 いちのせあこ
@@ -14,6 +16,10 @@
 
     
 <link rel="stylesheet" href="/css/all.min.css">
+
+    <!-- 引入Noto系字体 -->
+    
+<script src="/js/getfonts.js"></script>
 
     <!-- 引入LaTex支持css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
@@ -49,13 +55,15 @@
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Nemophila | blog of 一之濑亚子 いちのせあこ" type="application/atom+xml">
 </head>
     <body>  
-    <header class="article-header">
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<header class="article-header">
     
         
         
     
 
-     
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+ 
 
 <nav class="navbar ">
     <a href="/" style="text-decoration: none;">
@@ -201,6 +209,21 @@
             </div>
         
             <div class="nav-item-container ">
+                <a href="/word-to-me" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/word-to-me.svg'); mask-image: url('/ico/navbar/word-to-me.svg');">
+                     </div>
+                    <span>留言板</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
                 <a href="javascript:void(0)" class="navlink-item ">
                     <div class="nav-icon " 
                         style="-webkit-mask-image: url('/ico/navbar/coffee.svg'); mask-image: url('/ico/navbar/coffee.svg');">
@@ -259,7 +282,8 @@
 </header>
 <div class="article-content-container">
     <article class="article-content">
-        <aside id="article-toc" role="navigation">
+        <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<aside id="article-toc" role="navigation">
     <div id="toc-wrapper">
         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2"><span class="toc-number">2.</span> <span class="toc-text"> 页面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E9%A1%B5-index"><span class="toc-number">2.1.</span> <span class="toc-text"> 主页 index</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hi"><span class="toc-number">2.1.1.</span> <span class="toc-text"> Hi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tweet"><span class="toc-number">2.1.2.</span> <span class="toc-text"> Tweet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E5%88%97%E8%A1%A8"><span class="toc-number">2.1.3.</span> <span class="toc-text"> 主页文章列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E9%A1%B5-post"><span class="toc-number">2.2.</span> <span class="toc-text"> 文章页 post</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%98"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E8%A1%A8"><span class="toc-number">2.2.3.</span> <span class="toc-text"> 列表：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-number">2.2.4.</span> <span class="toc-text"> 表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">2.2.5.</span> <span class="toc-text"> 引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87"><span class="toc-number">2.2.6.</span> <span class="toc-text"> 图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91"><span class="toc-number">2.2.7.</span> <span class="toc-text"> 视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#katex"><span class="toc-number">2.2.8.</span> <span class="toc-text"> KaTex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">2.2.9.</span> <span class="toc-text"> 目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2-page"><span class="toc-number">2.3.</span> <span class="toc-text"> 自定义页面 page</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E5%BD%92%E6%A1%A3%E9%A1%B5-categoriescategory"><span class="toc-number">2.4.</span> <span class="toc-text"> 分类归档页 categories&#x2F;&lt;category&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8B%E9%93%BE%E9%A1%B5-friends"><span class="toc-number">2.5.</span> <span class="toc-text"> 友链页 friends</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8%E9%A1%B5-music"><span class="toc-number">2.6.</span> <span class="toc-text"> 音乐播放列表页 music</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#404%E9%A1%B5-nofound"><span class="toc-number">2.7.</span> <span class="toc-text"> 404页 nofound</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">3.</span> <span class="toc-text"> 功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#link-ing-%E6%A0%87%E7%AD%BE"><span class="toc-number">3.1.</span> <span class="toc-text"> &lt;link-ing&gt; 标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%99%E5%86%85%E9%93%BE%E6%8E%A5%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.1.1.</span> <span class="toc-text"> 站内链接示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%99%E5%A4%96%E9%93%BE%E6%8E%A5%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.1.2.</span> <span class="toc-text"> 站外链接示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aplayer-metingjs"><span class="toc-number">3.2.</span> <span class="toc-text"> Aplayer &amp; Metingjs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#aplayer-%E6%B5%8B%E8%AF%95"><span class="toc-number">3.2.1.</span> <span class="toc-text"> Aplayer 测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#metingjs%E6%B5%8B%E8%AF%95"><span class="toc-number">3.2.2.</span> <span class="toc-text"> Metingjs测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#waline"><span class="toc-number">3.3.</span> <span class="toc-text"> Waline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#icp-%E5%AD%97%E6%AE%B5"><span class="toc-number">3.4.</span> <span class="toc-text"> ICP 字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cc-license-%E5%AD%97%E6%AE%B5"><span class="toc-number">3.5.</span> <span class="toc-text"> CC License 字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rss-feed"><span class="toc-number">3.6.</span> <span class="toc-text"> RSS feed</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">4.</span> <span class="toc-text"> 最后</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#todo"><span class="toc-number">4.1.</span> <span class="toc-text"> TODO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%AD%E9%83%A8%E5%88%86%E5%AD%97%E6%AE%B5%E8%AF%B4%E6%98%8E"><span class="toc-number">4.2.</span> <span class="toc-text"> 博客配置文件中部分字段说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#back_to_top-%E5%9B%BE%E7%89%87"><span class="toc-number">4.2.1.</span> <span class="toc-text"> back_to_top 图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lazyload-%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="toc-number">4.2.2.</span> <span class="toc-text"> lazyload 图片懒加载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E7%9A%84%E6%9C%80%E5%90%8E"><span class="toc-number">4.3.</span> <span class="toc-text"> 最后的最后</span></a></li></ol></li></ol>
     </div>
@@ -575,9 +599,10 @@ b站的嵌入链接需要包裹 <code>&lt;div class=&quot;video-container&quot;&
 
 
 
-    <footer id="footer">
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<footer id="footer">
     <img src="/ico/Nemo.svg" alt="Nemophila" id="nemo-footer">
-    <p>Theme <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila"><strong>Nemophila</strong></a></p>
+    <p>Theme <a target="_blank" rel="noopener" href="https://github.com/imouup/hexo-theme-nemophila"><strong>Nemophila</strong></a></p>
     <p>Powered by Love from <a href="https://nyaku.moe">izNyaku</a></p>
     <div id="footer-space"></div>
     <p>© 2021 - 2026 izNyaku. All rights reserved.</p>
@@ -593,7 +618,8 @@ b站的嵌入链接需要包裹 <code>&lt;div class=&quot;video-container&quot;&
   <!-- lazyload -->
     
     
-    <a id="up">
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<a id="up">
     <img src="/images/yachiyo.PNG" class="yachiyo-up no-lazy">
 </a>
     

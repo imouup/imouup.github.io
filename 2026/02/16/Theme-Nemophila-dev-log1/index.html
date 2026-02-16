@@ -5,7 +5,7 @@
 <head>
     <title>
         
-             | Nemophila | blog of 一之濑亚子 いちのせあこ
+            Nemophila 主题开发日志 log[1] | Nemophila | blog of 一之濑亚子 いちのせあこ
         
         
     </title>
@@ -56,10 +56,12 @@
 </head>
     <body>  
     <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
-<header class="page-header">
+<header class="article-header">
     
         
         
+    
+
     <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
  
 
@@ -266,243 +268,91 @@
     </a>
     
 </nav>
-    <h1 class="page-title ">Nemophila</h1>
-
+    <div class="article-info need-shadow">
+        <h1 class="article-title">Nemophila 主题开发日志 log[1]</h1>
+        <span class="article-author-avatar-date-readtime">
+            <img src="/images/avatar.jpg" alt="Article author's Avatar" draggable="false" class="article-author-avatar no-lazyload">
+            <h2 class="article-author-name">一之濑亚子</h2>
+            ·
+            <time class="article-date" datetime="2026-02-16T10:41:18.000Z">2026-02-16</time>
+            ·
+            <span class="article-readtime"><span id="vercount_value_page_pv">Loading...</span>次阅读</span>
+        </span>
+    </div>
 </header>
-<div class="category-content-container">
-    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<div class="article-content-container">
+    <article class="article-content">
+        <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<aside id="article-toc" role="navigation">
+    <div id="toc-wrapper">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"><span class="toc-number">1.</span> <span class="toc-text"> 更新日志</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E9%A1%B5-search"><span class="toc-number">1.1.</span> <span class="toc-text"> 搜索页 Search</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tag"><span class="toc-number">1.2.</span> <span class="toc-text"> Tag</span></a></li></ol></li></ol>
+    </div>
+</aside>
+
+<!-- TODO: 增加展开子标题功能 -->
+        <h1 id="更新日志"><a class="markdownIt-Anchor" href="#更新日志"></a> 更新日志</h1>
+<h2 id="搜索页-search"><a class="markdownIt-Anchor" href="#搜索页-search"></a> 搜索页 Search</h2>
+<p>搜索页已完成，目前直接使用了js的 <code>indexOf</code> 函数实现搜索，支持用空格表示AND。<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/a4de92f2b898b99005975b460312f185.png" alt="page of searching" class="lazyload"></p>
+<h2 id="tag"><a class="markdownIt-Anchor" href="#tag"></a> Tag</h2>
+<p>已完成：在post卡片展示tag以及 <code>Tag页面</code></p>
+<ul>
+<li>
+<p>Tag页面示例：<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/e08bbe0eba6a2064c5176ece169d8763.png" alt="Tag: Nemophila" class="lazyload"></p>
+</li>
+<li>
+<p>文章卡片示例：<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/800ccb80cd8cbaceef63c8eefa3c7d25.png" alt="Post-card-example" class="lazyload"></p>
+</li>
+</ul>
+
+    </article>
+    
+        <div class="article-cclicense">
+            <a class="article-cclicense-text" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        </div>
+    
+    
+        <div class="article-next" 
+            
+                style="--bg-url: url('https://pic-oss.mouup.top/pic/2026/02/101bf939e12c1330e52b14ce8d323570.png');"
+            >
+            <a class="article-next-link-card" href="/2026/02/09/Theme-Nemophila-dev-log0/">
+                <p class="article-next-text1">Next Post</p>
+                <p class="article-next-title">Nemophila 主题开发日志 log[0]</p>
+            </a>
+        </div>
+    
+    
+        <div class="waline"></div>
+            <script type="module">
+                import { init } from '/js/waline.js';
+
+                init({
+                el: '.waline',
+                serverURL: 'https://waline.cdn.mouup.top/',
+                });
+            </script>
+        </div>
+    
+        
+
+<!-- TODO: 整理waline -->
+
+
+
+<!-- 引入代码块所用js -->
+
+<script src="/js/addImgTitle.js"></script>
+
+
+<script src="/js/highlight.js"></script>
  
 
-<section id="postlist-container" 
-        data-filter-tag="Nemophila" 
-        data-filter-category=""
-        data-per_page="10">
-    <div id="postlist-header">
-    
-        
-    
-    </div>
-    <article id="postlist">
-        
-            
-                 <section class="post-card">
-                    <!-- 文章封面处理 -->
-                    
-                    
-                        
-                    
-                    <img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/101bf939e12c1330e52b14ce8d323570.png" alt="banner" class="lazyload post-banner">
-                    <!-- 文章信息 -->
-                    <section class="post-info">
-                        <span class="post-time">
-                            <div class="post-time-icon"></div>
-                            <h5>发布于 2026-02-16</h5>
-                        </span>
-                        <a href="/2026/02/16/Theme-Nemophila-dev-log1/" class="post-card-link">
-                            <h3 class="post-title">Nemophila 主题开发日志 log[1]</h3>
-                        </a>
-                        <span class="post-meta-container">
-                            <span class="post-view">
-                                <div class="post-view-icon"></div>
-                                <h5><span class="view-count" data-path="2026/02/16/Theme-Nemophila-dev-log1/">Loading...</span> 人读过</h5>
-                            </span>
-                            <!-- <span class="post-comment-num">
-                                <div class="post-comment-num-icon"></div>
-                                <h5>112 条评论</h5>
-                            </span> -->
-                            
-                            <span class="post-category">
-                                
-                                <div class="post-category-icon"></div>
-                                <h5 class="post-category-list">
-                                    
-                                    <a href="/categories/tech/">tech</a>
-                                    
-                                     
-                                </h5>
-                                
-                            </span>
-
-                            <span class="post-tags">
-                                
-                                <div class="post-tag-icon"></div>
-                                
-                                <div class="post-tag-item"> 
-                                    <a href="/tags/Nemophila/" class="post-tag-link">Nemophila</a>
-                                    
-                                </div>
-                                
-                                
-                            </span>
-
-                        </span>
-                        <p>
-                            Nemophila主题截至v0.2.0已实现的功能
-                        </p>
-                    </section>
-                    
-                </section>
-                <hr>
-            
-                 <section class="post-card">
-                    <!-- 文章封面处理 -->
-                    
-                    
-                        
-                    
-                    <img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/101bf939e12c1330e52b14ce8d323570.png" alt="banner" class="lazyload post-banner">
-                    <!-- 文章信息 -->
-                    <section class="post-info">
-                        <span class="post-time">
-                            <div class="post-time-icon"></div>
-                            <h5>发布于 2026-02-09</h5>
-                        </span>
-                        <a href="/2026/02/09/Theme-Nemophila-dev-log0/" class="post-card-link">
-                            <h3 class="post-title">Nemophila 主题开发日志 log[0]</h3>
-                        </a>
-                        <span class="post-meta-container">
-                            <span class="post-view">
-                                <div class="post-view-icon"></div>
-                                <h5><span class="view-count" data-path="2026/02/09/Theme-Nemophila-dev-log0/">Loading...</span> 人读过</h5>
-                            </span>
-                            <!-- <span class="post-comment-num">
-                                <div class="post-comment-num-icon"></div>
-                                <h5>112 条评论</h5>
-                            </span> -->
-                            
-                            <span class="post-category">
-                                
-                                <div class="post-category-icon"></div>
-                                <h5 class="post-category-list">
-                                    
-                                    <a href="/categories/tech/">tech</a>
-                                    
-                                     
-                                </h5>
-                                
-                            </span>
-
-                            <span class="post-tags">
-                                
-                                <div class="post-tag-icon"></div>
-                                
-                                <div class="post-tag-item"> 
-                                    <a href="/tags/Nemophila/" class="post-tag-link">Nemophila</a>
-                                    
-                                </div>
-                                
-                                
-                            </span>
-
-                        </span>
-                        <p>
-                            Nemophila主题截至v0.1.0已实现的功能
-                        </p>
-                    </section>
-                    
-                </section>
-                <hr>
-            
-        
-    </article>
-    <div id="previous-btn-container">
-       <button id="previous-btn" >Previous</button>
-        <h5 id="previous-no-more" >没有更多了 ^_^ </h5>
-    </div>
-    
-
-</section>
+<script src="/js/toc.js"></script>
 
 
-<!-- 模板，用于js -->
- <template id="post-template">
-  <section class="post-card fade-in">
-    
-    <img src="" alt="banner" class="post-banner no-lazy">
-
-    <section class="post-info">
-      
-      <span class="post-time">
-        <div class="post-time-icon"></div>
-        <h5 class="post-date-text"></h5> </span>
-
-      <a href="" class="post-card-link">
-        <h3 class="post-title"></h3> </a>
-
-      <span class="post-view post-comment-num post-category">
-        
-        <span class="post-view">
-          <div class="post-view-icon"></div>
-          <h5><span class="view-count" >Loading...</span> 人读过</h5>
-        </span>
-
-        <!-- <span class="post-comment-num">
-          <div class="post-comment-num-icon"></div>
-          <h5>112 条评论</h5>
-        </span> -->
-
-        <span class="post-category" style="display: none;">
-          <div class="post-category-icon"></div>
-          <h5 class="post-category-list">
-            </h5>
-        </span>
-
-      </span>
-
-      <p class="post-excerpt"></p>
-
-    </section>
-  </section>
-</template>
-
-
-<script src="/js/previous_btn.js"></script>
-
-
-<!-- 使用 vercount api 获取文章阅读量 -->
-<script>
-    const getUrl = (rawurl) => {
-        if (rawurl.startsWith('http://') || rawurl.startsWith('https://')) {
-            return rawurl;
-        } else {
-            if (rawurl.startsWith('/')) {
-                return window.origin + rawurl;
-            } else {
-                return window.origin + '/' + rawurl;
-            }
-        }
-    }
-
-    // fetch 函数
-    const fetchVercout = () => {
-        const viewCountElements = document.querySelectorAll('.view-count');
-        viewCountElements.forEach(element => {
-            const postPath = element.getAttribute('data-path');
-            const url = getUrl(postPath);
-            const vercountUrl = "https://events.vercount.one/api/v2/log?url=" + encodeURIComponent(url);
-            fetch(vercountUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const readTime = data['data']['page_pv'];
-                    element.textContent = readTime;
-                })
-                .catch(error => {
-                    console.error('Error fetching view count:', error);
-                    element.textContent = '一些';
-                });
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', fetchVercout);
-
-</script>
-
-
-
-<!-- TODO: 添加评论量 -->
-
-
-</div>
 
     <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
 <footer id="footer">

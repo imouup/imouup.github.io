@@ -1,6 +1,8 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
 <!DOCTYPE html>
 <html>
-    <head>
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<head>
     <title>
         
              | Nemophila | blog of 一之濑亚子 いちのせあこ
@@ -14,6 +16,10 @@
 
     
 <link rel="stylesheet" href="/css/all.min.css">
+
+    <!-- 引入Noto系字体 -->
+    
+<script src="/js/getfonts.js"></script>
 
     <!-- 引入LaTex支持css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
@@ -50,8 +56,10 @@
 </head>
     <body>  
     <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
 <header class = "homepage-header">
-     
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+ 
 
 <nav class="navbar theme--homepage">
     <a href="/" style="text-decoration: none;">
@@ -197,6 +205,21 @@
             </div>
         
             <div class="nav-item-container theme--homepage">
+                <a href="/word-to-me" class="navlink-item theme--homepage">
+                    <div class="nav-icon theme--homepage" 
+                        style="-webkit-mask-image: url('/ico/navbar/word-to-me.svg'); mask-image: url('/ico/navbar/word-to-me.svg');">
+                     </div>
+                    <span>留言板</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container theme--homepage">
                 <a href="javascript:void(0)" class="navlink-item theme--homepage">
                     <div class="nav-icon theme--homepage" 
                         style="-webkit-mask-image: url('/ico/navbar/coffee.svg'); mask-image: url('/ico/navbar/coffee.svg');">
@@ -284,7 +307,8 @@
         </div>
         <div id="hi-right">
             
-                <div id="tweet">
+                <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<div id="tweet">
     <img src="/images/avatar.jpg" alt="Tweet Avatar" id="tweet-avatar" draggable="false">
     <div id="tweet-content">
         <div id="tweet-info">
@@ -342,7 +366,8 @@
 
 
 <div id="home-article-list">
-     
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+ 
 
 <section id="postlist-container" 
         data-filter-tag="" 
@@ -379,7 +404,7 @@
                         <a href="/2021/08/16/WORLD/" class="post-card-link">
                             <h3 class="post-title">HELLO WORLD</h3>
                         </a>
-                        <span class="post-view post-comment-num post-category">
+                        <span class="post-meta-container">
                             <span class="post-view">
                                 <div class="post-view-icon"></div>
                                 <h5><span class="view-count" data-path="2021/08/16/WORLD/">Loading...</span> 人读过</h5>
@@ -390,6 +415,18 @@
                             </span> -->
                             
                             <span class="post-category">
+                                
+                            </span>
+
+                            <span class="post-tags">
+                                
+                                <div class="post-tag-icon"></div>
+                                
+                                <div class="post-tag-item"> 
+                                    <a href="/tags/%E4%BA%8C%E6%AC%A1%E5%85%83-%E6%B7%B7%E5%89%AA-%E5%8A%A8%E7%94%BB-UP/" class="post-tag-link">二次元,混剪,动画,UP</a>
+                                    
+                                </div>
+                                
                                 
                             </span>
 
@@ -418,7 +455,7 @@
                         <a href="/2021/08/09/ServerStatus-Hotaru%E4%BA%91%E6%8E%A2%E9%92%88-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7%E5%AE%A4/" class="post-card-link">
                             <h3 class="post-title">ServerStatus-Hotaru云探针----搭建服务器监控室 （已弃用）</h3>
                         </a>
-                        <span class="post-view post-comment-num post-category">
+                        <span class="post-meta-container">
                             <span class="post-view">
                                 <div class="post-view-icon"></div>
                                 <h5><span class="view-count" data-path="2021/08/09/ServerStatus-Hotaru云探针-搭建服务器监控室/">Loading...</span> 人读过</h5>
@@ -440,6 +477,10 @@
                                 
                             </span>
 
+                            <span class="post-tags">
+                                
+                            </span>
+
                         </span>
                         <p>
                             
@@ -452,9 +493,11 @@
         
     </article>
     <div id="previous-btn-container">
-        <button id="previous-btn">Previous</button>
-        <h5 id="previous-no-more">没有更多了 ^_^</h5>
+       <button id="previous-btn" >Previous</button>
+        <h5 id="previous-no-more" >没有更多了 ^_^ </h5>
     </div>
+    
+
 </section>
 
 
@@ -480,10 +523,10 @@
           <h5><span class="view-count" >Loading...</span> 人读过</h5>
         </span>
 
-        <span class="post-comment-num">
+        <!-- <span class="post-comment-num">
           <div class="post-comment-num-icon"></div>
           <h5>112 条评论</h5>
-        </span>
+        </span> -->
 
         <span class="post-category" style="display: none;">
           <div class="post-category-icon"></div>
@@ -548,9 +591,10 @@
  
 </div>
 
-    <footer id="footer">
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<footer id="footer">
     <img src="/ico/Nemo.svg" alt="Nemophila" id="nemo-footer">
-    <p>Theme <a target="_blank" rel="noopener" href="https://github.com/imouup/Nemophila"><strong>Nemophila</strong></a></p>
+    <p>Theme <a target="_blank" rel="noopener" href="https://github.com/imouup/hexo-theme-nemophila"><strong>Nemophila</strong></a></p>
     <p>Powered by Love from <a href="https://nyaku.moe">izNyaku</a></p>
     <div id="footer-space"></div>
     <p>© 2021 - 2026 izNyaku. All rights reserved.</p>
@@ -566,7 +610,8 @@
   <!-- lazyload -->
     
     
-    <a id="up">
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<a id="up">
     <img src="/images/yachiyo.PNG" class="yachiyo-up no-lazy">
 </a>
     
