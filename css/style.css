@@ -633,6 +633,7 @@
   font-size: 10px;
   font-weight: 400;
   color: var(--text2);
+  white-space: nowrap;
 }
 .post-info .post-comment-num {
   display: flex;
@@ -730,6 +731,7 @@
 .post-info .post-tags .post-tag-item a {
   text-decoration: none;
   color: var(--text2);
+  white-space: nowrap;
 }
 .post-info .post-tags .post-tag-item:hover .post-tag-icon {
   background-color: var(--base);
