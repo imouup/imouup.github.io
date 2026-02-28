@@ -6,7 +6,7 @@
   <link href="https://nyaku.moe/atom.xml" rel="self"/>
   
   <link href="https://nyaku.moe/"/>
-  <updated>2026-02-16T14:33:43.098Z</updated>
+  <updated>2026-02-28T03:17:40.887Z</updated>
   <id>https://nyaku.moe/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OpenClaw WSL 一键包使用指南</title>
+    <link href="https://nyaku.moe/2026/02/28/OpenClaw-WSL-%E4%B8%80%E9%94%AE%E5%8C%85%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
+    <id>https://nyaku.moe/2026/02/28/OpenClaw-WSL-%E4%B8%80%E9%94%AE%E5%8C%85%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</id>
+    <published>2026-02-28T02:24:39.000Z</published>
+    <updated>2026-02-28T03:17:40.887Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一键包食用指南"><a class="markdownIt-Anchor" href="#一键包食用指南"></a> 一键包食用指南</h1><blockquote><p>一键包详细信息：</p><ul><li>Linux发行版：Debian 13</li><li>OpenClaw版本：2026.2.26</li><li>已预装部分常用skills, 可使用<code>openclaw skills list</code>查看</li><li>已预装mihomo网络代理服务，默认关闭，代理使用<strong>TUN</strong>模式</li><li>已配置browser，默认使用Windows下的chrome的执行文件</li></ul></blockquote><h2 id="下载一键包"><a class="markdownIt-Anchor" href="#下载一键包"></a> 下载一键包</h2><h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2><p>双击 <code>一键安装</code> 即可完成安装。<br /><strong>注意：</strong> OpenClaw-WSL会被安装在当前目录下的src目录内，因此请直接将一键包解压到你想要安装的位置。</p><ul><li>安装完成后，<strong>桌面会生成快捷方式</strong>，可双击进入OpenClaw WSL</li><li>若你正在使用Windows Terminal, WSL会生成一个终端配置文件</li></ul><h2 id="网络代理"><a class="markdownIt-Anchor" href="#网络代理"></a> 网络代理</h2><p>镜像已预装mihomo网络代理服务, 可使用 <code>mihomo-status</code> 查看代理状态，使用 <code>mihomo-setting</code> 配置代理。</p><ul><li>注意：若要使用代理，请在<code>WSl Settings</code>的<code>网络</code>选项卡内将网络模式改为<code>Mirrored</code>（镜像模式）。WSL Setting可以在搜索栏搜到。<br /><img src="https://pic-oss.mouup.top/pic/2026/02/8562161e8d11579ac6ba843257691480.png" alt="将网络模式改为Mirrored（镜像模式）" /></li></ul><h2 id="配置模型服务"><a class="markdownIt-Anchor" href="#配置模型服务"></a> 配置模型服务</h2><p>请参考官方文档：<a href="https://docs.openclaw.ai/zh-CN/providers">https://docs.openclaw.ai/zh-CN/providers</a></p><h3 id="最简单的模型服务配置指南"><a class="markdownIt-Anchor" href="#最简单的模型服务配置指南"></a> 最简单的模型服务配置指南</h3><ol><li>在终端输入 <code>openclaw onboard</code></li><li>确认<br /><img src="https://pic-oss.mouup.top/pic/2026/02/a27334351536722fa1d77f88c576b12c.png" alt="确认" /></li><li>选择QuickStart</li><li><strong>选择Update values</strong> (⚠️重要，否则会覆盖掉原有配置)<br /><img src="https://pic-oss.mouup.top/pic/2026/02/e1647e3fc92dedcbb68cadcfe63e631b.png" alt="选择Update values" /></li><li>选择模型服务配置即可<br /><img src="https://pic-oss.mouup.top/pic/2026/02/5a29ff476d75d00bd31fb1c144186f80.png" alt="选择模型服务并配置" /></li><li>模型配置后的所有配置可以全部skip</li></ol><h2 id="打开webui聊天"><a class="markdownIt-Anchor" href="#打开webui聊天"></a> 打开WebUI聊天</h2><p>打开WebUI需要网关令牌 (gateway token) ，使用以下命令获取</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -c <span class="string">&quot;import json; print(json.load(open(&#x27;/home/claw/.openclaw/openclaw.json&#x27;))[&#x27;gateway&#x27;][&#x27;auth&#x27;][&#x27;token&#x27;])&quot;</span></span><br></pre></td></tr></table></figure><p>获取后使用以下命令获取OpenClaw Dashboard的地址</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openclaw gateway status | grep <span class="string">&quot;Dashboard:&quot;</span></span><br></pre></td></tr></table></figure><p>打开该地址，并在&quot;概览&quot;内的“网关令牌”处填入令牌，并点击连接<br /><img src="https://pic-oss.mouup.top/pic/2026/02/cc33b506d99562919ee12606e95dfa97.png" alt="概览" /></p><p>随后即可在WebUI处和bot聊天</p><h2 id="在cli聊天"><a class="markdownIt-Anchor" href="#在cli聊天"></a> 在CLI聊天</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openclaw tui</span><br></pre></td></tr></table></figure><h2 id="在其他channel聊天"><a class="markdownIt-Anchor" href="#在其他channel聊天"></a> 在其他channel聊天</h2><p>参考官方的消息渠道配置文档：<a href="https://docs.openclaw.ai/zh-CN/channels">https://docs.openclaw.ai/zh-CN/channels</a></p><h1 id="为什么要用wsl"><a class="markdownIt-Anchor" href="#为什么要用wsl"></a> 为什么要用WSL</h1><p>首先，WSL全称Windows Subsystem for Linux, 其允许用户直接在Windows上运行一个非常接近原生Linux的Linux环境。目前，其与Windows已几乎完美融合，WSL可以与Windows共用网络，WSL和Windows都可以访问对方文件系统中的文件，这对于OpenClaw这种Agent而言非常方便。</p><p>同时，在WSL安装相较于在Windows直接安装又多了一层隔离性，这允许你通过控制WSL的权限，限制OpenClaw的行为；并且可以更方便地完全剥离OpenClaw。</p><p>并且，WSL的export和import非常方便，很适合用来打包镜像。🥰</p>]]></content>
+    
+    
+    <summary type="html">OpenClaw WSL 一键包使用指南</summary>
+    
+    
+    
+    <category term="tech" scheme="https://nyaku.moe/categories/tech/"/>
+    
+    
+    <category term="OpenClaw" scheme="https://nyaku.moe/tags/OpenClaw/"/>
+    
+  </entry>
   
   <entry>
     <title>Nemophila 主题开发日志 log[1]</title>
