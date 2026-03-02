@@ -1,783 +1,375 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-  
-  
-  <title itemprop="name">Stable Diffusion webui的部署运行以及embedding训练 | 一之濑亚子| いちのせあこ</title>
-  
-    <link rel="shortcut icon" href="/images/favicon.png">
-  
-  <meta http-equiv="x-dns-prefetch-control" content="on">
-  <link
-      rel="stylesheet"
-      href="/css/fancybox.css"
-    />
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
-  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
-  <link rel="stylesheet" href="/css/lib.min.css" media="all">
-  <link rel="stylesheet" href="/css/font.css" media="all">
-  <link rel="stylesheet" href="/css/insight.css" media="all">
-  <link rel="stylesheet" href="/css/search.css" media="all">
-  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-  <link
-  rel="stylesheet"
-  href="https://unpkg.com/@waline/client@v2/dist/waline.css"
-/>
+    <title>
+        
+            Stable Diffusion webui的部署运行以及embedding训练 | Nemophila | blog of 一之濑亚子 いちのせあこ
+        
+        
+    </title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/ico/Nemo.svg" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    <!-- 引入Noto系字体 -->
+    
+<script src="/js/getfonts.js"></script>
+
+    <!-- 引入LaTex支持css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <!-- 引入APlayer支持css和js -->
+    
+<link rel="stylesheet" href="/css/APlayer.min.css">
+
+    
+<script src="/js/APlayer.min.js"></script>
+
+    <!-- 引入Metingjs -->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    <!-- 引入Linking -->
+    
+<script src="/js/linking.js"></script>
+
+    <!-- 引入vercount计数器 -->
+    <script defer src="https://events.vercount.one/js"></script>
+    <script>
+        let HEXO_SETTINGS = {
+            root: "/", 
+            url: "https://nyaku.moe",
+            author: "izNyaku"
+        };
+
+        let THEME_SETTINGS = {
+            lazyload: {
+                enable: true,
+                loading_img: "/images/yachiyo_loading2_640.webp"
+            },
+            };        
+    </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Nemophila | blog of 一之濑亚子 いちのせあこ" type="application/atom+xml">
+</head>
+    <body>  
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<header class="article-header">
+    
+        
+            <div class="article-header-cover" style="background-image: url('https://cdn.mouup.top/pico/picaipaintexamlpe.png');"></div>
+        
+        
+    
+
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
  
 
- <!--引入walinecss--> 
-<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
-" type="text/css" media="all"> -->
-  <script>
-  /*Initial Variables*/
-  var mashiro_option = new Object();
-  var mashiro_global = new Object();
-  mashiro_option.NProgressON = true;
-  /* 
-   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
-   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
-   */
-  mashiro_option.email_domain = "";
-  mashiro_option.email_name = "";
-  mashiro_option.cookie_version_control = "";
-  mashiro_option.qzone_autocomplete = false;
-  mashiro_option.site_name = "いちのせあこ";
-  mashiro_option.author_name = "あこ";
-  mashiro_option.site_url = "https://nyaku.moe";
-  mashiro_option.v_appId = "9ytX3UWkKuk4f5gs926pMxeg-MdYXbMMI";
-  mashiro_option.v_appKey = "6jBAYTAMVNez46ITYI1LCuvH";
-  mashiro_option.mathjax = "1";
-  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
-  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
-  mashiro_option.copyright_enable = "true" ;
-  mashiro_option.copyright_minCharNumber = parseInt("999") ;
-  mashiro_option.copyright_description = "本文章著作权归作者所有，任何形式的转载都请注明出处。" ;
-
-
-  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
-  // mashiro_option.float_player_on = true;
-
-  /*End of Initial Variables*/
-  </script>
-  <script type="text/javascript">
-  var bg = "/images/cover/103989373_p0.png,/images/cover/86447159_p0 (1).jpg,/images/cover/❀105369093_p0.jpg,https://pic-oss.mouup.top/pic/2024/02/25f1b02a5a34a8877c0944838c66c804.jpg,https://pic-oss.mouup.top/pic/2024/02/07ab62f89ae4cde0e5260429f3d73962.jpg,https://pic-oss.mouup.top/pic/2024/02/19d350ee599b4ee1de14e9ab62798e79.jpg,https://pic-oss.mouup.top/pic/2024/02/18305afa339eb08296c2e6f4ee4e6ae1.png,https://pic-oss.mouup.top/pic/2024/02/70afa021678b8cb8ac6668c3a2584c31.png,https://pic-oss.mouup.top/pic/2024/02/2ea50eedfe120c0d40336cf29d625fa6.png,https://pic-oss.mouup.top/pic/2024/02/c7b136cbbb2ec224164d5df98f55a42c.jpg,https://pic-oss.mouup.top/pic/2024/02/86bd453ef94b852713b52567cb0df489.jpg,https://pic-oss.mouup.top/pic/2024/02/1183ab5a636f3a55206474a7d7bd0669.jpg,https://pic-oss.mouup.top/pic/2024/02/3d250597eb118366cc53b17b0c332881.png,https://pic-oss.mouup.top/pic/2024/02/c2a29b8254c003dd32c1a7bb361a86bd.jpg,https://pic-oss.mouup.top/pic/2024/02/c906bc5edcb286984b8cd07680ce63ca.jpg,https://pic-oss.mouup.top/pic/2024/02/6564880c66ddc999d41ae64245f96ad7.jpg,https://pic-oss.mouup.top/pic/2024/02/07e778a87a9a6c5fdf0eb57381702158.png,https://pic-oss.mouup.top/pic/pic/pic/2024/02/ce8c775ddc438d6b5b5b0db11d309812.jpg,https://pic-oss.mouup.top/pic/pic/2024/02/1c590c1e532284fb4cab493e834c0a04.png,https://pic-oss.mouup.top/pic/2024/02/52285da077745b8d8df32716b4a61d59.png,https://pic.api.mouup.top/api,https://pan.nyaku.moe/f/6KeFv/%E7%84%A1%E9%A1%8C102108150_p0.png,https://pan.nyaku.moe/f/7p4Ir/%E9%9D%92%E5%85%89101165717_p0.png,https://pan.nyaku.moe/f/11xUM/%E5%A4%95%E6%9A%AE%E3%82%8C%E3%81%AE%E3%81%99%E3%81%93%E3%81%97%E3%81%BE%E3%81%88106009544_p0.png,https://pan.nyaku.moe/f/jALf0/%E8%8B%8F%E5%A1%9E%E5%85%8B%E6%96%AF%EF%BC%81102916472_p0.jpg,https://pan.nyaku.moe/f/5refX/%E6%97%A5%E7%85%A7%E9%9B%A8104466336_p0.jpg".split(",");
-  var bgindex = Math.floor(Math.random()*bg.length);
-  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
-    alert('朋友，IE浏览器未适配哦~');
-  }
-  </script>
-
-  <script type="text/javascript" id="hexo.configuration">
-    var CONFIG = {
-      root: '/',
-      algolia: {
-            applicationID: 'HMMH5XZBZD',
-            apiKey: 'df5452e91eb774d229b3b6ced04f20d4',
-            indexName: 'blog',
-            hits: {"per_page":10},
-            labels: {"input_placeholder":"搜索……","hits_empty":"未发现与 「${query}」相关的内容","hits_stats":"${hits} 条相关条目，使用了 ${time} 毫秒"}
-          }
-    };
-  </script>
-
-  <style type="text/css">
-  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
-  </style>
-  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;background-position:center center;background-attachment:inherit;}
-  </style>
-  <script data-ad-client="ca-pub-6960267753891556" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
-  <script src="http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js"></script>
-  <script src="http://cdn.bootcss.com/instantsearch.js/1.5.1/instantsearch.js"></script>
-
-  <script type="text/javascript">
-   $(document).ready(function () {
-  var algoliaSettings = CONFIG.algolia;
-  var isAlgoliaSettingsValid = algoliaSettings.applicationID &&
-    algoliaSettings.apiKey &&
-    algoliaSettings.indexName;
-
-  if (!isAlgoliaSettingsValid) {
-    window.console.error('Algolia Settings are invalid.');
-    return;
-  }
-
-  var search = instantsearch({
-    appId: algoliaSettings.applicationID,
-    apiKey: algoliaSettings.apiKey,
-    indexName: algoliaSettings.indexName,
-    searchFunction: function (helper) {
-      var searchInput = $('#algolia-search-input').find('input');
-
-      if (searchInput.val()) {
-        helper.search();
-      }
-    }
-  });
-
-  // Registering Widgets
-  [
-    instantsearch.widgets.searchBox({
-      container: '#algolia-search-input',
-      placeholder: algoliaSettings.labels.input_placeholder
-    }),
-
-    instantsearch.widgets.hits({
-      container: '#algolia-hits',
-      hitsPerPage: algoliaSettings.hits.per_page || 10,
-      templates: {
-        item: function (data) {
-          return (
-            '<a href="' + CONFIG.root + data.path + '" class="algolia-hit-item-link">' +
-            data._highlightResult.title.value +
-            '</a>'
-          );
-        },
-        empty: function (data) {
-          return (
-            '<div id="algolia-hits-empty">' +
-            algoliaSettings.labels.hits_empty.replace(/\$\{query}/, data.query) +
-            '</div>'
-          );
-        }
-      },
-      cssClasses: {
-        item: 'algolia-hit-item'
-      }
-    }),
-
-    instantsearch.widgets.stats({
-      container: '#algolia-stats',
-      templates: {
-        body: function (data) {
-          var stats = algoliaSettings.labels.hits_stats
-            .replace(/\$\{hits}/, data.nbHits)
-            .replace(/\$\{time}/, data.processingTimeMS);
-          return (
-            stats +
-            '<span class="algolia-powered">' +
-            '  <img src="' + CONFIG.root + 'images/algolia_logo.svg" alt="Algolia" />' +
-            '</span>' +
-            '<hr />'
-          );
-        }
-      }
-    }),
-
-    instantsearch.widgets.pagination({
-      container: '#algolia-pagination',
-      scrollTo: false,
-      showFirstLast: false,
-      labels: {
-        first: '<i class="fa fa-angle-double-left"></i>',
-        last: '<i class="fa fa-angle-double-right"></i>',
-        previous: '<i class="fa fa-angle-left"></i>',
-        next: '<i class="fa fa-angle-right"></i>'
-      },
-      cssClasses: {
-        root: 'pagination',
-        item: 'pagination-item',
-        link: 'page-number',
-        active: 'current',
-        disabled: 'disabled-item'
-      }
-    })
-  ].forEach(search.addWidget, search);
-
-  search.start();
-
-  $('.popup-trigger').on('click', function(e) {
-    e.stopPropagation();
-    $('body').append('<div class="popoverlay">').css('overflow', 'hidden');
-    $('.popup').toggle();
-    $('#algolia-search-input').find('input').focus();
-  });
-
-  $('.popup-btn-close').click(function(){
-    $('.popup').hide();
-    $('.popoverlay').remove();
-    $('body').css('overflow', '');
-  });
-
-});
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    if ( $('#local-search-input').size() === 0) {
-      return;
-    }
-
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-      search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    function proceedsearch() {
-      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-      $('.popup').toggle();
-
-    }
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-      $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
-            return {
-              title: $( "title", this ).text(),
-              content: $("content",this).text(),
-              url: $( "url" , this).text()
-            };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = true;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = data.url;
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '' && data_content != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title < 0 && index_content < 0 ){
-                      isMatch = false;
-                    } else {
-                      if (index_content < 0) {
-                        index_content = 0;
-                      }
-                      if (i == 0) {
-                        first_occur = index_content;
-                      }
-                    }
-                  });
-                }
-                // show search results
-                if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
-                    // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if(start == 0){
-                      end = 50;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
-
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
-                  }
-                  str += "</li>";
-                }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
-          proceedsearch();
-        }
-      });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').mousedown(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-
-    });
-
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  });
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7GF42MMX0S"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7GF42MMX0S');
-</script>
-  <meta name="generator" content="Hexo 5.2.0"></head>
-
-<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
-  
-  <div class="scrollbar" id="bar">
-  </div>
-  <a href="#" class="cd-top faa-float animated"></a>
-  <section id="main-container">
-    <div class="headertop filter-grid">
-  <div id="banner_wave_1"></div>
-  <div id="banner_wave_2"></div>
-  <figure id="centerbg" class="centerbg">
-    <div class="focusinfo no-select">
-      <div class="header-tou">
-        <a href="https://nyaku.moe">
-         <h1 class="center-textpc center-textmb glitch is-glitching Ubuntu-font" data-text="Hi, izNyaku!">Hi, izNyaku!</h1>
-          <!-- <img src="https://cdn.mouup.top/pico/picavatar.png"> -->  <!--这里注释掉了头像-->
-        </a>
-      </div>
-      <div class="header-info header-infosf">
-       <p><i class="fa fa-quote-left"></i>&nbsp&nbspCan u see me?&nbsp&nbsp<i class="fa fa-quote-right"></i></p>
-        <div class="top-social_v2">
-          <li id="bg-pre">
-            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
-          </li>
-          
-            
-              
-                <li>
-                  <a href="http://github.com/imouup" target="_blank" class="social-github" title="github">
-                    <img src="https://cdn.mouup.top/pico/picgithubico.png">
-                  </a>
-                </li>
-              
-            
-              
-                <li>
-                  <a href="mailto:iznyaku@outlook.com" target="_blank" class="social-github" title="email">
-                    <img src="https://js-cdn.mouup.top/gh/xbclub/staticCDN@0.6/img/social/email.svg">
-                  </a>
-                </li>
-              
-            
-              
-                <li>
-                  <a href="https://twitter.com/iznyaku" target="_blank" class="social-github" title="Twitter">
-                    <img src="https://cdn.mouup.top/pico/pictwitterr.png">
-                  </a>
-                </li>
-              
-            
-              
-                <li>
-                  <a href="https://space.bilibili.com/438518095" target="_blank" class="social-github" title="bilibili">
-                    <img src="https://cdn.mouup.top/pico/picbilibiliico.png">
-                  </a>
-                </li>
-              
-            
-          
-          <li id="bg-next">
-            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
-          </li>
-        </div>
-      </div>
-    </div>
-  </figure>
-  <div id="video-container" style="">
-    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
-    </video>
-    <div id="video-btn" class="loadvideo videolive">
-    </div>
-    <div id="video-add">
-    </div>
-    <div class="video-stu">
-    </div>
-  </div>
-  <div class="headertop-down faa-float animated" onclick="headertop_down()">
-    <span>
-      <i class="fa fa-chevron-down" aria-hidden="true">
-      </i>
-    </span>
-  </div>
-</div>
-    <div id="page" class="site wrapper">
-      <header class="site-header no-select gizle sabit" role="banner">
-  <div class="site-top">
-    <div class="site-branding">
-      <span class="site-title">
-        <span class="logolink moe-mashiro">
-          <a href="/">
-            <span class="sakurasono">いちのせ</span>
-            <span class="shironeko">あこ</span>
-          </a>
-        </span>
-      </span>
-    </div>
-
-     <div class="searchbox search-form-submit">
-      <i class="iconfont js-toggle-search iconsearch icon-search">
-      </i>
-    </div>
-    <div id="show-nav" class="showNav mobile-fit">
-      <div class="line line1">
-      </div>
-      <div class="line line2">
-      </div>
-      <div class="line line3">
-      </div>
-    </div>
-    <div class="lower-cantiner">
-      <div class="lower">
-        <nav class="mobile-fit-control hide">
-          <ul id="menu-new" class="menu">
-            
-              <li>
-                <a href="/">
-                  <span class="faa-parent animated-hover">
-                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
-                    首页
-                  </span>
-                </a>
-                
-              </li>
-            
-              <li>
-                <a href="/archives">
-                  <span class="faa-parent animated-hover">
-                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
-                    归档
-                  </span>
-                </a>
-                
-                  <ul class="sub-menu">
-                    
-                      <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
-                          <i class="fa fa-code" aria-hidden="true"></i>
-                          技术
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
-                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                          资源
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
-                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                          随想
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
-                          <i class="fa fa-book" aria-hidden="true"></i>
-                          转载
-                        </a>
-                      </li>
-                    
-                  </ul>
-                
-              </li>
-            
-              <li>
-                <a href="javascript:;">
-                  <span class="faa-parent animated-hover">
-                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
-                    list
-                  </span>
-                </a>
-                
-                  <ul class="sub-menu">
-                    
-                      <li>
-                        <a href="/bangumis/">
-                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
-                          番组
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/music/">
-                          <i class="fa fa-headphones" aria-hidden="true"></i>
-                          歌单
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/tags/%E5%9B%BE%E9%9B%86/">
-                          <i class="fa fa-photo" aria-hidden="true"></i>
-                          图集
-                        </a>
-                      </li>
-                    
-                  </ul>
-                
-              </li>
-            
-              <li>
-                <a href="/comment/">
-                  <span class="faa-parent animated-hover">
-                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
-                    留言板
-                  </span>
-                </a>
-                
-              </li>
-            
-              <li>
-                <a href="/links/">
-                  <span class="faa-parent animated-hover">
-                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
-                    友人帐
-                  </span>
-                </a>
-                
-              </li>
-            
-              <li>
-                <a href="/me/">
-                  <span class="faa-parent animated-hover">
-                    <i class="fa  fa-meetup faa-tada faa-fast" aria-hidden="true"></i>
-                    我？
-                  </span>
-                </a>
-                
-                  <ul class="sub-menu">
-                    
-                      <li>
-                        <a href="/me">
-                          <i class="fa fa-leaf faa-wrench" aria-hidden="true"></i>
-                          关于
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/donate/">
-                          <i class="fa fa-heart faa-pulse" aria-hidden="true"></i>
-                          赞赏
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/theme-sakura/">
-                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
-                          主题
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/lab/">
-                          <i class="fa fa-cogs" aria-hidden="true"></i>
-                          Lab
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/atom.xml">
-                          <i class="fa fa-rss faa-pulse" aria-hidden="true"></i>
-                          RSS
-                        </a>
-                      </li>
-                    
-                  </ul>
-                
-              </li>
-            
-              <li>
-                <a target="_blank" rel="noopener" href="https://pan.nyaku.moe">
-                  <span class="faa-parent animated-hover">
-                    <i class="fa  fa-cloud faa-bounce faa-fast" aria-hidden="true"></i>
-                    网盘
-                  </span>
-                </a>
-                
-              </li>
-            
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
-<div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.mouup.top/pico/picaipaintexamlpe.png);" src="https://js-cdn.mouup.top/gh/imouup/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.mouup.top/pico/picaipaintexamlpe.png">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      Stable Diffusion webui的部署运行以及embedding训练</h1>
-      <p class="entry-census">
-        <span>
-          <a href="nyaku.moe">
-            <img src="https://pico.cdn.mouup.top/picavatar202206.jpg">
-          </a>
-        </span>
-        <span>
-          <a href="nyaku.moe">nyaku</a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2023-1-16<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
-  </div>
-
-<div id="content" class="site-content">
-  <div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+<nav class="navbar ">
+    <a href="/" style="text-decoration: none;">
+        <h1 class="title ">Nemophila</h1> 
+    </a>
+    <div class="navlink ">
         
-        <div class="entry-content">
-          <h2 id="随机写点东西"><a href="#随机写点东西" class="headerlink" title="随机写点东西"></a>随机写点东西</h2><p>我觉得是时候给刚学会 的ai绘画技巧做个归档了（不然以后忘了就又要重来了）</p>
-<hr>
+            <div class="nav-item-container ">
+                <a href="/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/home.svg'); mask-image: url('/ico/navbar/home.svg');">
+                     </div>
+                    <span>首页</span>
+                    
+                    
 
-<h2 id="开始部署"><a href="#开始部署" class="headerlink" title="开始部署"></a>开始部署</h2><h3 id="我的系统信息"><a href="#我的系统信息" class="headerlink" title="我的系统信息"></a>我的系统信息</h3><p>系统：Windows10<br>GPU：RTX3060ti</p>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="安装anaconda"><a href="#安装anaconda" class="headerlink" title="安装anaconda"></a>安装anaconda</h4><p>访问<a target="_blank" rel="noopener" href="https://www.anaconda.com/">anaconda官网</a>直接下载安装，建议使用IDM或者挂梯</p>
-<p>安装时建议选择just me,这样更方便添加环境变量<br>勾选添加到path<br><img src="https://cdn.mouup.top/pico/pic173019.png" alt="add to path"></p>
-<h4 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h4><p>1.最好准备一把梯子</p>
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/archive.svg'); mask-image: url('/ico/navbar/archive.svg');">
+                     </div>
+                    <span>归档</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/tech/">
+                                
+                                    <i class="far fa-lightbulb" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="技术">技术</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/talk/">
+                                
+                                    <i class="fas fa-pen" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="杂谈">杂谈</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/note/">
+                                
+                                    <i class="far fa-note-sticky" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="笔记">笔记</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/list.svg'); mask-image: url('/ico/navbar/list.svg');">
+                     </div>
+                    <span>Lists</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/bangumis/">
+                                
+                                    <i class="fas fa-tv" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="番组">番组</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/music/">
+                                
+                                    <i class="far fa-headphones" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="音乐">音乐</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="/friends/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/heart.svg'); mask-image: url('/ico/navbar/heart.svg');">
+                     </div>
+                    <span>Friends</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="/word-to-me" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/word-to-me.svg'); mask-image: url('/ico/navbar/word-to-me.svg');">
+                     </div>
+                    <span>留言板</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/coffee.svg'); mask-image: url('/ico/navbar/coffee.svg');">
+                     </div>
+                    <span>Project</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a target="_blank" rel="noopener" href="https://github.com/imouup/hexo-theme-nemophila">
+                                
+                                <span data-content="Nemophila">Nemophila</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+        <a href="/atom.xml" class="navlink-rss ">
+            <div class="nav-icon " 
+                style="-webkit-mask-image: url('/ico/navbar/rss.svg'); mask-image: url('/ico/navbar/rss.svg');">
+            </div>
+        </a>
+    </div>
+    <a href="/search" class="search ">
+        <div class="nav-icon " 
+            style="-webkit-mask-image: url('/ico/navbar/search.svg'); mask-image: url('/ico/navbar/search.svg');">
+        </div>
+    </a>
+    
+</nav>
+    <div class="article-info need-shadow">
+        <h1 class="article-title">Stable Diffusion webui的部署运行以及embedding训练</h1>
+        <span class="article-author-avatar-date-readtime">
+            <img src="/images/avatar.jpg" alt="Article author's Avatar" draggable="false" class="article-author-avatar no-lazyload">
+            <h2 class="article-author-name">一之濑亚子</h2>
+            ·
+            <time class="article-date" datetime="2023-01-16T09:11:08.000Z">2023-01-16</time>
+            ·
+            <span class="article-readtime"><span id="vercount_value_page_pv">Loading...</span>次阅读</span>
+        </span>
+    </div>
+</header>
+<div class="article-content-container">
+    <article class="article-content">
+        <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<aside id="article-toc" role="navigation">
+    <div id="toc-wrapper">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%86%99%E7%82%B9%E4%B8%9C%E8%A5%BF"><span class="toc-number">1.</span> <span class="toc-text"> 随机写点东西</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2"><span class="toc-number">2.</span> <span class="toc-text"> 开始部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF"><span class="toc-number">2.1.</span> <span class="toc-text"> 我的系统信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.2.</span> <span class="toc-text"> 准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%BC%8F%E5%BC%80%E6%90%9E"><span class="toc-number">2.3.</span> <span class="toc-text"> 正式开搞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%AF%E6%97%B6%E5%80%99%E7%8E%A9%E4%BA%86"><span class="toc-number">3.</span> <span class="toc-text"> 是时候玩了</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text"> 简单介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#embedding%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text"> embedding的使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#embedding%E7%9A%84%E7%82%BC%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text"> embedding的炼制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C-2"><span class="toc-number">4.1.</span> <span class="toc-text"> 准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%BC%8F%E5%BC%80%E5%A7%8B"><span class="toc-number">4.2.</span> <span class="toc-text"> 正式开始</span></a></li></ol></li></ol>
+    </div>
+</aside>
+
+<!-- TODO: 增加展开子标题功能 -->
+        <h2 id="随机写点东西"><a class="markdownIt-Anchor" href="#随机写点东西"></a> 随机写点东西</h2>
+<p>我觉得是时候给刚学会 的ai绘画技巧做个归档了（不然以后忘了就又要重来了）</p>
+<hr>
+<h2 id="开始部署"><a class="markdownIt-Anchor" href="#开始部署"></a> 开始部署</h2>
+<h3 id="我的系统信息"><a class="markdownIt-Anchor" href="#我的系统信息"></a> 我的系统信息</h3>
+<p>系统：Windows10<br />
+GPU：RTX3060ti</p>
+<h3 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h3>
+<h4 id="安装anaconda"><a class="markdownIt-Anchor" href="#安装anaconda"></a> 安装anaconda</h4>
+<p>访问<a target="_blank" rel="noopener" href="https://www.anaconda.com/">anaconda官网</a>直接下载安装，建议使用IDM或者挂梯</p>
+<p>安装时建议选择just me,这样更方便添加环境变量<br />
+勾选添加到path<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic173019.png" alt="add to path" class="lazyload"></p>
+<h4 id="网络"><a class="markdownIt-Anchor" href="#网络"></a> 网络</h4>
+<p>1.最好准备一把梯子</p>
 <p>2.对conda和pip进行换源</p>
-<h5 id="conda换源"><a href="#conda换源" class="headerlink" title="conda换源"></a>conda换源</h5><p>打开Windows终端，输入以下命令输出.condarc文件</p>
-<pre><code>conda config --set show_channel_urls yes
-</code></pre><p>打开<code>C:\users\你的用户名\.condarc</code></p>
+<h5 id="conda换源"><a class="markdownIt-Anchor" href="#conda换源"></a> conda换源</h5>
+<p>打开Windows终端，输入以下命令输出.condarc文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+<p>打开<code>C:\users\你的用户名\.condarc</code></p>
 <p>粘贴以下内容（换为清华源）</p>
-<pre><code>channels:
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
-ssl_verify: true
-</code></pre><h5 id="pip换源"><a href="#pip换源" class="headerlink" title="pip换源"></a>pip换源</h5><p>在<code>C:\users\你的用户名\AppData\Roaming</code>中新建或打开<code>pip</code>文件夹，在里面新建或修改<code>pip.ini</code>文件，粘贴以下内容</p>
-<pre><code>[global]
-index-url = https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre><h3 id="正式开搞"><a href="#正式开搞" class="headerlink" title="正式开搞"></a>正式开搞</h3><p></br></p>
-<h4 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1.环境配置"></a>1.环境配置</h4><p>打开anaconda，新建一个环境，python版本选择3.10.8。不能用base环境因为base环境python版本为3.9，使用Stable Diffusion webui需要3.10.6以上</p>
-<p><img src="https://cdn.mouup.top/pico/pic174403.png" alt="create"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span><br><span class="line">ssl_verify: true</span><br></pre></td></tr></table></figure>
+<h5 id="pip换源"><a class="markdownIt-Anchor" href="#pip换源"></a> pip换源</h5>
+<p>在<code>C:\users\你的用户名\AppData\Roaming</code>中新建或打开<code>pip</code>文件夹，在里面新建或修改<code>pip.ini</code>文件，粘贴以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+<h3 id="正式开搞"><a class="markdownIt-Anchor" href="#正式开搞"></a> 正式开搞</h3>
+</br>
+<h4 id="1环境配置"><a class="markdownIt-Anchor" href="#1环境配置"></a> 1.环境配置</h4>
+<p>打开anaconda，新建一个环境，python版本选择3.10.8。不能用base环境因为base环境python版本为3.9，使用Stable Diffusion webui需要3.10.6以上</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic174403.png" alt="create" class="lazyload"></p>
 <blockquote>
 <p>当然你也可以在命令行创建环境</p>
-<pre><code>conda create -n aipaint python=3.10
-</code></pre></blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;conda create -n aipaint python=3.10</span><br></pre></td></tr></table></figure>
+</blockquote>
 <p>配置环境时先clone项目仓库</p>
-<pre><code>git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
-</code></pre><p>进入项目仓库，右键「在终端中打开」，如果你没有这个选项，就按住shift右键在powershell中打开</p>
-<p></br></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git</span><br></pre></td></tr></table></figure>
+<p>进入项目仓库，右键「在终端中打开」，如果你没有这个选项，就按住shift右键在powershell中打开</p>
+</br>
 <p>激活创建好的环境</p>
-<pre><code>conda activate aipaint
-</code></pre><p>执行以下命令安装依赖项（如果的依赖项要求有改动，请改为最新要求）</p>
-<pre><code>conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge
-</code></pre><p>如果换源成功的话安装过程是很快的</p>
-<p></br></p>
-<h4 id="2-模型下载"><a href="#2-模型下载" class="headerlink" title="2.模型下载"></a>2.模型下载</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate aipaint</span><br></pre></td></tr></table></figure>
+<p>执行以下命令安装依赖项（如果的依赖项要求有改动，请改为最新要求）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge</span><br></pre></td></tr></table></figure>
+<p>如果换源成功的话安装过程是很快的</p>
+</br>
+<h4 id="2模型下载"><a class="markdownIt-Anchor" href="#2模型下载"></a> 2.模型下载</h4>
+<blockquote>
 <p>推荐下载novelai泄露的模型</p>
 </blockquote>
 <p>1.novelai模型:包括 4g的一般模型<a target="_blank" rel="noopener" href="https://cloudflare-ipfs.com/ipfs/bafybeicpamreyp2bsocyk3hpxr7ixb2g2rnrequub3j2ahrkdxbvfbvjc4/model.ckpt">animefull-final-pruned</a>和7g的<a target="_blank" rel="noopener" href="https://pan.nyaku.moe/f/2QhQ/animefull-latest.ckpt">animefull-final-latest模型</a></p>
-<p>2.stable diffusion模型：前往<a target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic185053.png">huggingFace</a><br>这两个模型一个是毕竟小的，一个是比较大 的，自己选着下（需要注册huggleface账号）</p>
-<p><img src="https://cdn.mouup.top/pico/pic185053.png" alt="stable-diffusion模型"></p>
+<p>2.stable diffusion模型：前往<a target="_blank" rel="noopener" href="https://cdn.mouup.top/pico/pic185053.png">huggingFace</a><br />
+这两个模型一个是毕竟小的，一个是比较大 的，自己选着下（需要注册huggleface账号）</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic185053.png" alt="stable-diffusion模型" class="lazyload"></p>
 <p>3.Waifu Diffusion模型：<a target="_blank" rel="noopener" href="https://huggingface.co/hakurei/waifu-diffusion-v1-4/tree/main">下载地址</a>,选择性下载.ckpt后缀的文件</p>
-<h4 id="3-运行"><a href="#3-运行" class="headerlink" title="3.运行"></a>3.运行</h4><p>然后，在命令行输入<code>webui.bat</code>运行安装脚本（不要直接双击，否则会使用默认环境中的python3.9）然后脚本就会自动安装剩余的依赖项并运行Stable Diffusion webui</p>
+<h4 id="3运行"><a class="markdownIt-Anchor" href="#3运行"></a> 3.运行</h4>
+<p>然后，在命令行输入<code>webui.bat</code>运行安装脚本（不要直接双击，否则会使用默认环境中的python3.9）然后脚本就会自动安装剩余的依赖项并运行Stable Diffusion webui</p>
 <p>当你看到命令行输出以下内容时就部署完毕且成功运行了</p>
-<pre><code>Installing requirements for Web UI
-Launching Web UI with arguments:
-No module &#39;xformers&#39;. Proceeding without it.
-LatentDiffusion: Running in eps-prediction mode
-DiffusionWrapper has 859.52 M params.
-Loading weights [e6e8e1fc] from G:\stable-diffusion-webui\models\Stable-diffusion\novel.ckpt
-Applying cross attention optimization (Doggettx).
-Textual inversion embeddings loaded(4): ha_hutao, natsuki_nacho, nya_gzc, yileina
-Model loaded in 33.5s (0.5s create model, 30.1s load weights).
-Running on local URL:  http://127.0.0.1:7860
-
-To create a public link, set `share=True` in `launch()`.
-</code></pre><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Installing requirements for Web UI</span><br><span class="line">Launching Web UI with arguments:</span><br><span class="line">No module &#x27;xformers&#x27;. Proceeding without it.</span><br><span class="line">LatentDiffusion: Running in eps-prediction mode</span><br><span class="line">DiffusionWrapper has 859.52 M params.</span><br><span class="line">Loading weights [e6e8e1fc] from G:\stable-diffusion-webui\models\Stable-diffusion\novel.ckpt</span><br><span class="line">Applying cross attention optimization (Doggettx).</span><br><span class="line">Textual inversion embeddings loaded(4): ha_hutao, natsuki_nacho, nya_gzc, yileina</span><br><span class="line">Model loaded in 33.5s (0.5s create model, 30.1s load weights).</span><br><span class="line">Running on local URL:  http://127.0.0.1:7860</span><br><span class="line"></span><br><span class="line">To create a public link, set `share=True` in `launch()`.</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>你需要知道的一点：webui的脚本在初次运行时其实在项目目录新建了一个虚拟环境（venv）因此此后每一次运行webui只需要双击打开webui.bat文件即可</p>
 </blockquote>
-<h4 id="4-额外配置"><a href="#4-额外配置" class="headerlink" title="4.额外配置"></a>4.额外配置</h4><p>安装deepbooru和xformers</p>
+<h4 id="4额外配置"><a class="markdownIt-Anchor" href="#4额外配置"></a> 4.额外配置</h4>
+<p>安装deepbooru和xformers</p>
 <p>编辑项目目录下的webui-user.bat文件</p>
 <p>它里面原本应该是这样的（没有中文）</p>
-<pre><code>@echo off
-
-set PYTHON= &lt;python路径&gt;
-
-set GIT= &lt;git路径&gt;
-
-set VENV_DIR= &lt;虚拟环境所在目录名称&gt; 
-
-set COMMANDLINE_ARGS= &lt;你要附加的命令&gt;
-
-call webui.bat
-</code></pre><p><strong>python路径：</strong> 填<code>&lt;webui的目录路径&gt;\venv\Scripts\Python.exe</code>,例如<code>H:\stable-diffusion-webui\venv\Scripts\Python.exe</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line"></span><br><span class="line">set PYTHON= &lt;python路径&gt;</span><br><span class="line"></span><br><span class="line">set GIT= &lt;git路径&gt;</span><br><span class="line"></span><br><span class="line">set VENV_DIR= &lt;虚拟环境所在目录名称&gt; </span><br><span class="line"></span><br><span class="line">set COMMANDLINE_ARGS= &lt;你要附加的命令&gt;</span><br><span class="line"></span><br><span class="line">call webui.bat</span><br></pre></td></tr></table></figure>
+<p><strong>python路径：</strong> 填<code>&lt;webui的目录路径&gt;\venv\Scripts\Python.exe</code>,例如<code>H:\stable-diffusion-webui\venv\Scripts\Python.exe</code></p>
 <p><strong>git路径：</strong> 一般不用管</p>
 <p><strong>虚拟环境所在目录名称：</strong> 默认为venv，不用修改</p>
 <p><strong>你要附加的命令：</strong> 我们要安装deepbooru和xformers所以在这里填上<code>--deepbooru --xformers</code></p>
 <p>改完之后就是这样的：</p>
-<pre><code>@echo off
-
-set PYTHON=H:\stable-diffusion-webui\venv\Scripts\Python.exe
-
-set GIT=
-
-set VENV_DIR=venv
-
-set COMMANDLINE_ARGS=--xformers
-
-call webui.bat
-</code></pre><p>保存退出然后运行它就可以完成安装了（如果安装失败可能是网络问题）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line"></span><br><span class="line">set PYTHON=H:\stable-diffusion-webui\venv\Scripts\Python.exe</span><br><span class="line"></span><br><span class="line">set GIT=</span><br><span class="line"></span><br><span class="line">set VENV_DIR=venv</span><br><span class="line"></span><br><span class="line">set COMMANDLINE_ARGS=--xformers</span><br><span class="line"></span><br><span class="line">call webui.bat</span><br></pre></td></tr></table></figure>
+<p>保存退出然后运行它就可以完成安装了（如果安装失败可能是网络问题）</p>
 <hr>
-
-<h2 id="是时候玩了"><a href="#是时候玩了" class="headerlink" title="是时候玩了"></a>是时候玩了</h2><p>打开<a target="_blank" rel="noopener" href="http://127.0.0.1:7860/">127.0.0.1:7860</a>进入webui页面</p>
-<h3 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h3><p><img src="https://cdn.mouup.top/pico/pic191459.png" alt="介绍"></p>
-<p><strong><em>特别说明：</em></strong></p>
+<h2 id="是时候玩了"><a class="markdownIt-Anchor" href="#是时候玩了"></a> 是时候玩了</h2>
+<p>打开<a target="_blank" rel="noopener" href="http://127.0.0.1:7860/">127.0.0.1:7860</a>进入webui页面</p>
+<h3 id="简单介绍"><a class="markdownIt-Anchor" href="#简单介绍"></a> 简单介绍</h3>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic191459.png" alt="介绍" class="lazyload"></p>
+<p><em><strong>特别说明：</strong></em></p>
 <p><strong>Sampling method:</strong> 采样方法。不同的采样方法得到图片的效果不同，二次元一般用Euler_a和DDIM</p>
 <p><strong>Sampling steps：</strong> 生成步骤。越高代表细节越丰富，但过高不一定就很好，一般在30左右</p>
 <p><strong>CFG Scale：</strong> 数值越高图像越接近关键词描述的内容，同时会影响柔和度和清晰度，Scale值越高我感觉图会看起来更清晰，也就是线条会更加明显。</p>
@@ -791,611 +383,125 @@ call webui.bat
 </blockquote>
 <p><strong>常用咒语：</strong></p>
 <p>1.一般默认正面咒语：</p>
-<pre><code>&#123;an extremely delicate and beautiful girl&#125;, 8k wallpaper, &#123;&#123;&#123;masterpiece&#125;&#125;&#125;
-</code></pre><p>2.标准负面咒语：</p>
-<pre><code>lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry
-</code></pre><h3 id="embedding的使用"><a href="#embedding的使用" class="headerlink" title="embedding的使用"></a>embedding的使用</h3><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;an extremely delicate and beautiful girl&#125;, 8k wallpaper, &#123;&#123;&#123;masterpiece&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>2.标准负面咒语：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry</span><br></pre></td></tr></table></figure>
+<h3 id="embedding的使用"><a class="markdownIt-Anchor" href="#embedding的使用"></a> embedding的使用</h3>
+<blockquote>
 <p>embedding，也就是一般私炉炼出来的丹，负载在模型上使用</p>
 </blockquote>
 <p>在网络上下载后缀为.pt的文件后。将其放入webui目录下的<code>embeddings</code>文件夹中即可使用</p>
 <p>使用embedding时只需在正面咒语的框内输入制作者炼制时使用的prompt即可</p>
-<p>例如我现在下载了一个伊雷娜的embedding，我只需使用<code>yileina`</code>，就可以使用它了</p>
-<p><img src="https://cdn.mouup.top/pico/pic194653.png" alt="lizi"> </p>
-<p><img src="https://cdn.mouup.top/pico/pic00285-1028413214-yileina.png" alt="伊雷娜我真的好喜欢你啊！"> </p>
-<h2 id="embedding的炼制"><a href="#embedding的炼制" class="headerlink" title="embedding的炼制"></a>embedding的炼制</h2><p>如果网上找不到你需要的embedding，那是时候来当炼金师了</p>
-<h3 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="首先你要找图"><a href="#首先你要找图" class="headerlink" title="首先你要找图"></a><strong>首先你要找图</strong></h4><p>1.可以取pixiv抓取画作（推荐使用<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/powerful-pixiv-downloader/dkndmhgdcmjdmkdonmbgjpijejdcilfh">Powerful Pixiv Downloader</a>）</p>
+<p>例如我现在下载了一个伊雷娜的embedding，我只需使用``yileina```，就可以使用它了</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic194653.png" alt="lizi" class="lazyload"></p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic00285-1028413214-yileina.png" alt="伊雷娜我真的好喜欢你啊！" class="lazyload"></p>
+<h2 id="embedding的炼制"><a class="markdownIt-Anchor" href="#embedding的炼制"></a> embedding的炼制</h2>
+<p>如果网上找不到你需要的embedding，那是时候来当炼金师了</p>
+<h3 id="准备工作-2"><a class="markdownIt-Anchor" href="#准备工作-2"></a> 准备工作</h3>
+<h4 id="首先你要找图"><a class="markdownIt-Anchor" href="#首先你要找图"></a> <strong>首先你要找图</strong></h4>
+<p>1.可以取pixiv抓取画作（推荐使用<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/powerful-pixiv-downloader/dkndmhgdcmjdmkdonmbgjpijejdcilfh">Powerful Pixiv Downloader</a>）</p>
 <p>2.或者取e站下图包（里站）</p>
-<h4 id="然后对图片进行筛选和预处理"><a href="#然后对图片进行筛选和预处理" class="headerlink" title="然后对图片进行筛选和预处理"></a><strong>然后对图片进行筛选和预处理</strong></h4><p>1.请筛选出人物突出（单人），背景比较干净的图片，不要出现边框、文字等内容</p>
+<h4 id="然后对图片进行筛选和预处理"><a class="markdownIt-Anchor" href="#然后对图片进行筛选和预处理"></a> <strong>然后对图片进行筛选和预处理</strong></h4>
+<p>1.请筛选出人物突出（单人），背景比较干净的图片，不要出现边框、文字等内容</p>
 <p>2.对于背景比较复制的图片可以使用<a target="_blank" rel="noopener" href="https://github.com/danielgatis/rembg">rembg</a>去除背景</p>
 <p>安装过程非常简单，按照README就行了（注意先装onnxruntime-gpu，README里有说）</p>
 <p>然后在终端进入你放选好的图片的文件夹(pic)的前一个文件夹，新建一个放置处理后文件的文件夹<picok1>，使用以下命令：</p>
-<pre><code>rembg p pic picok1
-</code></pre><p>记得看一下处理情况，有些如果处理得比较差的话可以考虑用回原图</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rembg p pic picok1</span><br></pre></td></tr></table></figure>
+<p>记得看一下处理情况，有些如果处理得比较差的话可以考虑用回原图</p>
 <p>3.裁剪：建议用<a target="_blank" rel="noopener" href="https://www.onlinephotosoft.com/birme/">这个网站</a>手动裁剪，当然你也可以到下一步让webui来剪</p>
 <p>用网站裁剪记得将图片大小调为512x512,处理完将图片存储到一个新的文件夹(我命名为picok2)</p>
-<h4 id="调整webui设置"><a href="#调整webui设置" class="headerlink" title="调整webui设置"></a><strong>调整webui设置</strong></h4><p>打开<code>setting</code>选项卡，点<code>Training</code>,勾选<code>Move VAE and CLIP to RAM when training if possible. Saves VRAM.</code>  (这个操作可以在训练时节省显存)，然后点Apply settings确认修改。</p>
-<h3 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h3><p><strong>点Train选项卡</strong></p>
-<p><img src="https://cdn.mouup.top/pico/pic200634.png" alt="create"></p>
+<h4 id="调整webui设置"><a class="markdownIt-Anchor" href="#调整webui设置"></a> <strong>调整webui设置</strong></h4>
+<p>打开<code>setting</code>选项卡，点<code>Training</code>,勾选<code>Move VAE and CLIP to RAM when training if possible. Saves VRAM.</code>  (这个操作可以在训练时节省显存)，然后点Apply settings确认修改。</p>
+<h3 id="正式开始"><a class="markdownIt-Anchor" href="#正式开始"></a> 正式开始</h3>
+<p><strong>点Train选项卡</strong></p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic200634.png" alt="create" class="lazyload"></p>
 <p>输入你要训练的embedding的名称,它将会作为你后续使用这个embedding时的prompt</p>
 <p>在Number of vectors per token中，如果你是训练人物，建议在6以上，如果是画风建议在10以上</p>
 <p><strong>点击Preprocess images预处理图片</strong></p>
-<p><img src="https://cdn.mouup.top/pico/picchrome_SXZ2h807vR.png" alt="prepic"></p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/picchrome_SXZ2h807vR.png" alt="prepic" class="lazyload"></p>
 <p><strong>Create flipped copies：</strong> 创建镜像图片。建议勾选，能得到双份样本。</p>
 <p><strong>Split oversized images：</strong> 把过大的图片裁切成多张。我们已经切好图片了，所以不需要。</p>
 <p><strong>Auto focal point crop：</strong> 自动聚焦，就是自动截出过大的图片的重点部分（ai认为的重点）。我们同样不需要</p>
 <p><strong>Use BLIP for caption：</strong> 和 <strong>Use deepbooru for caption</strong> 建议勾选，特别是deepbooru对于二次元炼丹有帮助</p>
 <p>点preprocess进行预处理</p>
-<h4 id="点train进入训练选项"><a href="#点train进入训练选项" class="headerlink" title="点train进入训练选项"></a><strong>点train进入训练选项</strong></h4><p><img src="https://cdn.mouup.top/pico/pic201741.png" alt="train"></p>
-<p>未完待续……</p>
+<h4 id="点train进入训练选项"><a class="markdownIt-Anchor" href="#点train进入训练选项"></a> <strong>点train进入训练选项</strong></h4>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic201741.png" alt="train" class="lazyload"></p>
+<p>未完待续…</p>
 
+    </article>
+    
+        <div class="article-cclicense">
+            <a class="article-cclicense-text" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
         </div>
-        <!-- .entry-content -->
-        <div class="single-reward">
-          <div class="reward-open">赏
-            <div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="https://cdn.mouup.top/pico/picalipay.jpg"></li>
-                <li class="wechat-code"><img src="https://pico.cdn.mouup.top/picpicwxzs-small.jfif"></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
-      </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2023/03/18/google-translate-fix/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://js-cdn.mouup.top/gh/imouup/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.mouup.top/pico/picKawaii%E3%81%8C%E3%81%99%E3%81%8D101887279_p0.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.mouup.top/pico/picKawaii%E3%81%8C%E3%81%99%E3%81%8D101887279_p0.png">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                如何解决chrome自带翻译无法使用的问题（非一般的改hosts/魔法上网）</h3>
-                <hr>
-              </div>
+    
+    
+        <div class="article-next" 
+            
+                style="--bg-url: url('https://cdn.mouup.top/pico/picpixiv100029456_p0.jpg');"
+            >
+            <a class="article-next-link-card" href="/2022/08/16/cloudflare-tunnel/">
+                <p class="article-next-text1">Next Post</p>
+                <p class="article-next-title">用Cloudflare Tunnel进行内网穿透以及实现其他妙用</p>
             </a>
-          </div>
-        
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2022/08/16/cloudflare-tunnel/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://js-cdn.mouup.top/gh/imouup/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.mouup.top/pico/picpixiv100029456_p0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.mouup.top/pico/picpixiv100029456_p0.jpg">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                用Cloudflare Tunnel进行内网穿透以及实现其他妙用</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-      </section>
-      
-  
-  
-      <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
-      <div id="waline"></div>
-      <style>
-      #waline textarea {
-          box-sizing: border-box;
-          background: url("https://gitee.com/cungudafa/source/raw/master/img/gif/Sitich/Sitich2.gif") 100% 100% no-repeat;
-      }
-      </style>
-      <script>
-          Waline.init({
-                    el: '#waline',
-                    serverURL: 'https://waline.cdn.mouup.top/',
-                    lang: 'zh-CN',
-                    requiredFields: ['nick','mail'], //设置必填项
-                    placeholder: '来啊，快活啊！（Ctrl+Enter发送）',
-                    visitor: 'true',
-                    emoji: [
-                            '//unpkg.com/@waline/emojis@1.0.1/weibo',
-                            '//unpkg.com/@waline/emojis@1.0.1/bilibili',
-                            ],
-                    avatar: 'mp',
-                    dark: 'auto',
-                    });
-        </script>
-        <style>
-            /*设置 Waline 的主题色*/
-                :root {
-                 /* 字体大小 */
-                --waline-font-size: 16px;
-
-                  /* 常规颜色 */
-                 --waline-white: #fff;
-                 --waline-light-grey: rgb(255, 206, 71);
-                 --waline-dark-grey: rgb(87, 87, 87);
-
-                 /* 主题色 */
-                 --waline-theme-color: #ffc341;
-                 --waline-active-color: hsl(36, 100%, 63%);
-
-                 /* 布局颜色 */
-                 --waline-color: rgb(185, 185, 185);
-                 --waline-bgcolor: #fff;
-                  --waline-bgcolor-light: #f8f8f8;
-                 --waline-bgcolor-hover: #ffffff;
-                 --waline-border-color: rgb(197, 197, 197);
-                 --waline-disable-bgcolor: #f8f8f8;
-                 --waline-disable-color: #bbb;
-                 --waline-code-bgcolor: #7c7c7c;
-
-                 /* 特殊颜色 */
-                 --waline-bq-color: #f0f0f0;
-
-                 /* 头像 */
-                 --waline-avatar-size: 3.25rem;
-                 --waline-m-avatar-size: calc(var(--waline-avatar-size) * 9 / 13);
-
-                 /* 徽章 */
-                 --waline-badge-color: #ffa4f0;
-                 --waline-badge-font-size: 0.775em;
-
-                  /* 信息 */
-                 --waline-info-bgcolor: #f8f8f8;
-                 --waline-info-color: rgb(177, 177, 177);
-                 --waline-info-font-size: 0.625em;
-
-                 /* 渲染选择 */
-                 --waline-border: 1px solid var(--waline-border-color);
-                 --waline-avatar-radius: 50%;
-                 --waline-box-shadow: 0;
-
-                 
-                }  
-                
-         </style>
-
-  
-  
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="nyaku.moe" class="profile gravatar"><img src="https://pico.cdn.mouup.top/picavatar202206.jpg" itemprop="image" alt="nyaku" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">Author</span>
-            <h3 itemprop="name">
-            <a href="nyaku.moe" itemprop="url" rel="author">nyaku</a>
-            </h3>
-          </div>
         </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i></p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
-</div>
+    
+    
+        <div class="waline"></div>
+            <script type="module">
+                import { init } from '/js/waline.js';
 
-
-
-    </div>    
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+                init({
+                el: '.waline',
+                serverURL: 'https://waline.cdn.mouup.top/',
+                });
+            </script>
         </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-    <!-- <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2025 izNyaku<br>
-      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer> -->
-<footer id="colophon" class="site-footer" role="contentinfo">
-  
-  <div class="site-info">
-    <div class="footertext">
-      <div class="img-preload">
-        <img src="https://cdn.jsdelivr.net/gh/imouup/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
-        <img src="https://cdn.jsdelivr.net/gh/imouup/cdn@1.6/img/other/disqus-preloader.svg">
-      </div>
-      <p style="color: #666666;">&copy 2021--今天</p>
-    </div>
-    <div class="footer-device">
-    <p style="font-family: 'Ubuntu', sans-serif;">
-        Theme  <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i><a href="https://github.com/imouup/SakuHa" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">SakuHa</a> | 
-        <span style="color: #b9b9b9;">Originated by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>, 
-         modified by <a href="https://mouup.top/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">izNuaku</a> </br>
-         总共有<span id="vercount_value_site_pv">Loading</span>个人看过，好开心ヾ(≧▽≦*)o </br>
-          <a href="/thank-you" target="_blank" >Thanks list</a></br>
-          <a href="https://icp.gov.moe/?keyword=20212022" target="_blank">萌ICP备20212022号</a>
-          
-        </span>
-     </p>
-    </div>
-  </div><!-- .site-info -->
-
-  
-  
-
-
-
-
-                  </footer>
-
-
-
-<!-- <script src="/js/tocbot.js"></script> -->
-<script type="text/javascript" src="/js/lib.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-<script type="text/javascript" src="/js/InsightSearch.js"></script>
-<script src="/js/fancybox.umd.js"></script>
-  <script>
-    $('[data-fancybox="images"]').fancybox({//可选
-      thumbs : {
-        autoStart : false //缩略图
-      }
-    });
-    $('[data-fancybox]').fancybox({//启用函数，必须
-      //protect: true //图片右键不能下载，可选
-    });
-  </script>
-<script type="text/javascript" src="/js/sakura-app.js"></script>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
-<script src="/js/botui.js"></script>
-<!-- 不蒜子 网页计数器 -->
-<!-- <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
-<!-- vercount计数器 -->
-<script defer src="https://cn.vercount.one/js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
-<script type="text/javascript">
-/* <![CDATA[ */
-if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-  var Poi = {"pjax":"1","movies":{"url": "https://video-oss.mouup.top","name":"myword.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
-} else {
-  var Poi = {"pjax":"1","movies":{"url": "https://video-oss.mouup.top","name":"myword.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
-}
-/* ]]> */
-
-</script>
-<script>
-$(document).ready(function() {
-  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
-    if ($(".pattern-center").length > 0) { //有图的情况
-      tocbot.init({
-          // Where to render the table of contents.
-          tocSelector: '.toc', // 放置目录的容器
-          // Where to grab the headings to build the table of contents.
-          contentSelector: '.entry-content', // 正文内容所在
-          // Which headings to grab inside of the contentSelector element.
-          scrollSmooth: true,
-          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
-          headingsOffset: -400,
-          scrollSmoothOffset: -85
-      });
-    } else {
-      tocbot.init({
-          // Where to render the table of contents.
-          tocSelector: '.toc', // 放置目录的容器
-          // Where to grab the headings to build the table of contents.
-          contentSelector: '.entry-content', // 正文内容所在
-          // Which headings to grab inside of the contentSelector element.
-          scrollSmooth: true,
-          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
-          headingsOffset: -85,
-          scrollSmoothOffset: -85
-      });
-    }
-    var offsetTop = $('.toc').offset().top - 95;
-    window.onscroll = function() {
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-      if (scrollTop >= offsetTop) {
-        $('.toc').addClass('toc-fixed');
-      } else {
-        $('.toc').removeClass('toc-fixed');
-      }
-    }
-  }
-});
-</script>
-
-    <div class="openNav no-select" style="height: 50px;">
-      <div class="iconflat no-select" style="width: 50px; height: 50px;">
-        <div class="icon"></div>
-      </div>
-      <div class="site-branding search-form-submit">
-        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
-      </div>
-    </div>
-  </section>
-  <div id="mo-nav" class="">
-  <div class="m-avatar">
-    <img src="https://cdn.mouup.top/pico/picavatar.png">
-  </div>
-  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">いちのせあこ</p>
-  <p style="text-align: center; word-spacing: 20px;">
     
-  </p>
-  <ul id="menu-new-1" class="menu">
+        
+
+<!-- TODO: 整理waline -->
+
+
+
+<!-- 引入代码块所用js -->
+
+<script src="/js/addImgTitle.js"></script>
+
+
+<script src="/js/highlight.js"></script>
+ 
+
+<script src="/js/toc.js"></script>
+
+
+
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<footer id="footer">
+    <img src="/ico/Nemo.svg" alt="Nemophila" id="nemo-footer">
+    <p>Theme <a target="_blank" rel="noopener" href="https://github.com/imouup/hexo-theme-nemophila"><strong>Nemophila</strong></a></p>
+    <p>Powered by Love from <a href="https://nyaku.moe">izNyaku</a></p>
+    <div id="footer-space"></div>
+    <p>© 2021 - 2026 izNyaku. All rights reserved.</p>
     
-      <li>
-        <a href="/">
-          <span class="faa-parent animated-hover">
-            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
-            首页
-          </span>
-        </a>
-        
-      </li>
+         <a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20212022">萌ICP备20212022号</a>
     
-      <li>
-        <a href="/archives">
-          <span class="faa-parent animated-hover">
-            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
-            归档
-          </span>
-        </a>
-        
-          <ul class="sub-menu">
-            
-              <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
-                  <i class="fa fa-code" aria-hidden="true"></i>
-                  技术
-                </a>
-              </li>
-            
-              <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
-                </a>
-              </li>
-            
-              <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
-                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                  资源
-                </a>
-              </li>
-            
-              <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
-                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                  随想
-                </a>
-              </li>
-            
-              <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
-                  <i class="fa fa-book" aria-hidden="true"></i>
-                  转载
-                </a>
-              </li>
-            
-          </ul>
-        
-      </li>
+       
+</footer>
+
     
-      <li>
-        <a href="javascript:;">
-          <span class="faa-parent animated-hover">
-            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
-            list
-          </span>
-        </a>
         
-          <ul class="sub-menu">
-            
-              <li>
-                <a href="/bangumis/">
-                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
-                  番组
-                </a>
-              </li>
-            
-              <li>
-                <a href="/music/">
-                  <i class="fa fa-headphones" aria-hidden="true"></i>
-                  歌单
-                </a>
-              </li>
-            
-              <li>
-                <a href="/tags/%E5%9B%BE%E9%9B%86/">
-                  <i class="fa fa-photo" aria-hidden="true"></i>
-                  图集
-                </a>
-              </li>
-            
-          </ul>
-        
-      </li>
+<script src="/js/lazyload.js"></script>
+  <!-- lazyload -->
     
-      <li>
-        <a href="/comment/">
-          <span class="faa-parent animated-hover">
-            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
-            留言板
-          </span>
-        </a>
-        
-      </li>
     
-      <li>
-        <a href="/links/">
-          <span class="faa-parent animated-hover">
-            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
-            友人帐
-          </span>
-        </a>
-        
-      </li>
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<a id="up">
+    <img src="/images/yachiyo.PNG" class="yachiyo-up no-lazy">
+</a>
     
-      <li>
-        <a href="/me/">
-          <span class="faa-parent animated-hover">
-            <i class="fa  fa-meetup faa-tada faa-fast" aria-hidden="true"></i>
-            我？
-          </span>
-        </a>
-        
-          <ul class="sub-menu">
-            
-              <li>
-                <a href="/me">
-                  <i class="fa fa-leaf faa-wrench" aria-hidden="true"></i>
-                  关于
-                </a>
-              </li>
-            
-              <li>
-                <a href="/donate/">
-                  <i class="fa fa-heart faa-pulse" aria-hidden="true"></i>
-                  赞赏
-                </a>
-              </li>
-            
-              <li>
-                <a href="/theme-sakura/">
-                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
-                  主题
-                </a>
-              </li>
-            
-              <li>
-                <a href="/lab/">
-                  <i class="fa fa-cogs" aria-hidden="true"></i>
-                  Lab
-                </a>
-              </li>
-            
-              <li>
-                <a href="/atom.xml">
-                  <i class="fa fa-rss faa-pulse" aria-hidden="true"></i>
-                  RSS
-                </a>
-              </li>
-            
-          </ul>
-        
-      </li>
+<script src="/js/up.js"></script>
+
     
-      <li>
-        <a target="_blank" rel="noopener" href="https://pan.nyaku.moe">
-          <span class="faa-parent animated-hover">
-            <i class="fa  fa-cloud faa-bounce faa-fast" aria-hidden="true"></i>
-            网盘
-          </span>
-        </a>
-        
-      </li>
     
-  </ul>
-  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2021--今天 izNyaku</p>
-</div>
-<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-<!-- require MetingJS -->
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-<style>
-  .aplayer .aplayer-lrc {
-    height: 35px;
-  }
-  .aplayer .aplayer-lrc p{
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 18px !important;
-  }
-  .aplayer .aplayer-lrc p.aplayer-lrc-current{
-    color: #FF1493;
-  }
-  .aplayer.aplayer-narrow .aplayer-body{
-    left: -66px !important;
-  }
-  .aplayer.aplayer-fixed .aplayer-lrc {
-    display: none;
-  }
-  .aplayer .aplayer-lrc.aplayer-lrc-hide {
-      display:none !important;
-  }
-  .aplayer.aplayer-fixed .lrc-show {
-    display: block;
-    background: rgba(255, 255, 255, 0.8);
-  }
-</style>
-<meting-js
-
-    id="4924556205"
-
-    server="netease"
-
-    type="playlist"
-
-    fixed="true"
-
-    autoplay="false"
-
-    loop="all"
-
-    order="random"
-
-    preload="auto"
-
-    volume="0.7"
-
-    mutex="true"
-
-</meting-js>
-<script>
-  $(function(){
-    $('body').on('click', '.aplayer', function(){
-      if($('.aplayer-button').hasClass('aplayer-play')) {
-        $('.aplayer-lrc').removeClass('lrc-show');
-      } else {
-        $('.aplayer-lrc').addClass('lrc-show');
-      }
-    })
-  });
-</script>
-
-</body>
+    </body>
 </html>

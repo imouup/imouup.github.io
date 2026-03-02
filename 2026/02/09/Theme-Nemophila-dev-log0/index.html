@@ -1,0 +1,631 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!DOCTYPE html>
+<html>
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<head>
+    <title>
+        
+            Nemophila 主题开发日志 log[0] | Nemophila | blog of 一之濑亚子 いちのせあこ
+        
+        
+    </title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/ico/Nemo.svg" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/all.min.css">
+
+    <!-- 引入Noto系字体 -->
+    
+<script src="/js/getfonts.js"></script>
+
+    <!-- 引入LaTex支持css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <!-- 引入APlayer支持css和js -->
+    
+<link rel="stylesheet" href="/css/APlayer.min.css">
+
+    
+<script src="/js/APlayer.min.js"></script>
+
+    <!-- 引入Metingjs -->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    <!-- 引入Linking -->
+    
+<script src="/js/linking.js"></script>
+
+    <!-- 引入vercount计数器 -->
+    <script defer src="https://events.vercount.one/js"></script>
+    <script>
+        let HEXO_SETTINGS = {
+            root: "/", 
+            url: "https://nyaku.moe",
+            author: "izNyaku"
+        };
+
+        let THEME_SETTINGS = {
+            lazyload: {
+                enable: true,
+                loading_img: "/images/yachiyo_loading2_640.webp"
+            },
+            };        
+    </script>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Nemophila | blog of 一之濑亚子 いちのせあこ" type="application/atom+xml">
+</head>
+    <body>  
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<header class="article-header">
+    
+        
+        
+    
+
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+ 
+
+<nav class="navbar ">
+    <a href="/" style="text-decoration: none;">
+        <h1 class="title ">Nemophila</h1> 
+    </a>
+    <div class="navlink ">
+        
+            <div class="nav-item-container ">
+                <a href="/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/home.svg'); mask-image: url('/ico/navbar/home.svg');">
+                     </div>
+                    <span>首页</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/archive.svg'); mask-image: url('/ico/navbar/archive.svg');">
+                     </div>
+                    <span>归档</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/tech/">
+                                
+                                    <i class="far fa-lightbulb" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="技术">技术</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/talk/">
+                                
+                                    <i class="fas fa-pen" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="杂谈">杂谈</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/categories/note/">
+                                
+                                    <i class="far fa-note-sticky" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="笔记">笔记</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/list.svg'); mask-image: url('/ico/navbar/list.svg');">
+                     </div>
+                    <span>Lists</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/bangumis/">
+                                
+                                    <i class="fas fa-tv" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="番组">番组</span>
+                                
+                            </a>
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a href="/music/">
+                                
+                                    <i class="far fa-headphones" style="transform: translateY(15%); font-size: 14px;"></i>
+                                
+                                <span data-content="音乐">音乐</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="/friends/" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/heart.svg'); mask-image: url('/ico/navbar/heart.svg');">
+                     </div>
+                    <span>Friends</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="/word-to-me" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/word-to-me.svg'); mask-image: url('/ico/navbar/word-to-me.svg');">
+                     </div>
+                    <span>留言板</span>
+                    
+                    
+
+                </a>
+                
+                
+
+            </div>
+        
+            <div class="nav-item-container ">
+                <a href="javascript:void(0)" class="navlink-item ">
+                    <div class="nav-icon " 
+                        style="-webkit-mask-image: url('/ico/navbar/coffee.svg'); mask-image: url('/ico/navbar/coffee.svg');">
+                     </div>
+                    <span>Project</span>
+                    
+                    
+                        <i class="fa-solid fa-angle-down fa"></i>
+                    
+
+                </a>
+                
+                
+                    <div class="nav-item-submenu ">
+                        
+                            
+                            
+                            
+                                
+                            
+                            <a target="_blank" rel="noopener" href="https://github.com/imouup/hexo-theme-nemophila">
+                                
+                                <span data-content="Nemophila">Nemophila</span>
+                                
+                            </a>
+                        
+                    </div>
+                
+
+            </div>
+        
+        <a href="/atom.xml" class="navlink-rss ">
+            <div class="nav-icon " 
+                style="-webkit-mask-image: url('/ico/navbar/rss.svg'); mask-image: url('/ico/navbar/rss.svg');">
+            </div>
+        </a>
+    </div>
+    <a href="/search" class="search ">
+        <div class="nav-icon " 
+            style="-webkit-mask-image: url('/ico/navbar/search.svg'); mask-image: url('/ico/navbar/search.svg');">
+        </div>
+    </a>
+    
+</nav>
+    <div class="article-info need-shadow">
+        <h1 class="article-title">Nemophila 主题开发日志 log[0]</h1>
+        <span class="article-author-avatar-date-readtime">
+            <img src="/images/avatar.jpg" alt="Article author's Avatar" draggable="false" class="article-author-avatar no-lazyload">
+            <h2 class="article-author-name">一之濑亚子</h2>
+            ·
+            <time class="article-date" datetime="2026-02-09T13:20:11.000Z">2026-02-09</time>
+            ·
+            <span class="article-readtime"><span id="vercount_value_page_pv">Loading...</span>次阅读</span>
+        </span>
+    </div>
+</header>
+<div class="article-content-container">
+    <article class="article-content">
+        <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<aside id="article-toc" role="navigation">
+    <div id="toc-wrapper">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2"><span class="toc-number">2.</span> <span class="toc-text"> 页面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E9%A1%B5-index"><span class="toc-number">2.1.</span> <span class="toc-text"> 主页 index</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hi"><span class="toc-number">2.1.1.</span> <span class="toc-text"> Hi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tweet"><span class="toc-number">2.1.2.</span> <span class="toc-text"> Tweet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A1%B5%E6%96%87%E7%AB%A0%E5%88%97%E8%A1%A8"><span class="toc-number">2.1.3.</span> <span class="toc-text"> 主页文章列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E9%A1%B5-post"><span class="toc-number">2.2.</span> <span class="toc-text"> 文章页 post</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%98"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E8%A1%A8"><span class="toc-number">2.2.3.</span> <span class="toc-text"> 列表：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-number">2.2.4.</span> <span class="toc-text"> 表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">2.2.5.</span> <span class="toc-text"> 引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87"><span class="toc-number">2.2.6.</span> <span class="toc-text"> 图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91"><span class="toc-number">2.2.7.</span> <span class="toc-text"> 视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#katex"><span class="toc-number">2.2.8.</span> <span class="toc-text"> KaTex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">2.2.9.</span> <span class="toc-text"> 目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2-page"><span class="toc-number">2.3.</span> <span class="toc-text"> 自定义页面 page</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E5%BD%92%E6%A1%A3%E9%A1%B5-categoriescategory"><span class="toc-number">2.4.</span> <span class="toc-text"> 分类归档页 categories&#x2F;&lt;category&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8B%E9%93%BE%E9%A1%B5-friends"><span class="toc-number">2.5.</span> <span class="toc-text"> 友链页 friends</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8%E9%A1%B5-music"><span class="toc-number">2.6.</span> <span class="toc-text"> 音乐播放列表页 music</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#404%E9%A1%B5-nofound"><span class="toc-number">2.7.</span> <span class="toc-text"> 404页 nofound</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">3.</span> <span class="toc-text"> 功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#link-ing-%E6%A0%87%E7%AD%BE"><span class="toc-number">3.1.</span> <span class="toc-text"> &lt;link-ing&gt; 标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%99%E5%86%85%E9%93%BE%E6%8E%A5%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.1.1.</span> <span class="toc-text"> 站内链接示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%99%E5%A4%96%E9%93%BE%E6%8E%A5%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.1.2.</span> <span class="toc-text"> 站外链接示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aplayer-metingjs"><span class="toc-number">3.2.</span> <span class="toc-text"> Aplayer &amp; Metingjs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#aplayer-%E6%B5%8B%E8%AF%95"><span class="toc-number">3.2.1.</span> <span class="toc-text"> Aplayer 测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#metingjs%E6%B5%8B%E8%AF%95"><span class="toc-number">3.2.2.</span> <span class="toc-text"> Metingjs测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#waline"><span class="toc-number">3.3.</span> <span class="toc-text"> Waline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#icp-%E5%AD%97%E6%AE%B5"><span class="toc-number">3.4.</span> <span class="toc-text"> ICP 字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cc-license-%E5%AD%97%E6%AE%B5"><span class="toc-number">3.5.</span> <span class="toc-text"> CC License 字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rss-feed"><span class="toc-number">3.6.</span> <span class="toc-text"> RSS feed</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">4.</span> <span class="toc-text"> 最后</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#todo"><span class="toc-number">4.1.</span> <span class="toc-text"> TODO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%AD%E9%83%A8%E5%88%86%E5%AD%97%E6%AE%B5%E8%AF%B4%E6%98%8E"><span class="toc-number">4.2.</span> <span class="toc-text"> 博客配置文件中部分字段说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#back_to_top-%E5%9B%BE%E7%89%87"><span class="toc-number">4.2.1.</span> <span class="toc-text"> back_to_top 图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lazyload-%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="toc-number">4.2.2.</span> <span class="toc-text"> lazyload 图片懒加载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E7%9A%84%E6%9C%80%E5%90%8E"><span class="toc-number">4.3.</span> <span class="toc-text"> 最后的最后</span></a></li></ol></li></ol>
+    </div>
+</aside>
+
+<!-- TODO: 增加展开子标题功能 -->
+        <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>从21年开始玩博客到现在也五年多了，之前一直在使用 Mashiro 大佬的 <a target="_blank" rel="noopener" href="https://2heng.xin/theme-sakura/">Sakura</a> 主题（由<a target="_blank" rel="noopener" href="https://github.com/honjun/hexo-theme-sakura">honjun</a>移植到hexo后再被我魔改的版本（笑））。Sakura主题真的非常好看而且很可爱，我见到她的第一眼就喜欢上了。但是，当我几年后再点开当年乱改的样式和标签，我感觉我已经没有力气再去整理它们了（哭）。</p>
+<p>于是，继承Sakura意志的全新的 Monica 主题被提上了日程。<br />
+25年暑假的时候，我沉迷于一本叫《Silent Witch》的小说，于是想着以可爱的女主莫妮卡为原型设计一个博客主题吧（干劲十足）！当我在Figma完成设计稿时，暑假已经接近结束了，因而项目被迫搁置。</p>
+<p>到了26年的寒假，我继续这个项目时，非常现实的 —— 我更喜欢别的东西了=￣ω￣=。从年末开始我就沉迷于<a target="_blank" rel="noopener" href="https://x.com/isekaijoucho">ヰ世界情緒</a>小姐无法自拔，而蓝情的代表花卉就是Nemophila，一种蓝色小花，也正因此我对主题进行了重新设计，最后有了现在的Nemophila主题。</p>
+<ul>
+<li>以下是 Monica 主题的部分原型图，希望以后有时间能把她做出来 (✿◠‿◠)</li>
+</ul>
+<div id="img-container4">
+    <img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/c899b1a88b59382134eb50cbbe122e6e.png" style="width:400px !important;margin:0;position:relative;" alt="home_Monica" class="lazyload">
+    <img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/8751d072bc9af6290c7ef9bdb0c84260.png" style="width:400px !important;margin:0;position:relative;" alt="homeDark_Monica" class="lazyload">
+    <img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/59b60d63ea3040c34cf681f363d6bc94.png" style="width:400px !important;margin:0;position:relative;" alt="articleList_Monica" class="lazyload">
+    <img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/7649d20dd20d39e79bf9941c200daaf1.png" style="width:400px !important;margin:0;position:relative;" alt="articlePage_Monica" class="lazyload">
+</div>
+<style>
+    #img-container4 {
+        display:flex;
+        width: 844px;
+        flex-wrap:wrap;
+        justify-content: space-between;
+        row-gap:0px;
+        gap:24px;
+    }
+    #img-container4 .image-container {
+            left:0;
+            transform:none;
+        }
+</style>
+<p>这个主题在很多地方都参考了 Sakura 主题，也融入了一点小巧思，但几乎所有代码都是从零开始实现的。在前前后后搞了一个月后，我终于得到了一个能满足基本需求的版本 <code>v0.1.0</code>, 目前代码已经开源，欢迎使用。</p>
+<p><link-ing type="outside" link="https://github.com/imouup/hexo-theme-nemophila" title="hexo-theme-nemophila"></link-ing></p>
+<br>
+接下来，本文将记录截至该版本已实现的page和功能。
+<h1 id="页面"><a class="markdownIt-Anchor" href="#页面"></a> 页面</h1>
+<h2 id="主页-index"><a class="markdownIt-Anchor" href="#主页-index"></a> 主页 index</h2>
+<p>在  <code>v0.1.0</code> 中，我暂时抛弃了主页大头图的设计，改用了纯色背景，在下一版本中将加入切换功能。</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/0aa648a6187a50f1faf5d1c4291fc8e5.png" alt="index" class="lazyload"></p>
+<h3 id="hi"><a class="markdownIt-Anchor" href="#hi"></a> Hi</h3>
+<p>这里的 <em>Hi, xxx</em> 会随着hexo配置文件中的 <code>author</code> 字段变化。</p>
+<p>在 <em>Hi, xxx</em> 的下方是通信方式，可以通过在主题配置文件配置<code>contact</code>字段进行设置。其中的icon字段支持图片链接或者font awesome。需要注意的是：若不使用默认的icon，建议全部采用font awesome以保证视觉上的整齐划一。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">contact:</span></span><br><span class="line">  <span class="attr">&#x27;Github&#x27;:</span> &#123;<span class="attr">uid:</span> <span class="string">&#x27;imouup&#x27;</span>,<span class="attr">path:</span> <span class="string">&#x27;https://github.com/imouup&#x27;</span> ,<span class="attr">icon:</span> <span class="string">&#x27;/ico/contact/github.svg&#x27;</span>&#125;</span><br><span class="line">  <span class="attr">&#x27;Twitter&#x27;:</span> &#123;<span class="attr">uid:</span> <span class="string">&#x27;@iznyaku&#x27;</span>,<span class="attr">path:</span> <span class="string">&#x27;https://x.com/iznyaku&#x27;</span> ,<span class="attr">icon:</span> <span class="string">&#x27;/ico/contact/twitter.svg&#x27;</span>&#125;</span><br><span class="line">  <span class="attr">&#x27;Bilibili&#x27;:</span> &#123;<span class="attr">uid:</span> <span class="string">&#x27;438518095&#x27;</span> ,<span class="attr">path:</span> <span class="string">&#x27;https://space.bilibili.com/438518095&#x27;</span> ,<span class="attr">icon:</span> <span class="string">&#x27;/ico/contact/bilibili.svg&#x27;</span>&#125;</span><br><span class="line">  <span class="attr">&#x27;Email&#x27;:</span> &#123;<span class="attr">uid:</span> <span class="string">&#x27;iznyaku@outlook.com&#x27;</span> ,<span class="attr">path:</span> <span class="string">&#x27;mailto:iznyaku@outlook.com&#x27;</span>, <span class="attr">icon:</span> <span class="string">far</span> <span class="string">fa-envelope</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>该主题的 <em>About me</em> 入口页从导航栏移动到了 <em>Hi, xxx</em> 的下方。</p>
+<h3 id="tweet"><a class="markdownIt-Anchor" href="#tweet"></a> Tweet</h3>
+<p>在 <em>Hi, xxx</em> 的右方是一个你可以随时更新的动态（类似QQ空间），暂且命名为 <em>Tweet</em> 。其中的用户名为hexo配置文件中的 <code>author_name_in_mother_tongue</code> 请务必配置。<br />
+要使用该功能，你首先需要为其配置后端：</p>
+<ol>
+<li>创建workers<br />
+将 <code>/api</code> 目录下的 <a target="_blank" rel="noopener" href="https://github.com/imouup/hexo-theme-nemophila/blob/main/api/tweet_api_workers.js">tweet_api_workers.js</a> 部署到 <a target="_blank" rel="noopener" href="https://workers.cloudflare.com/">cloudflare workers</a>。<br />
+选择<strong>从Hello Worls开始</strong>,进入后点击编辑代码删掉原本的代码并粘贴 tweet_api_workers.js 的内容。<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/6abfc15974b01d03983d61f074fec3c2.png" alt="创建Worker" class="lazyload"></li>
+<li>配置Workers KV<br />
+在cloudflare的控制台进入 <code>存储和数据库</code> 下的 <code>Workers KV</code>。新建一个Instance，随意命名。<br />
+然后回到先前闯进的workers的页面，选择 <code>绑定</code> ，添加绑定一个<strong>KV命名空间</strong>，变量名称填写 <code>DB</code> ，KV命名空间选择先前创建的Workers KV.<br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/fc4c72737942a41207e13574a8a6ce0d.png" alt="添加 KV 命名空间" class="lazyload"></li>
+<li>绑定自定义域名<br />
+进入Worker的设置，绑定一个域名（workers.dev在已被GFW拦截）</li>
+<li>设置Secret<br />
+进入Worker的设置，添加一个变量，名称为<code>API_SECRET</code></li>
+</ol>
+<p>得到后端的域名后回到主题配置文件，填入 <code>Tween</code> 字段下的 <code>api</code> 内。<br />
+当然，若不需要该功能，可在 <code>enable</code>处填 <code>false</code> 。</p>
+<blockquote>
+<h4 id="tweet-api-docs"><a class="markdownIt-Anchor" href="#tweet-api-docs"></a> Tweet API Docs</h4>
+<ul>
+<li><code>/tweet</code> 获取当前的动态</li>
+<li><code>/update</code> 更新动态：文档类型 json, 接收字段：content (动态内容，纯文本)，always_on (是否置顶)</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">content = <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span> always_on = <span class="number">0</span> <span class="comment">// 普通动态，不置顶</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">content = <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span> always_on = <span class="number">1</span> <span class="comment">// 置顶动态，将忽略之后所有普通动态</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">content = <span class="string">&quot;&quot;</span><span class="punctuation">,</span> always_on = <span class="number">-1</span> <span class="comment">// 撤销当前置顶动态并显示最新的动态</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>为了方便使用，这里还提供了一个 <a target="_blank" rel="noopener" href="https://www.icloud.com/shortcuts/afd26f3a69d74eb39bc58487ca76cce4">IOS的快捷方式</a></li>
+</ul>
+<h3 id="主页文章列表"><a class="markdownIt-Anchor" href="#主页文章列表"></a> 主页文章列表</h3>
+<p>我参考了 Sakura 主题的文章列表，做了这种上浮出现，下滑加载的样式。<br />
+目前文章卡片上只有阅读次数和Category，之后还将加入Tag。</p>
+<p>阅读次数获取调用了 <a target="_blank" rel="noopener" href="https://github.com/EvanNotFound/vercount">Vercount</a> 的api （￣︶￣）↗　。</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/e0cc67f0453e5eb8e83a58a440f26cc7.png" alt="Postlist" class="lazyload"></p>
+<h2 id="文章页-post"><a class="markdownIt-Anchor" href="#文章页-post"></a> 文章页 post</h2>
+<p>主要有 <em>有头图</em> 和 <em>无头图</em> 两种样式，可以通过在对应文章的md文件头部设置 <code>cover_showInPost</code> 的值( true / false )来为特定文章选择样式，默认为有头图。</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/6304cc8c2406b5bbe35a2cf3d46e80e6.png" alt="文章页 post 无cover | cover_showInPost: false" class="lazyload"><br />
+<img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/14df5eb5eaf6e43b25ac88c4ad6f13c5.png" alt="文章页 post 有cover | cover_showInPost: true" class="lazyload"></p>
+<p>目前，我已经重构了markdown的大部分常用样式：</p>
+<h3 id="标题"><a class="markdownIt-Anchor" href="#标题"></a> 标题</h3>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/c34159cb72aed20ad2f37cf165fe0b45.png" alt="标题" class="lazyload"></p>
+<h3 id="代码块"><a class="markdownIt-Anchor" href="#代码块"></a> 代码块</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">hello_world</span>()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;hello world!&#x27;</span>)</span><br><span class="line"></span><br><span class="line">hello_world()</span><br></pre></td></tr></table></figure>
+<p>行内代码：<code>elements.forEach((ele)=&gt;&#123;return ele.name&#125;);</code></p>
+<h3 id="列表"><a class="markdownIt-Anchor" href="#列表"></a> 列表：</h3>
+<div style="margin-left:64px">
+<p>无序列表</p>
+<ul>
+<li>Kaguya</li>
+<li>Yachiyo</li>
+<li>iroha</li>
+</ul>
+<p>有序列表：</p>
+<ol>
+<li>ヰ</li>
+<li>世界</li>
+<li>情緒</li>
+</ol>
+</div>
+<h3 id="表格"><a class="markdownIt-Anchor" href="#表格"></a> 表格</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>markdown</th>
+<th>HTML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inline codeblock</td>
+<td>`yachiyo()`</td>
+<td><code>yachiyo()</code></td>
+</tr>
+<tr>
+<td>bold</td>
+<td>**“Isn’t this fun?”**</td>
+<td><strong>Isn’t this fun?</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="引言"><a class="markdownIt-Anchor" href="#引言"></a> 引言</h3>
+<blockquote>
+<p>希望我的歌声与画作，能成为引导你走向某处的契机。 我至今的「创作」，都是为了这个目的。<br />
+—— ヰ世界情緒</p>
+</blockquote>
+<h3 id="图片"><a class="markdownIt-Anchor" href="#图片"></a> 图片</h3>
+<p>目前还没有图片加入放大查看功能，先加入 TODO List。</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/9165ff99bbde1efbb23c993cfa9ec042.jpg" alt="超かぐや姫！ @oda_koden " class="lazyload"></p>
+<h3 id="视频"><a class="markdownIt-Anchor" href="#视频"></a> 视频</h3>
+<p>目前已对bilibili, youtube的嵌入链接以及video标签进行了简单适配，但需要注意：<br />
+b站的嵌入链接需要包裹 <code>&lt;div class=&quot;video-container&quot;&gt;&lt;/div&gt;</code>,例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;video-container&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?isOutside=true<span class="symbol">&amp;amp;</span>aid=115973126364952<span class="symbol">&amp;amp;</span>bvid=BV1HLz9BJEgi<span class="symbol">&amp;amp;</span>cid=35670851653<span class="symbol">&amp;amp;</span>p=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<div class="video-container">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=115973126364952&amp;bvid=BV1HLz9BJEgi&amp;cid=35670851653&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
+<h3 id="katex"><a class="markdownIt-Anchor" href="#katex"></a> KaTex</h3>
+<p>本主题支持 KaTex 公式渲染，不过前提是你需要安装 <a target="_blank" rel="noopener" href="https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus">hexo-renderer-markdown-it-plus</a> 才能正确渲染公式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br><span class="line">npm i hexo-renderer-markdown-it-plus --save</span><br></pre></td></tr></table></figure>
+<p>安装后使用 $ $ 包裹行内公式，$$ $$ 包裹独行公式（），示例：</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mi>h</mi><mi>μ</mi></mrow><annotation encoding="application/x-tex">E = h\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">h</span><span class="mord mathnormal">μ</span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mo>∮</mo><mi>l</mi></msub><mtext mathvariant="bold">H</mtext><mo>⋅</mo><mi>d</mi><mtext mathvariant="bold">l</mtext><mo>=</mo><mo>∑</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">\oint_l \textbf H \cdot d\textbf l = \sum I 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.27195em;vertical-align:-0.9119499999999999em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∮</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.425842em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord textbf">H</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">d</span><span class="mord text"><span class="mord textbf">l</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.6000100000000002em;vertical-align:-0.55001em;"></span><span class="mop op-symbol large-op" style="position:relative;top:-0.000004999999999977245em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span></span></p>
+<h3 id="目录"><a class="markdownIt-Anchor" href="#目录"></a> 目录</h3>
+<p>目录上的蓝色星星会跟随你目前所在的位置以及你鼠标的位置。</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/ce279d007c995e746d9253efc3884960.png" alt="toc" class="lazyload"></p>
+<h2 id="自定义页面-page"><a class="markdownIt-Anchor" href="#自定义页面-page"></a> 自定义页面 page</h2>
+<p>这是所有无特定 layout 的自定义页面的模板，采取了与文章页相似的设计，目前还不能设置特定页面的头图。</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/86bcf708747a3de9eeb83b5ff3d075a0.png" alt="自定义页面" class="lazyload"></p>
+<h2 id="分类归档页-categoriescategory"><a class="markdownIt-Anchor" href="#分类归档页-categoriescategory"></a> 分类归档页 categories/&lt;category&gt;</h2>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/a0464441704335c3a4cbc057b90ef4e1.png" alt="分类归档页 categories/tech" class="lazyload"></p>
+<p>每个Category的归档页是在 page 模板的基础上开发的，但你可以为每个Category设置头图：只需编辑博客根目录下的 <code>source/_data/categoryCover.yml</code> 文件，若 <code>_data</code> 目录或 <code>categoryCover.yml</code> 文件不存在请自行创建，然后按以下格式填写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- name: tech</span><br><span class="line">  cover: /images/article_banner/banner1.jpg</span><br><span class="line">- name: note</span><br><span class="line">  cover: /images/article_banner/banner1.jpg</span><br></pre></td></tr></table></figure>
+<h2 id="友链页-friends"><a class="markdownIt-Anchor" href="#友链页-friends"></a> 友链页 friends</h2>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/0420c152230b872cd5ab01a160a38f6e.png" alt="friends" class="lazyload"></p>
+<p>欢迎交换友链描 ヾ(≧▽≦*)o</p>
+<h2 id="音乐播放列表页-music"><a class="markdownIt-Anchor" href="#音乐播放列表页-music"></a> 音乐播放列表页 music</h2>
+<p>我 <s>抄了</s> 借鉴了 Apple Music的设计，爆改了 Aplayer 的CSS。<a href="https://nyaku.moe/music/">大家可以来看一下</a>。<br />
+现在这个设计我总感觉与主题有点不合，在下一版本中将设计一个纯色背景的版本。</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/a81286c30ea035a9074170824933ae76.png" alt="music" class="lazyload"></p>
+<p>本主题支持 Aplayer 和 Metingjs，你可以通过编辑博客根目录下的 <code>source/music/index.md</code> 的头部来指定使用的播放器和播放列表.</p>
+<h4 id="使用-aplayer-并自定义播放列表的示例"><a class="markdownIt-Anchor" href="#使用-aplayer-并自定义播放列表的示例"></a> 使用 Aplayer 并自定义播放列表的示例</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: music</span><br><span class="line">date: 2026-02-06 17:01:16</span><br><span class="line">cover: </span><br><span class="line">layout: music</span><br><span class="line">player_type: &quot;aplayer&quot;</span><br><span class="line">audio_list:</span><br><span class="line">    - name: &quot;Remember&quot;</span><br><span class="line">      artist: &quot;Yachiyo&quot;</span><br><span class="line">      url: &quot;https://music.163.com/song/media/outer/url?id=3340112781.mp3&quot;</span><br><span class="line">      cover: &quot;images/music_cover_test.jpg&quot;</span><br><span class="line">      lrc: &quot;assets/Remember.lrc&quot;</span><br><span class="line">    - name: &quot;Remember&quot;</span><br><span class="line">      artist: &quot;Yachiyo&quot;</span><br><span class="line">      url: &quot;https://music.163.com/song/media/outer/url?id=3340112781.mp3&quot;</span><br><span class="line">      cover: &quot;images/music_cover_test.jpg&quot;</span><br><span class="line">      lrc: &quot;assets/Remember.lrc&quot;  </span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h4 id="使用-metingjs-并使用网易云播放列表的示例"><a class="markdownIt-Anchor" href="#使用-metingjs-并使用网易云播放列表的示例"></a> 使用 Metingjs 并使用网易云播放列表的示例</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: music</span><br><span class="line">date: 2026-02-06 17:01:16</span><br><span class="line">cover: </span><br><span class="line">layout: music</span><br><span class="line">player_type: &quot;metingjs&quot;</span><br><span class="line">server: &quot;netease&quot;           </span><br><span class="line">meting_type: &quot;playlist&quot;     </span><br><span class="line">meting_id: &quot;4924556205&quot;  </span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h2 id="404页-nofound"><a class="markdownIt-Anchor" href="#404页-nofound"></a> 404页 nofound</h2>
+<p>如果你点击导航栏的搜索键应该会进入本主题的404页面（搜索功能还在实现中🥲）</p>
+<p><img src="/images/yachiyo_loading2_640.webp" data-src="https://pic-oss.mouup.top/pic/2026/02/05750eb9bb4077ec9876067f04c40470.png" alt="404 No Found" class="lazyload"></p>
+<h1 id="功能"><a class="markdownIt-Anchor" href="#功能"></a> 功能</h1>
+<h2 id="link-ing-标签"><a class="markdownIt-Anchor" href="#link-ing-标签"></a> &lt;link-ing&gt; 标签</h2>
+<p>为了方便站内和站外链接，本主题定义了一个 <code>&lt;link-ing&gt;</code> 标签，具体语法如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link-ing</span> <span class="attr">type</span>=<span class="string">&quot;&quot;</span> <span class="attr">link</span>=<span class="string">&quot;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">link-ing</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>type: inside / outside 用于选择标签样式</li>
+<li>link: 链接的url，若不以 http / https 开头，则为站内链接</li>
+<li>title: 显示在卡片上的title</li>
+</ul>
+<h3 id="站内链接示例"><a class="markdownIt-Anchor" href="#站内链接示例"></a> 站内链接示例</h3>
+<p><code>&lt;link-ing type=&quot;inside&quot; link=&quot;/about&quot; title=&quot;About me&quot;&gt;&lt;/link-ing&gt;</code></p>
+<p>站内链接是行内元素，例如：<link-ing type="inside" link="/about" title="About me"></link-ing><br />
+当然其也可以独行放置：<br />
+<link-ing type="inside" link="/about" title="About me"></link-ing></p>
+<h3 id="站外链接示例"><a class="markdownIt-Anchor" href="#站外链接示例"></a> 站外链接示例</h3>
+<p><code>&lt;link-ing type=&quot;outnside&quot; link=&quot;https://2heng.xin/&quot; title=&quot;樱花庄的白猫&quot;&gt;&lt;/link-ing&gt;</code></p>
+<p><link-ing type="outside" link="https://2heng.xin/" title="樱花庄的白猫"></link-ing></p>
+<br>
+<h2 id="aplayer-metingjs"><a class="markdownIt-Anchor" href="#aplayer-metingjs"></a> Aplayer &amp; Metingjs</h2>
+<p>本主题对 Aplayer 的样式进行了调整以贴合主题的风格。由于Aplayer的css是固定在主题内的，故不支持升级版本。</p>
+<ul>
+<li>目前未适配mini模式</li>
+<li>Aplayer version: v1.10.1</li>
+<li>Metingjs version: v2.0.2</li>
+</ul>
+<h3 id="aplayer-测试"><a class="markdownIt-Anchor" href="#aplayer-测试"></a> Aplayer 测试</h3>
+<div id="aplayertest"></div>
+<script>
+  const ap = new APlayer({
+    container: document.getElementById('aplayertest'),
+    lrc:3,
+    audio: [{
+        name: 'Remember',
+        artist: 'Yachiyo',
+        url: 'https://music.163.com/song/media/outer/url?id=3340112781.mp3',
+        cover: window.origin + HEXO_SETTINGS.root + 'images/music_cover_test.jpg',
+        lrc: window.origin + HEXO_SETTINGS.root + 'assets/Remember.lrc'
+    },
+    {
+        name: 'Remember',
+        artist: 'Yachiyo',
+        url: 'https://music.163.com/song/media/outer/url?id=3340112781.mp3',
+        cover: window.origin + HEXO_SETTINGS.root + 'images/music_cover_test.jpg',
+        lrc: window.origin + HEXO_SETTINGS.root + 'assets/Remember.lrc'
+    }
+    ]
+});
+</script>
+<h3 id="metingjs测试"><a class="markdownIt-Anchor" href="#metingjs测试"></a> Metingjs测试</h3>
+<p><meting-js
+    server="netease"
+    type="playlist"
+    id="4924556205"
+    autoplay="false"><br />
+</meting-js></p>
+<h2 id="waline"><a class="markdownIt-Anchor" href="#waline"></a> Waline</h2>
+<p>请看下面的评论区吧。<br />
+本主题使用的是 Waline v3.8.0，由于CSS改动较大，请不要进行版本升级，目前使用的是主题内部的Waline样式表。<br />
+使用Waline请参考 <a target="_blank" rel="noopener" href="https://waline.js.org/">Waline文档</a>，并在主题配置文件中进行设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">waline:</span><br><span class="line">  enable: true</span><br><span class="line">  serverURL: &#x27;https://waline.cdn.mouup.top/&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="icp-字段"><a class="markdownIt-Anchor" href="#icp-字段"></a> ICP 字段</h2>
+<p>主题配置文件中的 <code>icp_license</code> 字段可设置ICP号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">icp_license: </span><br><span class="line">  icp_license_link: &quot;https://icp.gov.moe/?keyword=20212022&quot;</span><br><span class="line">  text: &quot;萌ICP备20212022号&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="cc-license-字段"><a class="markdownIt-Anchor" href="#cc-license-字段"></a> CC License 字段</h2>
+<p>可以在主题配置文件中选择是否为文章启用cc协议，并选择协议</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cclicense:</span><br><span class="line">  enable: true</span><br><span class="line">  type: &quot;知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议&quot;  # 说明文字，例如：知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</span><br><span class="line">  url: &quot;https://creativecommons.org/licenses/by-nc-sa/4.0/&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="rss-feed"><a class="markdownIt-Anchor" href="#rss-feed"></a> RSS feed</h2>
+<p>在安装 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-generator-feed">hexo-generator-feed</a> 插件后可以在主题配置文件中配置RSS feed</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># rss</span><br><span class="line">feed:</span><br><span class="line">  type: atom           </span><br><span class="line">  path: atom.xml       </span><br><span class="line">  limit: 0           </span><br><span class="line">  hub:                 </span><br><span class="line">  content: true        </span><br><span class="line">  content_limit: 140   </span><br><span class="line">  content_limit_delim: &#x27; &#x27; </span><br><span class="line">  order_by: -date      </span><br><span class="line">  icon: ico/Nemo.svg       </span><br><span class="line">  autodiscovery: true </span><br></pre></td></tr></table></figure>
+<h1 id="最后"><a class="markdownIt-Anchor" href="#最后"></a> 最后</h1>
+<h2 id="todo"><a class="markdownIt-Anchor" href="#todo"></a> TODO</h2>
+<ul>
+<li>搜索功能</li>
+<li>page头图</li>
+<li>Aplayer &amp; Metingjs 完整适配</li>
+<li>访问速度改善：优化字体</li>
+</ul>
+<h2 id="博客配置文件中部分字段说明"><a class="markdownIt-Anchor" href="#博客配置文件中部分字段说明"></a> 博客配置文件中部分字段说明</h2>
+<h3 id="back_to_top-图片"><a class="markdownIt-Anchor" href="#back_to_top-图片"></a> back_to_top 图片</h3>
+<p>现在右下角的图片，点击回到顶部</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">back_to_top_img: images/yachiyo.PNG </span><br></pre></td></tr></table></figure>
+<h3 id="lazyload-图片懒加载"><a class="markdownIt-Anchor" href="#lazyload-图片懒加载"></a> lazyload 图片懒加载</h3>
+<p>为全站图片设置懒加载动画或图片：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lazyload:</span><br><span class="line">  enable: true</span><br><span class="line">  loading_img: /images/yachiyo_loading2_640.webp</span><br></pre></td></tr></table></figure>
+<p>例如：<br />
+<img src="/images/yachiyo_loading_640.webp" alt="lazyload1" /><br />
+<img src="/images/yachiyo_loading2_640.webp" alt="lazyload2" /></p>
+<h2 id="最后的最后"><a class="markdownIt-Anchor" href="#最后的最后"></a> 最后的最后</h2>
+<p>目前已经完成的内容大概就是这么多了，虽然还有不少工作要做，但基本的骨架已经搭好了。<br />
+在写这篇文章的过程中我也发现了许多bug 😄，欢迎大家一起来找bug。<br />
+这是本人第一次写这么多CSS，很多地方可能不太规范，恳请大家一起来完善 q(≧▽≦q)。</p>
+
+    </article>
+    
+        <div class="article-cclicense">
+            <a class="article-cclicense-text" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+        </div>
+    
+    
+        <div class="article-next" 
+            
+                style="--bg-url: url('https://pic-oss.mouup.top/pic/2025/04/c9f23fcbc4329ac70f5f4c9a72e98469.jpg');"
+            >
+            <a class="article-next-link-card" href="/2025/04/04/RVC%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/">
+                <p class="article-next-text1">Next Post</p>
+                <p class="article-next-title">RVC模型训练</p>
+            </a>
+        </div>
+    
+    
+        <div class="waline"></div>
+            <script type="module">
+                import { init } from '/js/waline.js';
+
+                init({
+                el: '.waline',
+                serverURL: 'https://waline.cdn.mouup.top/',
+                });
+            </script>
+        </div>
+    
+        
+
+<!-- TODO: 整理waline -->
+
+
+
+<!-- 引入代码块所用js -->
+
+<script src="/js/addImgTitle.js"></script>
+
+
+<script src="/js/highlight.js"></script>
+ 
+
+<script src="/js/toc.js"></script>
+
+
+
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<footer id="footer">
+    <img src="/ico/Nemo.svg" alt="Nemophila" id="nemo-footer">
+    <p>Theme <a target="_blank" rel="noopener" href="https://github.com/imouup/hexo-theme-nemophila"><strong>Nemophila</strong></a></p>
+    <p>Powered by Love from <a href="https://nyaku.moe">izNyaku</a></p>
+    <div id="footer-space"></div>
+    <p>© 2021 - 2026 izNyaku. All rights reserved.</p>
+    
+         <a target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20212022">萌ICP备20212022号</a>
+    
+       
+</footer>
+
+    
+        
+<script src="/js/lazyload.js"></script>
+  <!-- lazyload -->
+    
+    
+    <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<a id="up">
+    <img src="/images/yachiyo.PNG" class="yachiyo-up no-lazy">
+</a>
+    
+<script src="/js/up.js"></script>
+
+    
+    
+    </body>
+</html>
