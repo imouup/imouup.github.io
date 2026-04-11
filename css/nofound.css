@@ -25,3 +25,15 @@
 #cannot-get-page-content strong {
   color: var(--base);
 }
+@media (max-width: 768px) {
+  #cannot-get-page-content {
+    width: 90%;
+    margin: 48px auto;
+  }
+  #cannot-get-page-content h1 {
+    font-size: 48px;
+  }
+  #cannot-get-page-content p {
+    margin: 8px 0;
+  }
+}
