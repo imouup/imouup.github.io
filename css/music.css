@@ -187,7 +187,7 @@
   height: 32px;
   border-radius: 5px;
   border: none;
-  margin: 8px;
+  margin: 8px 0;
 }
 #music-page .aplayer .aplayer-list li .aplayer-list-title,
 #music-page .aplayer .aplayer-list li .aplayer-list-author {
@@ -254,4 +254,48 @@
 #music-page .aplayer .aplayer-volume-bar {
   background: rgba(141,144,148,0.6) !important;
   height: 40px;
+}
+@media (max-width: 768px) {
+  #music-page .aplayer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 8vh;
+  }
+  #music-page .aplayer .aplayer-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #music-page .aplayer .aplayer-body .aplayer-pic {
+    width: 320px;
+    height: 320px;
+  }
+  #music-page .aplayer .aplayer-info {
+    width: 320px;
+  }
+  #music-page .aplayer .aplayer-info .aplayer-controller,
+  #music-page .aplayer .aplayer-info .aplayer-time {
+    width: 100%;
+  }
+  #music-page .aplayer .aplayer-info .aplayer-time-inner {
+    margin: 0 160px 0 0;
+  }
+  #music-page .aplayer .aplayer-list {
+    width: 360px;
+    max-width: 480px;
+    margin: 16px auto 0 auto;
+    padding: 16px 12px;
+    transform: translateX(0);
+  }
+  #music-page .aplayer .aplayer-list ol {
+    margin: 0;
+    padding: 0;
+    padding-inline-start: 0;
+  }
+  #music-page .aplayer .aplayer-lrc {
+    display: none;
+  }
 }

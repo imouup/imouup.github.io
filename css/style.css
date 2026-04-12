@@ -1244,25 +1244,30 @@
     height: 1em;
   }
   #postlist {
-    padding: 0 20px;
+    padding: 0 12px;
   }
   #postlist .post-card {
     flex-direction: column;
     align-items: center;
-    gap: 16px;
-    padding: 16px 16px 16px 16px;
+    gap: 0px;
+    padding: 16px 16px 24px 16px;
   }
   #postlist .post-banner {
     width: 100%;
-    height: 272px;
+    aspect-ratio: 4/3;
+    height: auto;
   }
   #postlist .post-info .post-meta-container {
     gap: 8px;
   }
   #postlist .post-info .post-title {
-    margin: 12px 0 24px 0;
-    height: 36px;
+    margin: 8px 0 16px 0;
+    height: auto;
     overflow: hidden;
+    font-size: 18px;
+  }
+  #postlist .post-info .post-time {
+    margin: 16px 0 0 0;
   }
 }
 @-moz-keyframes cardFadeUp {
@@ -1442,6 +1447,7 @@
   overflow: hidden;
   margin: 0;
   object-fit: cover;
+  flex: 0 0 auto;
 }
 .article-header .article-author-name {
   font-family: 'Noto Serif SC', serif;
@@ -2007,7 +2013,7 @@ video {
     gap: 16px;
   }
   .article-header .article-title {
-    font-size: 24px;
+    font-size: 18px;
   }
   .article-header .article-author-avatar-date-readtime {
     font-size: 14px;
@@ -2025,6 +2031,26 @@ video {
   }
   .article-content-container .aplayer {
     width: 95% !important;
+  }
+  .article-content h1 {
+    font-size: 24px;
+    margin: 32px 0 16px 0;
+  }
+  .article-content h2 {
+    font-size: 18px;
+    margin: 32px 0 8px 0;
+  }
+  .article-content h3 {
+    font-size: 16px;
+  }
+  .article-author-avatar-date-readtime {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .katex {
+    overflow-x: auto;
+    height: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 .page-header {
@@ -3555,7 +3581,7 @@ video {
   height: 32px;
   border-radius: 5px;
   border: none;
-  margin: 8px;
+  margin: 8px 0;
 }
 #music-page .aplayer .aplayer-list li .aplayer-list-title,
 #music-page .aplayer .aplayer-list li .aplayer-list-author {
@@ -3622,6 +3648,50 @@ video {
 #music-page .aplayer .aplayer-volume-bar {
   background: rgba(141,144,148,0.6) !important;
   height: 40px;
+}
+@media (max-width: 768px) {
+  #music-page .aplayer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 8vh;
+  }
+  #music-page .aplayer .aplayer-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #music-page .aplayer .aplayer-body .aplayer-pic {
+    width: 320px;
+    height: 320px;
+  }
+  #music-page .aplayer .aplayer-info {
+    width: 320px;
+  }
+  #music-page .aplayer .aplayer-info .aplayer-controller,
+  #music-page .aplayer .aplayer-info .aplayer-time {
+    width: 100%;
+  }
+  #music-page .aplayer .aplayer-info .aplayer-time-inner {
+    margin: 0 160px 0 0;
+  }
+  #music-page .aplayer .aplayer-list {
+    width: 360px;
+    max-width: 480px;
+    margin: 16px auto 0 auto;
+    padding: 16px 12px;
+    transform: translateX(0);
+  }
+  #music-page .aplayer .aplayer-list ol {
+    margin: 0;
+    padding: 0;
+    padding-inline-start: 0;
+  }
+  #music-page .aplayer .aplayer-lrc {
+    display: none;
+  }
 }
 #about-me-page {
   font-family: 'Noto Serif SC', serif;
@@ -3740,6 +3810,28 @@ video {
   font-weight: 400;
   font-size: 12px;
 }
+@media (max-width: 768px) {
+  #about-me-container {
+    flex-direction: column;
+    width: 90%;
+    margin: 48px auto 15vh auto;
+    gap: 48px;
+  }
+  #about-me-content {
+    box-sizing: border-box;
+    margin: 0 8px;
+    width: auto;
+  }
+  #about-me-avatar {
+    margin: 0 auto;
+  }
+  #aboue-me-author-container {
+    margin: 0 0 0 32px;
+  }
+  #about-me-contact {
+    margin: 0 0 0 48px;
+  }
+}
 .category-content-container {
   display: flex;
   flex-direction: column;
@@ -3838,6 +3930,45 @@ video {
 .words-to-friends .article-content {
   width: 796px;
   margin: 0 auto 48px auto;
+}
+@media (max-width: 768px) {
+  .friends-content {
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .friend-card {
+    margin: 0 auto;
+  }
+  .words-to-friends {
+    width: 100%;
+  }
+  .words-to-friends .article-content {
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  .friend-card {
+    width: 85%;
+    aspect-ratio: 415/170;
+    height: auto;
+    border-radius: 5px;
+  }
+  .friend-card .friend-name {
+    font-size: 18px;
+    margin: 8px 0 8px 0;
+  }
+  .friend-card .friend-avatar {
+    border-radius: 5px;
+  }
+  .page-header.friends {
+    height: 240px;
+  }
+  .page-header.friends .page-title {
+    top: 48%;
+  }
 }
 #cannot-get-page-content {
   display: flex;
@@ -4009,12 +4140,19 @@ video {
     padding: 8px;
   }
   .search-input {
-    width: 100%;
+    width: 96%;
     margin: 16px auto;
     padding: 0 16px;
   }
   .search-result {
     width: 100%;
+  }
+  .search-input-field {
+    height: 2em;
+  }
+  .search-input-btn {
+    width: 48px;
+    height: 48px;
   }
 }
 .bangumi-picture .image-container {

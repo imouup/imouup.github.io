@@ -92,3 +92,42 @@
   width: 796px;
   margin: 0 auto 48px auto;
 }
+@media (max-width: 768px) {
+  .friends-content {
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .friend-card {
+    margin: 0 auto;
+  }
+  .words-to-friends {
+    width: 100%;
+  }
+  .words-to-friends .article-content {
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  .friend-card {
+    width: 85%;
+    aspect-ratio: 415/170;
+    height: auto;
+    border-radius: 5px;
+  }
+  .friend-card .friend-name {
+    font-size: 18px;
+    margin: 8px 0 8px 0;
+  }
+  .friend-card .friend-avatar {
+    border-radius: 5px;
+  }
+  .page-header.friends {
+    height: 240px;
+  }
+  .page-header.friends .page-title {
+    top: 48%;
+  }
+}
