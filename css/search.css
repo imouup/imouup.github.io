@@ -26,7 +26,7 @@
   background-color: var(--text);
 }
 .search-page-back:hover {
-  background-color: rgba(205,216,232,0.2);
+  background-color: var(--search-hover-bg);
 }
 .search-input {
   display: flex;
@@ -65,7 +65,7 @@
   opacity: 0.5;
 }
 .search-input-field:focus {
-  border-bottom: 2px solid rgba(47,82,132,0.75);
+  border-bottom: 2px solid var(--search-focus-border);
   color: var(--text);
 }
 .search-input-btn {
@@ -94,7 +94,7 @@
 }
 .search-input-btn:hover {
   cursor: pointer;
-  background-color: rgba(205,216,232,0.2);
+  background-color: var(--search-hover-bg);
 }
 .search-input-field:focus ~ .search-input-btn svg {
   stroke: var(--text2) !important;

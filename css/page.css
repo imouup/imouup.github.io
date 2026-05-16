@@ -18,7 +18,7 @@
   z-index: 5;
 }
 .page-header .page-title.need-shadow {
-  text-shadow: 0px 2px 16px rgba(230,233,238,0.75);
+  text-shadow: 0px 2px 16px var(--shadow-white-soft);
 }
 .page-header .page-header-cover {
   position: absolute;
