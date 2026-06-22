@@ -18,6 +18,15 @@
   background-color: var(--white);
   box-shadow: 0px 4px 29.8px 3px var(--shadow-ambient);
 }
+.navbar.theme--touchshade {
+  background-color: transparent;
+  box-shadow: none;
+  transition: all 0.2s;
+}
+.navbar.theme--touchshade:hover {
+  background-color: var(--white);
+  box-shadow: 0px 4px 29.8px 3px var(--shadow-ambient);
+}
 .navbar.theme--music {
   opacity: 0;
   transition: all 0.2s;
@@ -38,6 +47,10 @@
   border-radius: 2px;
 }
 .navbar.theme--aboutme {
+  box-shadow: none;
+  background-color: transparent;
+}
+.navbar.theme--noshade {
   box-shadow: none;
   background-color: transparent;
 }
