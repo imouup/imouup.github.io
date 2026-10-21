@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
     <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+
 <head>
     <title>
         
@@ -41,8 +42,8 @@
     
 <script src="/js/linking.js"></script>
 
-    <!-- 引入vercount计数器 -->
-    <script defer src="https://events.vercount.one/js"></script>
+    <!-- 引入访问量计数器 -->
+    
     <script>
         let HEXO_SETTINGS = {
             root: "/", 
@@ -59,10 +60,70 @@
                 enable: true,
                 loading_img: "/images/yachiyo_loading2_640.webp"
             },
-            };        
+            counter: {
+                service: "nanocount",
+                server: "https://nanocount-mine.nyaku.moe"
+            }
+        };
+
+        const normalizeNanocountPath = (path) => {
+            const normalized = path.replace(/\/+$/, '');
+            return normalized || '/';
+        };
+
+        window.NEMOPHILA_COUNTER = {
+            getPageViews: async (url) => {
+                const counter = THEME_SETTINGS.counter;
+                let endpoint;
+                if (counter.service === 'nanocount') {
+                    const target = new URL(url, window.location.href);
+                    const query = new URLSearchParams({
+                        host: target.hostname,
+                        path: normalizeNanocountPath(target.pathname)
+                    });
+                    endpoint = counter.server + '/api/v1/count?' + query;
+                } else {
+                    endpoint = 'https://events.vercount.one/api/v2/log?url=' + encodeURIComponent(url);
+                }
+                const response = await fetch(endpoint);
+                if (!response.ok) throw new Error('Counter request failed');
+                const payload = await response.json();
+                const data = payload && payload.data;
+                const views = counter.service === 'nanocount' ? data && data.pageViews : data && data.page_pv;
+                if (views === undefined || views === null) throw new Error('Invalid counter response');
+                return views;
+            }
+        };
+
+        if (THEME_SETTINGS.counter.service === 'nanocount') {
+            document.addEventListener('DOMContentLoaded', async () => {
+                try {
+                    const response = await fetch(THEME_SETTINGS.counter.server + '/api/v1/hit', {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            host: window.location.hostname,
+                            path: normalizeNanocountPath(window.location.pathname)
+                        }),
+                        credentials: 'omit',
+                        mode: 'cors',
+                        keepalive: true
+                    });
+                    if (!response.ok) throw new Error('Counter request failed');
+                    const payload = await response.json();
+                    const views = payload && payload.data && payload.data.pageViews;
+                    if (views === undefined || views === null) throw new Error('Invalid counter response');
+                    document.querySelectorAll('[data-nanocount-page]').forEach((node) => {
+                        node.textContent = Number(views).toLocaleString();
+                    });
+                } catch (error) {
+                    console.error('Error updating view count:', error);
+                }
+            });
+        }
     </script>
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Nemophila | blog of 一之濑亚子 いちのせあこ" type="application/atom+xml">
 </head>
+
     <body>  
     <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
 <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
@@ -906,6 +967,57 @@
                     
                         
                     
+                    <img src="/images/yachiyo_loading2_640.webp" data-src="https://cdn.mouup.top/pico/pic97162127.jpg" alt="banner" class="lazyload post-banner">
+                    <!-- 文章信息 -->
+                    <section class="post-info">
+                        <span class="post-time">
+                            <div class="post-time-icon"></div>
+                            <h5>发布于 2021-02-18</h5>
+                        </span>
+                        <a href="/2021/02/18/%E6%8B%A5%E6%9C%89%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5/" class="post-card-link">
+                            <h3 class="post-title">拥有一个自己的新建标签页</h3>
+                        </a>
+                        <span class="post-meta-container">
+                            <span class="post-view">
+                                <div class="post-view-icon"></div>
+                                <h5><span class="view-count" data-path="2021/02/18/拥有一个自己的新标签页/">Loading...</span> 人读过</h5>
+                            </span>
+                            <!-- <span class="post-comment-num">
+                                <div class="post-comment-num-icon"></div>
+                                <h5>112 条评论</h5>
+                            </span> -->
+                            
+                            <span class="post-category">
+                                
+                                <div class="post-category-icon"></div>
+                                <h5 class="post-category-list">
+                                    
+                                    <a href="/categories/tech/">tech</a>
+                                    
+                                     
+                                </h5>
+                                
+                            </span>
+
+                            <span class="post-tags">
+                                
+                            </span>
+
+                        </span>
+                        <p>
+                            
+                        </p>
+                    </section>
+                    
+                </section>
+                <hr>
+            
+                 <section class="post-card">
+                    <!-- 文章封面处理 -->
+                    
+                    
+                        
+                    
                     <img src="/images/yachiyo_loading2_640.webp" data-src="https://i.pcmag.com/imagery/reviews/065LBaNWT3jlc8HjQsR6vXE-19.1569479905.fit_scale.size_760x427.png" alt="banner" class="lazyload post-banner">
                     <!-- 文章信息 -->
                     <section class="post-info">
@@ -1102,7 +1214,7 @@
 <script src="/js/previous_btn.js"></script>
 
 
-<!-- 使用 vercount api 获取文章阅读量 -->
+<!-- 获取文章阅读量 -->
 <script>
     const getUrl = (rawurl) => {
         if (rawurl.startsWith('http://') || rawurl.startsWith('https://')) {
@@ -1117,16 +1229,13 @@
     }
 
     // fetch 函数
-    const fetchVercout = () => {
+    const fetchViewCounts = () => {
         const viewCountElements = document.querySelectorAll('.view-count');
         viewCountElements.forEach(element => {
             const postPath = element.getAttribute('data-path');
             const url = getUrl(postPath);
-            const vercountUrl = "https://events.vercount.one/api/v2/log?url=" + encodeURIComponent(url);
-            fetch(vercountUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const readTime = data['data']['page_pv'];
+            window.NEMOPHILA_COUNTER.getPageViews(url)
+                .then(readTime => {
                     element.textContent = readTime;
                 })
                 .catch(error => {
@@ -1136,7 +1245,7 @@
         });
     }
 
-    document.addEventListener('DOMContentLoaded', fetchVercout);
+    document.addEventListener('DOMContentLoaded', fetchViewCounts);
 
 </script>
 
@@ -1144,7 +1253,8 @@
 
 <!-- TODO: 添加评论量 -->
 
-<!-- TODO: 移动端文章卡片 --> 
+<!-- TODO: 移动端文章卡片 -->
+ 
 </div>
 
 

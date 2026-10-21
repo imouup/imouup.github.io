@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
     <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+
 <head>
     <title>
         
@@ -41,8 +42,8 @@
     
 <script src="/js/linking.js"></script>
 
-    <!-- 引入vercount计数器 -->
-    <script defer src="https://events.vercount.one/js"></script>
+    <!-- 引入访问量计数器 -->
+    
     <script>
         let HEXO_SETTINGS = {
             root: "/", 
@@ -59,10 +60,70 @@
                 enable: true,
                 loading_img: "/images/yachiyo_loading2_640.webp"
             },
-            };        
+            counter: {
+                service: "nanocount",
+                server: "https://nanocount-mine.nyaku.moe"
+            }
+        };
+
+        const normalizeNanocountPath = (path) => {
+            const normalized = path.replace(/\/+$/, '');
+            return normalized || '/';
+        };
+
+        window.NEMOPHILA_COUNTER = {
+            getPageViews: async (url) => {
+                const counter = THEME_SETTINGS.counter;
+                let endpoint;
+                if (counter.service === 'nanocount') {
+                    const target = new URL(url, window.location.href);
+                    const query = new URLSearchParams({
+                        host: target.hostname,
+                        path: normalizeNanocountPath(target.pathname)
+                    });
+                    endpoint = counter.server + '/api/v1/count?' + query;
+                } else {
+                    endpoint = 'https://events.vercount.one/api/v2/log?url=' + encodeURIComponent(url);
+                }
+                const response = await fetch(endpoint);
+                if (!response.ok) throw new Error('Counter request failed');
+                const payload = await response.json();
+                const data = payload && payload.data;
+                const views = counter.service === 'nanocount' ? data && data.pageViews : data && data.page_pv;
+                if (views === undefined || views === null) throw new Error('Invalid counter response');
+                return views;
+            }
+        };
+
+        if (THEME_SETTINGS.counter.service === 'nanocount') {
+            document.addEventListener('DOMContentLoaded', async () => {
+                try {
+                    const response = await fetch(THEME_SETTINGS.counter.server + '/api/v1/hit', {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            host: window.location.hostname,
+                            path: normalizeNanocountPath(window.location.pathname)
+                        }),
+                        credentials: 'omit',
+                        mode: 'cors',
+                        keepalive: true
+                    });
+                    if (!response.ok) throw new Error('Counter request failed');
+                    const payload = await response.json();
+                    const views = payload && payload.data && payload.data.pageViews;
+                    if (views === undefined || views === null) throw new Error('Invalid counter response');
+                    document.querySelectorAll('[data-nanocount-page]').forEach((node) => {
+                        node.textContent = Number(views).toLocaleString();
+                    });
+                } catch (error) {
+                    console.error('Error updating view count:', error);
+                }
+            });
+        }
     </script>
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Nemophila | blog of 一之濑亚子 いちのせあこ" type="application/atom+xml">
 </head>
+
     <body>  
     <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
 <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
@@ -1026,7 +1087,7 @@
 <script src="/js/previous_btn.js"></script>
 
 
-<!-- 使用 vercount api 获取文章阅读量 -->
+<!-- 获取文章阅读量 -->
 <script>
     const getUrl = (rawurl) => {
         if (rawurl.startsWith('http://') || rawurl.startsWith('https://')) {
@@ -1041,16 +1102,13 @@
     }
 
     // fetch 函数
-    const fetchVercout = () => {
+    const fetchViewCounts = () => {
         const viewCountElements = document.querySelectorAll('.view-count');
         viewCountElements.forEach(element => {
             const postPath = element.getAttribute('data-path');
             const url = getUrl(postPath);
-            const vercountUrl = "https://events.vercount.one/api/v2/log?url=" + encodeURIComponent(url);
-            fetch(vercountUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const readTime = data['data']['page_pv'];
+            window.NEMOPHILA_COUNTER.getPageViews(url)
+                .then(readTime => {
                     element.textContent = readTime;
                 })
                 .catch(error => {
@@ -1060,7 +1118,7 @@
         });
     }
 
-    document.addEventListener('DOMContentLoaded', fetchVercout);
+    document.addEventListener('DOMContentLoaded', fetchViewCounts);
 
 </script>
 
@@ -1068,7 +1126,8 @@
 
 <!-- TODO: 添加评论量 -->
 
-<!-- TODO: 移动端文章卡片 --> 
+<!-- TODO: 移动端文章卡片 -->
+ 
 </div>
 
 
